@@ -48,24 +48,25 @@ class _CustomerOrderDetailsState extends State<CustomerOrderDetails> {
                         Container(
                           height: 40,
                           width: MediaQuery.of(context).size.width - 40,
-                          child: TimelineTile(
-                            axis: TimelineAxis.horizontal,
-                            alignment: TimelineAlign.center,
-                            endChild: Container(
-                              constraints: const BoxConstraints(
-                                  minWidth: 80, minHeight: 80),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: <Widget>[
-                                  Text('Placed'),
-                                  Text('Packed'),
-                                  Text("Shipped"),
-                                  Text("Delivered")
-                                ],
-                              ),
-                            ),
-                          ),
+                          
+                          // child: TimelineTile(
+                          //   axis: TimelineAxis.horizontal,
+                          //   alignment: TimelineAlign.center,
+                          //   endChild: Container(
+                          //     constraints: const BoxConstraints(
+                          //         minWidth: 80, minHeight: 80),
+                          //     child: Row(
+                          //       mainAxisAlignment:
+                          //           MainAxisAlignment.spaceBetween,
+                          //       children: <Widget>[
+                          //         Text('Placed'),
+                          //         Text('Packed'),
+                          //         Text("Shipped"),
+                          //         Text("Delivered")
+                          //       ],
+                          //     ),
+                          //   ),
+                          // ),
                         ),
                       ],
                     ),

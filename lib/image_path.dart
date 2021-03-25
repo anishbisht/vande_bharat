@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:moblie_ui/pages/help&Support.dart';
 import 'package:moblie_ui/pages/splashScreePage.dart';
 
 const String baseDir = 'asset/images/';
@@ -44,3 +45,13 @@ const Slider1 = '${baseDir}slider1.png';
 const Slider2 = '${baseDir}slider2.png';
 const Slider3 = '${baseDir}slider3.png';
 const Notification_Icon = '${baseDir}notificaton_icon.png';
+const ProfileImage = '${baseDir}profile_img.png';
+const NextArrowButton = '${baseDir}next_arrow_button.png';
+const ProfileLogoutImg = '${baseDir}profile_logout.png';
+const SucessIcon = '${baseDir}textfeldsucessicon.png';
+const GenderIcon = '${baseDir}gender_icon.png';
+const DeleteIcon = '${baseDir}delete_icon.png';
+const PhoneIcon = '${baseDir}phone.png';
+const EmailIcon = '${baseDir}email.png';
+const HelpAndSupportIcon = '${baseDir}helpandsupport.png';
+const ReportProblem = '${baseDir}ReportProblem.png';
