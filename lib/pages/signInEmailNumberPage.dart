@@ -1,8 +1,11 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/pages/signInPage.dart';
+import 'package:moblie_ui/pages/signUpPage.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 import 'package:moblie_ui/widgets/customOutlinedButtonWidget.dart';
 
@@ -101,12 +104,7 @@ class _SingInEmailPasswordPageState extends State<SingInEmailPasswordPage> {
                     title: 'Next',
                     buttonColor: Colors.orange[700],
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => SignInPage(),
-                        ),
-                      );
+                      Get.to(SignInPage());
                     },
                     textStyle: TextStyle(
                       fontSize: 18,
@@ -183,14 +181,21 @@ class _SingInEmailPasswordPageState extends State<SingInEmailPasswordPage> {
               Center(
                 child: RichText(
                   text: TextSpan(
-                    text: 'Not a member?',
                     style: TextStyle(color: Colors.black, fontSize: 18),
                     children: <TextSpan>[
                       TextSpan(
-                        text: ' Sign up',
+                        text: 'Not a memeber?',
+                      ),
+                      TextSpan(
+                        text: "Sign Up",
                         style: TextStyle(
                             color: Colors.deepOrangeAccent, fontSize: 18),
-                      )
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            Get.to(() => SignUp());
+                            print("Click");
+                          },
+                      ),
                     ],
                   ),
                 ),

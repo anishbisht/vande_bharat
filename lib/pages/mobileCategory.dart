@@ -1,10 +1,13 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:moblie_ui/image_path.dart';
-import 'package:moblie_ui/models/mobileCatergoryModel.dart';
 import 'package:moblie_ui/widgets/list_widget.dart';
 
 class MobileCategory extends StatefulWidget {
+  static const String routeName = '/mobile';
+
   @override
   _MobileCategoryState createState() => _MobileCategoryState();
 }
@@ -63,12 +66,94 @@ class _MobileCategoryState extends State<MobileCategory> {
                       SizedBox(
                         width: 5,
                       ),
-                      Text(
-                        "Sort By",
-                        style: TextStyle(
-                          color: Colors.green,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
+                      TextButton(
+                        onPressed: () {
+                          showModalBottomSheet(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                            isScrollControlled: false,
+                            isDismissible: true,
+                            backgroundColor: Colors.white,
+                            context: context,
+                            builder: (context) => DraggableScrollableSheet(
+                              initialChildSize: 0.1,
+                              minChildSize: 0.1,
+                              maxChildSize: 0.1,
+                              builder: (context, scrollController) {
+                                return SingleChildScrollView(
+                                  controller: scrollController,
+                                  child: Container(
+                                    margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: <Widget>[
+                                            Text(
+                                              "Sort By",
+                                              style: TextStyle(fontSize: 20),
+                                            ),
+                                            Text(
+                                              'Clear All',
+                                              style: TextStyle(
+                                                  color: Colors.green,
+                                                  fontSize: 20),
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: <Widget>[
+                                            Text(
+                                              "Price: Low to High",
+                                              style: TextStyle(fontSize: 20),
+                                            ),
+                                          ],
+                                        ),
+                                        ListTile(
+                                          title: const Text('Lafayette'),
+                                          leading: Radio(
+                                            value: "T",
+                                            onChanged: (value) {
+                                              setState(() {
+                                                value = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                        ListTile(
+                                          title: const Text('Thomas Jefferson'),
+                                          leading: Radio(
+                                            value: "F",
+                                            onChanged: (value) {
+                                              setState(() {
+                                                value = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                          );
+                        },
+                        child: Text(
+                          "Sort By",
+                          style: TextStyle(
+                            color: Colors.green,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
                     ],

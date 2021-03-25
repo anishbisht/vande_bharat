@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:moblie_ui/image_path.dart';
+import 'package:moblie_ui/pages/onBorardingPage.dart';
 import 'package:moblie_ui/pages/signInEmailNumberPage.dart';
+import 'package:moblie_ui/pages/signInPage.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -24,10 +26,8 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void navigationPage() {
-    Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-            builder: (BuildContext context) => SingInEmailPasswordPage()));
+    Navigator.pushReplacement(context,
+        MaterialPageRoute(builder: (BuildContext context) => SignInPage()));
   }
 
   @override

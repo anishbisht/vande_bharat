@@ -25,11 +25,12 @@ class CustomOutlinedButttonWidget extends StatelessWidget {
       child: Row(
         children: [
           Image.asset(
-            imageName,
-            height: imageHeight,
-            width: imageWidth,
-            fit: BoxFit.fill,
-          ),
+                imageName ?? null,
+                height: imageHeight ?? null,
+                width: imageWidth ?? null,
+                fit: BoxFit.fill,
+              ) ??
+              null,
           SizedBox(
             width: 8,
           ),

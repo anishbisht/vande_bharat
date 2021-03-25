@@ -40,3 +40,7 @@ const Bottom_nav_bar_order = '${baseDir}bottom_navbar_order.png';
 const Bottom_nav_bar_cart = '${baseDir}bottom_navbar_cart.png';
 const Bottom_nav_bar_home = '${baseDir}bottom_navbar_home.png';
 const AppBarIcon = '${baseDir}AppbarIcon.png';
+const Slider1 = '${baseDir}slider1.png';
+const Slider2 = '${baseDir}slider2.png';
+const Slider3 = '${baseDir}slider3.png';
+const Notification_Icon = '${baseDir}notificaton_icon.png';

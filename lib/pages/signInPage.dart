@@ -69,7 +69,6 @@ class _SignInPageState extends State<SignInPage> {
                   onChanged: (val) {
                     val = _controller.text.toString();
                   },
-                  
                   obscureText: true,
                   cursorColor: Colors.greenAccent,
                   decoration: InputDecoration(

@@ -1,51 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:moblie_ui/image_path.dart';
-import 'package:moblie_ui/pages/homePage.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
-import 'package:get/get.dart';
 
-
-class LoginSucessPage extends StatefulWidget {
+class PaymentSucessPage extends StatefulWidget {
   @override
-  _LoginSucessPageState createState() => _LoginSucessPageState();
+  _PaymentSucessPageState createState() => _PaymentSucessPageState();
 }
 
-class _LoginSucessPageState extends State<LoginSucessPage> {
+class _PaymentSucessPageState extends State<PaymentSucessPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             SizedBox(
               height: 80,
             ),
             Image.asset(
-              appLogo,
-              height: 130,
-              fit: BoxFit.fill,
-            ),
-            SizedBox(
-              height: 80,
-            ),
-            Image.asset(
               sucessLogo,
-              height: 130,
+              height: 100,
               fit: BoxFit.fill,
             ),
             SizedBox(
               height: 10,
             ),
             Text(
-              "Sucess",
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+              "Success",
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
             Text(
               "Thank yor for choosing Vande Bharat",
-              style: TextStyle(fontSize: 20),
+              style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.w400),
             ),
             SizedBox(
               height: 35,
@@ -54,13 +45,11 @@ class _LoginSucessPageState extends State<LoginSucessPage> {
               height: 50,
               width: 380,
               child: CustomTextButtonWidget(
-                title: 'Get Started ->',
-                onPressed: () {
-                  Get.to(() => HomePage());
-                },
+                title: 'Back to Home',
+                onPressed: () {},
                 buttonColor: Colors.orange[700],
                 textStyle: TextStyle(
-                  fontSize: 20,
+                  fontSize: 18,
                   color: Colors.white,
                 ),
               ),

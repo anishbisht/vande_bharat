@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:moblie_ui/image_path.dart';
+import 'package:moblie_ui/models/wishlistModel.dart';
+import 'package:moblie_ui/pages/allCategoriesPage.dart';
 import 'package:moblie_ui/pages/cartPage.dart';
+import 'package:moblie_ui/pages/mobileCategory.dart';
 import 'package:moblie_ui/pages/navigationDrawer.dart';
+import 'package:moblie_ui/pages/wishListPage.dart';
+
 import 'package:moblie_ui/widgets/customCategoriesWidget.dart';
 import 'package:moblie_ui/widgets/customProductWidget.dart';
 import 'package:moblie_ui/widgets/headingRowWidget.dart';
 
+import 'navigationDrawer.dart';
+
 class HomePage extends StatefulWidget {
+  static const String routeName = '/home';
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -16,14 +26,20 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final _controllersearch = TextEditingController();
   int currentTab = 0;
-  String currentPage;
-  List pages = [HomePage(), CartPage(), HomePage(), CartPage()];
-
+  var currentPage;
+  List<Widget> _widgetOptions = <Widget>[
+    HomePage(),
+    CartPage(),
+    HomePage(),
+    HomePage(),
+  ];
+  GlobalKey<ScaffoldState> _key = GlobalKey();
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIOverlays([]);
 
     return Scaffold(
+      key: _key,
       //.........................AppBar.................................
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(100.0),
@@ -31,7 +47,9 @@ class _HomePageState extends State<HomePage> {
           automaticallyImplyLeading: false,
           leading: IconButton(
             icon: ImageIcon(AssetImage(AppBarIcon)),
-            onPressed: () {},
+            onPressed: () {
+              _key.currentState.openDrawer();
+            },
           ),
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(30),
@@ -75,9 +93,14 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     width: 10,
                   ),
-                  Image.asset(
-                    WishListIcon,
-                    height: 20,
+                  InkWell(
+                    onTap: () {
+                      Get.to(() => WishListPage());
+                    },
+                    child: Image.asset(
+                      WishListIcon,
+                      height: 20,
+                    ),
                   ),
                   SizedBox(
                     width: 10,
@@ -141,6 +164,9 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(height: 20),
                   CustomHeadingRowWidget(
                     textname1: 'All Categories',
+                    onPressed: () {
+                      Get.to(() => AllCategories());
+                    },
                     fontSize1: 20,
                     fontSize2: 18,
                     textname2: 'View all',
@@ -227,6 +253,9 @@ class _HomePageState extends State<HomePage> {
                     height: 20,
                   ),
                   CustomHeadingRowWidget(
+                    onPressed: () {
+                      Get.to(() => AllCategories());
+                    },
                     textname1: 'Recommended Products',
                     fontSize1: 20,
                     fontSize2: 18,
@@ -338,6 +367,9 @@ class _HomePageState extends State<HomePage> {
                     height: 20,
                   ),
                   CustomHeadingRowWidget(
+                    onPressed: () {
+                      Get.to(() => AllCategories());
+                    },
                     textname1: 'Popular Brands',
                     fontSize1: 20,
                     fontSize2: 18,
@@ -430,6 +462,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                   SizedBox(height: 20),
                   CustomHeadingRowWidget(
+                    onPressed: () {
+                      Get.to(() => MobileCategory());
+                    },
                     textname1: 'Mobile',
                     fontSize1: 20,
                     fontSize2: 18,
@@ -745,6 +780,8 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
+        elevation: 5,
+
         //color: themeChangeProvider.darkTheme?Colors.black:Color(BOTTOM_BAR_COLOR),
         notchMargin: 2.0,
         shape: CircularNotchedRectangle(),
@@ -755,27 +792,31 @@ class _HomePageState extends State<HomePage> {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              Column(mainAxisSize: MainAxisSize.min,
-                  // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    SizedBox(
-                      width: 50.0,
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                    width: 50.0,
+                  ),
+                  IconButton(
+                    icon: ImageIcon(
+                      AssetImage(Bottom_nav_bar_home),
+                      size: 28,
                     ),
-                    IconButton(
-                      icon: ImageIcon(
-                        AssetImage(Bottom_nav_bar_home),
-                        size: 28,
-                      ),
-                      color: currentTab == 0 ? null : Colors.grey,
-                      onPressed: () {
-                        setState(() {
-                          currentTab = 0;
-                          currentPage = pages[currentTab];
-                          print(currentPage);
-                        });
-                      },
-                    ),
-                  ]),
+                    color: currentTab == 0 ? null : Colors.grey,
+                    onPressed: () {
+                      setState(() {
+                        currentTab = 0;
+                        currentPage = _widgetOptions[currentPage];
+                        Navigator.pushNamed(context, currentPage);
+
+                        print(currentPage);
+                      });
+                    },
+                  ),
+                ],
+              ),
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -786,10 +827,17 @@ class _HomePageState extends State<HomePage> {
                     ),
                     color: currentTab == 1 ? null : Colors.grey,
                     onPressed: () {
-                      setState(() {
-                        currentTab = 1;
-                        currentPage = pages[currentTab];
-                      });
+                      setState(
+                        () {
+                          currentTab = 1;
+                          currentPage = _widgetOptions[currentPage];
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => currentPage()),
+                          );
+                        },
+                      );
                     },
                   ),
                 ],
@@ -805,10 +853,9 @@ class _HomePageState extends State<HomePage> {
                     color: currentTab == 2 ? null : Colors.grey,
                     onPressed: () {
                       setState(() {
-                        color:
-                        Colors.green;
+                        // color:
+                        // Colors.green;
                         currentTab = 2;
-                        currentPage = pages[currentTab];
                       });
                     },
                   ),
@@ -829,7 +876,6 @@ class _HomePageState extends State<HomePage> {
                       setState(
                         () {
                           currentTab = 3;
-                          currentPage = pages[currentTab];
                         },
                       );
                     },
