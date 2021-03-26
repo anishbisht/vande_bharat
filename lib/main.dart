@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:moblie_ui/pages/allCategoriesPage.dart';
 import 'package:moblie_ui/pages/cartPage.dart';
+import 'package:moblie_ui/pages/changePassword.dart';
 import 'package:moblie_ui/pages/createNewPassword.dart';
 import 'package:moblie_ui/pages/customerAddress.dart';
 import 'package:moblie_ui/pages/customerOrder.dart';
@@ -19,6 +20,7 @@ import 'package:moblie_ui/pages/orderDetails.dart';
 import 'package:moblie_ui/pages/passwordOtpPage.dart';
 import 'package:moblie_ui/pages/paymentPage.dart';
 import 'package:moblie_ui/pages/paymentScuess.dart';
+import 'package:moblie_ui/pages/productDetails.dart';
 import 'package:moblie_ui/pages/profilePage.dart';
 import 'package:moblie_ui/pages/rating&Review.dart';
 import 'package:moblie_ui/pages/resetPasseordPage.dart';
@@ -42,7 +44,7 @@ class MyApp extends StatelessWidget {
         primaryColorLight: Colors.white,
         primaryColorBrightness: Brightness.light,
       ),
-      home: HelpAndSupportPage(),
+      home: ProductDetailsPage(),
     );
   }
 }

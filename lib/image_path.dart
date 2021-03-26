@@ -54,4 +54,5 @@ const DeleteIcon = '${baseDir}delete_icon.png';
 const PhoneIcon = '${baseDir}phone.png';
 const EmailIcon = '${baseDir}email.png';
 const HelpAndSupportIcon = '${baseDir}helpandsupport.png';
-const ReportProblem = '${baseDir}ReportProblem.png';
+const ReportProblem = '${baseDir}Reportproblem.png';
+const ShareImg = '${baseDir}share_icon.png';

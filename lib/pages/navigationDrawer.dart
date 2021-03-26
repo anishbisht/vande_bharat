@@ -6,6 +6,7 @@ import 'package:moblie_ui/models/wishlistModel.dart';
 import 'package:moblie_ui/pages/customerOrder.dart';
 import 'package:moblie_ui/pages/homePage.dart';
 import 'package:moblie_ui/pages/mobileCategory.dart';
+import 'package:moblie_ui/pages/profilePage.dart';
 import 'package:moblie_ui/pages/wishListPage.dart';
 
 class NavigationDrawer extends StatelessWidget {
@@ -78,8 +79,9 @@ class NavigationDrawer extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(5),
                 child: Image.asset(
-                  SamsungImg,
+                  ProfileImage,
                   height: 30,
+                  fit: BoxFit.fill,
                 ),
               ),
             ),
