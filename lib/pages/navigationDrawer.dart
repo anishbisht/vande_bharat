@@ -78,8 +78,9 @@ class NavigationDrawer extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(5),
                 child: Image.asset(
-                  SamsungImg,
+                  ProfileImage,
                   height: 30,
+                  fit: BoxFit.fill,
                 ),
               ),
             ),
