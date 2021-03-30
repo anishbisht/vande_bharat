@@ -39,7 +39,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            margin: EdgeInsets.all(10),
+            margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,7 +73,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                       height: 300.0,
                       enlargeCenterPage: true,
                       autoPlay: true,
-                      aspectRatio: 16 / 16,
+                      aspectRatio: 16 / 9,
                       autoPlayCurve: Curves.fastOutSlowIn,
                       enableInfiniteScroll: true,
                       autoPlayAnimationDuration:
@@ -203,21 +203,32 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                     ),
                   ),
                   SizedBox(
-                    width: 200,
+                    width: 140,
                   ),
                   Container(
-                      height: 40,
-                      width: 100,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          border: Border.all(width: 1, color: Colors.black)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: TextFormField(
-                          
+                    height: 40,
+                    width: 150,
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          suffix: Text(
+                            "Change",
+                            style: TextStyle(color: Colors.orange),
+                          ),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(1.0),
+                              borderSide: BorderSide(
+                                  color: Colors.transparent, width: 1)),
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ]),
+                SizedBox(
+                  height: 5,
+                ),
+                Divider(),
               ],
             ),
           ),

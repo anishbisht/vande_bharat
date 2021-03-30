@@ -72,7 +72,10 @@ class _SignInPageState extends State<SignInPage> {
                   obscureText: true,
                   cursorColor: Colors.greenAccent,
                   decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.lock),
+                    prefixIcon: Icon(
+                      Icons.lock,
+                      color: Colors.orange,
+                    ),
                     suffix: Icon(Icons.visibility),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.0),
@@ -130,9 +133,14 @@ class _SignInPageState extends State<SignInPage> {
               SizedBox(
                 height: 150,
               ),
-              Center(
-                child: Text(
-                    '----------------------------------or Sign in with----------------------------------'),
+              Row(
+                children: <Widget>[
+                  Expanded(child: Divider()),
+                  Text('or Sign in with'),
+                  Expanded(
+                    child: Divider(),
+                  ),
+                ],
               ),
               SizedBox(
                 height: 30,
