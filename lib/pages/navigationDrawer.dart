@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moblie_ui/image_path.dart';
+import 'package:moblie_ui/models/helpAndSupportModel.dart';
 import 'package:moblie_ui/models/mobileCatergoryModel.dart';
 import 'package:moblie_ui/models/wishlistModel.dart';
 import 'package:moblie_ui/pages/customerOrder.dart';
+import 'package:moblie_ui/pages/help&Support.dart';
 import 'package:moblie_ui/pages/homePage.dart';
 import 'package:moblie_ui/pages/mobileCategory.dart';
 import 'package:moblie_ui/pages/profilePage.dart';
@@ -45,6 +47,7 @@ class NavigationDrawer extends StatelessWidget {
           onTap: () => Get.to(() => WishListPage()),
         ),
         _createDrawerItem(
+          onTap: () => Get.to(() => HelpAndSupportPage()),
           text: 'Help & Support',
         ),
         _createDrawerItem(

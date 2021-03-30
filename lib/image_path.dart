@@ -55,4 +55,4 @@ const PhoneIcon = '${baseDir}phone.png';
 const EmailIcon = '${baseDir}email.png';
 const HelpAndSupportIcon = '${baseDir}helpandsupport.png';
 const ReportProblem = '${baseDir}Reportproblem.png';
-const ShareImg = '${baseDir}share_icon.png';
+const ShareImg = '${baseDir}share_img.png';

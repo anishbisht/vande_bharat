@@ -28,7 +28,11 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
           ),
           backgroundColor: Colors.white,
           actions: [
-            Icon(Icons.share),
+            Image.asset(
+              ShareImg,
+              height: 20,
+              width: 20,
+            )
           ],
         ),
       ),
@@ -124,7 +128,96 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                       size: 12,
                     ),
                   ],
-                )
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      '\u{20B9}${69900}',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.green,
+                          fontSize: 16),
+                    ),
+                    Text(
+                      "Sold by: Mahadevan Electronics",
+                      style: TextStyle(color: Colors.grey[700], fontSize: 12),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      "Colors",
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    ),
+                    Text(
+                      "To Deliver",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Row(children: <Widget>[
+                  Container(
+                    height: 40,
+                    width: 30,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(1),
+                      color: Colors.white,
+                      border: Border.all(width: 1, color: Colors.orange),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Container(
+                    height: 40,
+                    width: 30,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(1),
+                      color: Colors.white,
+                      border: Border.all(width: 1, color: Colors.grey),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Container(
+                    height: 40,
+                    width: 30,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(1),
+                      color: Colors.white,
+                      border: Border.all(width: 1, color: Colors.grey),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 200,
+                  ),
+                  Container(
+                      height: 40,
+                      width: 100,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          border: Border.all(width: 1, color: Colors.black)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextFormField(
+                          
+                        ),
+                      ))
+                ]),
               ],
             ),
           ),

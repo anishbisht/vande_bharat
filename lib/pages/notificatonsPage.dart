@@ -21,50 +21,71 @@ class _NotificatonsPageState extends State<NotificatonsPage> {
           ),
           elevation: 2,
           title: Text(
-            "Notificatons",
+            "Notifications",
             style: TextStyle(fontSize: 25),
           ),
           backgroundColor: Colors.white,
         ),
       ),
       body: SafeArea(
+        child: SingleChildScrollView(
           child: Container(
-        margin: EdgeInsets.fromLTRB(10, 10, 10, 20),
-        child: ListView.builder(
-          shrinkWrap: true,
-          itemCount: NotificationListWidget.notificatonlist.length,
-          // var v = HelpAndSupportListWidget.helplist.elementAt(i);
-          itemBuilder: (context, index) {
-            var v = NotificationListWidget.notificatonlist.elementAt(index);
-            return Container(
-              margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
-              child: ListTile(
-                leading: Image.asset(
-                  v.imageName,
-                  height: 20,
-                ),
-                title: Padding(
-                  padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                  child: Text(
-                    v.textname1,
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                        color: v.title_color),
+            margin: EdgeInsets.fromLTRB(0, 10, 10, 20),
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: NotificationListWidget.notificatonlist.length,
+              // var v = HelpAndSupportListWidget.helplist.elementAt(i);
+              itemBuilder: (context, index) {
+                var v = NotificationListWidget.notificatonlist.elementAt(index);
+                return Container(
+                  margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
+                  child: ListTile(
+                    leading: Image.asset(
+                      v.imageName,
+                      height: 20,
+                    ),
+                    title: Align(
+                      alignment: Alignment.topLeft,
+                      child: Padding(
+                        padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                        child: Text(
+                          v.textname1,
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700,
+                              color: v.title_color),
+                        ),
+                      ),
+                    ),
+                    subtitle: Padding(
+                      padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            v.textname2,
+                            style: TextStyle(
+                                color: v.sub_heading_color,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            v.textname3,
+                          ),
+                          Divider(),
+                        ],
+                      ),
+                    ),
                   ),
-                ),
-                subtitle: Padding(
-                  padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                  child: Text(
-                    v.textname2,
-                    style: TextStyle(color: v.sub_heading_color, fontSize: 14),
-                  ),
-                ),
-              ),
-            );
-          },
+                );
+              },
+            ),
+          ),
         ),
-      )),
+      ),
     );
   }
 }
