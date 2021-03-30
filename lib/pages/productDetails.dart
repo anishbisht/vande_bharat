@@ -201,6 +201,10 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                       color: Colors.white,
                       border: Border.all(width: 1, color: Colors.grey),
                     ),
+                    child: Image.asset(
+                      ProductColorImg1,
+                      height: 20,
+                    ),
                   ),
                   SizedBox(
                     width: 140,
