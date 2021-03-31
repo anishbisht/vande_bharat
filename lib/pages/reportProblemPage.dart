@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
+import 'package:moblie_ui/models/imageUploadModel.dart';
+
+import 'dart:io';
 
 class ReportProblemPage extends StatefulWidget {
   @override
@@ -10,6 +14,19 @@ class ReportProblemPage extends StatefulWidget {
 
 class _ReportProblemPageState extends State<ReportProblemPage> {
   var _controller = TextEditingController();
+  File _image;
+  final picker = ImagePicker();
+  Future getImage() async {
+    final pickedFile = await picker.getImage(source: ImageSource.camera);
+
+    setState(() {
+      if (pickedFile != null) {
+        _image = File(pickedFile.path);
+      } else {
+        print('No image selected.');
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +94,20 @@ class _ReportProblemPageState extends State<ReportProblemPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 400,
+                  height: 20,
+                ),
+                Center(
+                  child: _image == null
+                      ? Text('No image selected.')
+                      : Image.file(_image),
+                ),
+                FloatingActionButton(
+                  onPressed: getImage,
+                  tooltip: 'Pick Image',
+                  child: Icon(Icons.add_a_photo),
+                ),
+                SizedBox(
+                  height: 20,
                 ),
                 Text(
                   "Please only leave feedback about Vande Bharat Bazar and our features. All reports are subject to our Term to Use.",
