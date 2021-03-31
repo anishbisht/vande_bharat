@@ -12,6 +12,7 @@ import 'package:moblie_ui/pages/createNewPassword.dart';
 import 'package:moblie_ui/pages/customerAddress.dart';
 import 'package:moblie_ui/pages/customerOrder.dart';
 import 'package:moblie_ui/pages/editProfilePage.dart';
+import 'package:moblie_ui/pages/filterPage.dart';
 import 'package:moblie_ui/pages/help&Support.dart';
 import 'package:moblie_ui/pages/homePage.dart';
 import 'package:moblie_ui/pages/loginSucessPage.dart';
@@ -48,7 +49,7 @@ class MyApp extends StatelessWidget {
         primaryColorLight: Colors.white,
         primaryColorBrightness: Brightness.light,
       ),
-      home: AddAddressPage(),
+      home: FilterPage(),
     );
   }
 }
