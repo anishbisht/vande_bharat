@@ -116,18 +116,6 @@ class _SignInPageState extends State<SignInPage> {
                       color: Colors.white,
                     ),
                   ),
-                  // child: TextButton(
-                  //   style: TextButton.styleFrom(
-                  //     primary: Colors.white,
-                  //     backgroundColor: Colors.deepOrangeAccent,
-                  //     onSurface: Colors.grey,
-                  //   ),
-                  //   onPressed: () {},
-                  //   child: Text(
-                  //     'Sign In',
-                  //     style: TextStyle(fontSize: 20),
-                  //   ),
-                  // ),
                 ),
               ),
               SizedBox(

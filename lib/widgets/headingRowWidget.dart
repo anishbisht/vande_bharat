@@ -26,7 +26,7 @@ class CustomHeadingRowWidget extends StatelessWidget {
     this.fontSize2,
     this.fontWeight1,
     this.fontWeight2,
-    this.onPressed,
+    this.onPressed, Null Function() ontap,
     // this.onpressed1,
     // this.onpressed2,
   });
