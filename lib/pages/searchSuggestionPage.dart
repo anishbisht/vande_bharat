@@ -65,7 +65,10 @@ class _SearchSuggestionListPageState extends State<SearchSuggestionListPage> {
       ),
       body: Container(
         child: Column(
-          children: <Widget>[],
+          children: <Widget>[
+            
+
+          ],
         ),
       ),
     );
