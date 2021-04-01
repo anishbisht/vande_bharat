@@ -30,6 +30,7 @@ import 'package:moblie_ui/pages/reasonForCancellationPage.dart';
 import 'package:moblie_ui/pages/reportProblemPage.dart';
 import 'package:moblie_ui/pages/resetPasseordPage.dart';
 import 'package:moblie_ui/pages/reviewPostPage.dart';
+import 'package:moblie_ui/pages/searchSuggestionPage.dart';
 import 'package:moblie_ui/pages/shipToPage.dart';
 import 'package:moblie_ui/pages/signInPage.dart';
 import 'package:moblie_ui/pages/signInEmailNumberPage.dart';
@@ -49,7 +50,7 @@ class MyApp extends StatelessWidget {
         primaryColorLight: Colors.white,
         primaryColorBrightness: Brightness.light,
       ),
-      home: FilterPage(),
+      home: SearchSuggestionListPage(),
     );
   }
 }

@@ -12,6 +12,33 @@ class CustomerOrderDetails extends StatefulWidget {
 }
 
 class _CustomerOrderDetailsState extends State<CustomerOrderDetails> {
+  int current_step = 0;
+  List<Step> steps = [
+    Step(
+      title: Text(''),
+      content: Text(''),
+      state: StepState.complete,
+      isActive: true,
+    ),
+    Step(
+      title: Text(''),
+      content: Text(''),
+      state: StepState.complete,
+      isActive: true,
+    ),
+    Step(
+      title: Text(''),
+      content: Text('h'),
+      state: StepState.complete,
+      isActive: true,
+    ),
+    Step(
+      title: Text(''),
+      content: Text(''),
+      state: StepState.complete,
+      isActive: true,
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIOverlays([]);
@@ -40,33 +67,48 @@ class _CustomerOrderDetailsState extends State<CustomerOrderDetails> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Container(
-                    height: 80,
-                    margin: EdgeInsets.all(10),
                     width: MediaQuery.of(context).size.width,
                     child: Row(
                       children: <Widget>[
                         Container(
-                          height: 40,
-                          width: MediaQuery.of(context).size.width - 40,
-                          
-                          // child: TimelineTile(
-                          //   axis: TimelineAxis.horizontal,
-                          //   alignment: TimelineAlign.center,
-                          //   endChild: Container(
-                          //     constraints: const BoxConstraints(
-                          //         minWidth: 80, minHeight: 80),
-                          //     child: Row(
-                          //       mainAxisAlignment:
-                          //           MainAxisAlignment.spaceBetween,
-                          //       children: <Widget>[
-                          //         Text('Placed'),
-                          //         Text('Packed'),
-                          //         Text("Shipped"),
-                          //         Text("Delivered")
-                          //       ],
-                          //     ),
-                          //   ),
-                          // ),
+                          height: 80,
+                          width: MediaQuery.of(context).size.width - 20,
+                          child: Theme(
+                            data: ThemeData(
+                                accentColor: Colors.green,
+                                primarySwatch: Colors.green,
+                                colorScheme:
+                                    ColorScheme.light(primary: Colors.green)),
+                            child: Stepper(
+                              physics: ClampingScrollPhysics(),
+                              type: StepperType.horizontal,
+                              currentStep: this.current_step,
+                              steps: steps,
+                              onStepTapped: (step) {
+                                setState(() {
+                                  current_step = step;
+                                });
+                              },
+                              onStepContinue: () {
+                                setState(() {
+                                  if (current_step < steps.length - 1) {
+                                    current_step = current_step + 1;
+                                  } else {
+                                    current_step = 0;
+                                  }
+                                });
+                              },
+                              onStepCancel: () {
+                                setState(() {
+                                  if (current_step > 0) {
+                                    current_step = current_step - 1;
+                                  } else {
+                                    current_step = 0;
+                                  }
+                                });
+                              },
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -334,7 +376,7 @@ class _CustomerOrderDetailsState extends State<CustomerOrderDetails> {
                     height: 20,
                   ),
                   Text(
-                    "Payment",
+                    "Payment Details",
                     style: TextStyle(fontWeight: FontWeight.w500),
                   ),
                   SizedBox(
