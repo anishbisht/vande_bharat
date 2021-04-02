@@ -54,10 +54,13 @@ class _HelpAndSupportPageState extends State<HelpAndSupportPage> {
             child: ListView.builder(
               shrinkWrap: true,
               itemCount: HelpAndSupportListWidget.helplist.length,
-              // var v = HelpAndSupportListWidget.helplist.elementAt(i);
               itemBuilder: (context, index) {
                 var v = HelpAndSupportListWidget.helplist.elementAt(index);
                 return ListTile(
+                  visualDensity: VisualDensity(
+                    horizontal: 0,
+                    vertical: 4,
+                  ),
                   leading: Image.asset(
                     v.imageName,
                     height: 25,
@@ -69,10 +72,20 @@ class _HelpAndSupportPageState extends State<HelpAndSupportPage> {
                         fontWeight: FontWeight.w500,
                         color: v.title_color),
                   ),
-                  subtitle: Text(
-                    v.textname2,
-                    style: TextStyle(color: v.sub_heading_color, fontSize: 14),
-                  ),
+                  subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          v.textname2,
+                          style: TextStyle(
+                              color: v.sub_heading_color, fontSize: 14),
+                        ),
+                        Text(
+                          v.textname3,
+                          style: TextStyle(fontSize: 16),
+                        ),
+                        Divider()
+                      ]),
                 );
               },
             ),
