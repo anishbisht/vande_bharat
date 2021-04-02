@@ -25,30 +25,33 @@ class CustomProductWidget extends StatelessWidget {
   final FontWeight fontWeight5;
   final double fontSize5;
 
-  CustomProductWidget(
-      {this.containerMargin,
-      this.containerPadding,
-      this.containerHeight,
-      this.containerWidth,
-      this.fit,
-      this.imageHeight,
-      this.imageName,
-      this.textName1,
-      this.fontWeight1,
-      this.fontSize1,
-      this.textName2,
-      this.fontSize2,
-      this.fontWeight2,
-      this.textName3,
-      this.fontSize3,
-      this.fontWeight3,
-      this.textName4,
-      this.fontSize4,
-      this.fontWeight4,
-      this.color4,
-      this.textName5,
-      this.fontSize5,
-      this.fontWeight5});
+  var ontap;
+
+  CustomProductWidget({
+    this.containerMargin,
+    this.containerPadding,
+    this.containerHeight,
+    this.containerWidth,
+    this.fit,
+    this.imageHeight,
+    this.imageName,
+    this.textName1,
+    this.fontWeight1,
+    this.fontSize1,
+    this.textName2,
+    this.fontSize2,
+    this.fontWeight2,
+    this.textName3,
+    this.fontSize3,
+    this.fontWeight3,
+    this.textName4,
+    this.fontSize4,
+    this.fontWeight4,
+    this.color4,
+    this.textName5,
+    this.fontSize5,
+    this.fontWeight5,
+  });
 
   @override
   Widget build(BuildContext context) {

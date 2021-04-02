@@ -8,6 +8,8 @@ import 'package:moblie_ui/pages/allCategoriesPage.dart';
 import 'package:moblie_ui/pages/cartPage.dart';
 import 'package:moblie_ui/pages/mobileCategory.dart';
 import 'package:moblie_ui/pages/navigationDrawer.dart';
+import 'package:moblie_ui/pages/notificatonsPage.dart';
+import 'package:moblie_ui/pages/productDetails.dart';
 import 'package:moblie_ui/pages/wishListPage.dart';
 
 import 'package:moblie_ui/widgets/customCategoriesWidget.dart';
@@ -105,10 +107,14 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     width: 10,
                   ),
-                  Image.asset(
-                    NotificationIcon,
-                    height: 30,
-                  )
+                  InkWell(
+                      onTap: () {
+                        Get.to(() => NotificatonsPage());
+                      },
+                      child: Image.asset(
+                        NotificationIcon,
+                        height: 30,
+                      )),
                 ],
               ),
             ),
@@ -462,9 +468,6 @@ class _HomePageState extends State<HomePage> {
                   ),
                   SizedBox(height: 20),
                   CustomHeadingRowWidget(
-                    onPressed: () {
-                      Get.to(() => MobileCategory());
-                    },
                     textname1: 'Mobile',
                     fontSize1: 20,
                     fontSize2: 18,
