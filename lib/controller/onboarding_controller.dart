@@ -5,6 +5,8 @@ import 'package:get/state_manager.dart';
 import 'package:get/utils.dart';
 import 'package:get/get.dart';
 import 'package:moblie_ui/pages/homePage.dart';
+import 'package:moblie_ui/pages/signInEmailNumberPage.dart';
+import 'package:moblie_ui/pages/signInPage.dart';
 
 class OnboardingController extends GetxController {
   var selectedPageIndex = 0.obs;
@@ -13,7 +15,7 @@ class OnboardingController extends GetxController {
 
   forwardAction() {
     if (isLastPage) {
-      Get.to(() => HomePage());
+      Get.to(() => SingInEmailPasswordPage());
     } else
       pageController.nextPage(duration: 300.milliseconds, curve: Curves.ease);
   }

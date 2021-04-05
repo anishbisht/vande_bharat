@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 
@@ -10,6 +11,8 @@ class CustomerAddressPage extends StatefulWidget {
 class _CustomerAddressPageState extends State<CustomerAddressPage> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays([]);
+
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60.0),
@@ -115,10 +118,104 @@ class _CustomerAddressPageState extends State<CustomerAddressPage> {
                           SizedBox(
                             width: 40,
                           ),
-                          Image.asset(
-                            DeleteIcon,
-                            height: 20,
-                            width: 20,
+                          InkWell(
+                            onTap: () {
+                              showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return Container(
+                                      width: MediaQuery.of(context).size.width,
+                                      height: 400,
+                                      child: AlertDialog(
+                                        title: Column(
+                                          children: [
+                                            Image.asset(
+                                              AlertIcon,
+                                              height: 100,
+                                            ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                            Text(
+                                              "Confirmation",
+                                              style: TextStyle(
+                                                fontSize: 28,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                            Text(
+                                              "Are you sure want to delete address?",
+                                              style: TextStyle(
+                                                  fontSize: 17,
+                                                  color: Colors.grey[600],
+                                                  fontWeight: FontWeight.w400),
+                                            ),
+                                          ],
+                                        ),
+                                        content: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: <Widget>[
+                                            SizedBox(
+                                              height: 40,
+                                              width: 80,
+                                              child: OutlinedButton(
+                                                style: OutlinedButton.styleFrom(
+                                                    backgroundColor:
+                                                        Colors.orange,
+                                                    shape:
+                                                        new RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                new BorderRadius
+                                                                        .circular(
+                                                                    5)),
+                                                    side: BorderSide(
+                                                        width: 1,
+                                                        color: Colors.grey)),
+                                                onPressed: () {},
+                                                child: Text(
+                                                  "Yes",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 40,
+                                              width: 80,
+                                              child: OutlinedButton(
+                                                style: OutlinedButton.styleFrom(
+                                                    backgroundColor:
+                                                        Colors.orange[600],
+                                                    shape:
+                                                        new RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                new BorderRadius
+                                                                        .circular(
+                                                                    5)),
+                                                    side: BorderSide(
+                                                        width: 1,
+                                                        color: Colors.grey)),
+                                                onPressed: () {},
+                                                child: Text(
+                                                  "No",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        backgroundColor: Colors.white,
+                                      ),
+                                    );
+                                  });
+                            },
+                            child: Image.asset(
+                              DeleteIcon,
+                              height: 20,
+                              width: 20,
+                            ),
                           )
                         ],
                       ),
@@ -194,19 +291,110 @@ class _CustomerAddressPageState extends State<CustomerAddressPage> {
                           SizedBox(
                             width: 40,
                           ),
-                          Image.asset(
-                            DeleteIcon,
-                            height: 20,
-                            width: 20,
+                          InkWell(
+                            onTap: () {
+                              showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return Container(
+                                      width: MediaQuery.of(context).size.width,
+                                      height: 400,
+                                      child: AlertDialog(
+                                        title: Column(
+                                          children: [
+                                            Image.asset(
+                                              AlertIcon,
+                                              height: 100,
+                                            ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                            Text(
+                                              "Confirmation",
+                                              style: TextStyle(
+                                                fontSize: 28,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                            Text(
+                                              "Are you sure want to delete address?",
+                                              style: TextStyle(
+                                                  fontSize: 17,
+                                                  color: Colors.grey[600],
+                                                  fontWeight: FontWeight.w400),
+                                            ),
+                                          ],
+                                        ),
+                                        content: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: <Widget>[
+                                            SizedBox(
+                                              height: 40,
+                                              width: 80,
+                                              child: OutlinedButton(
+                                                style: OutlinedButton.styleFrom(
+                                                    backgroundColor:
+                                                        Colors.orange,
+                                                    shape:
+                                                        new RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                new BorderRadius
+                                                                        .circular(
+                                                                    5)),
+                                                    side: BorderSide(
+                                                        width: 1,
+                                                        color: Colors.grey)),
+                                                onPressed: () {},
+                                                child: Text(
+                                                  "Yes",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 40,
+                                              width: 80,
+                                              child: OutlinedButton(
+                                                style: OutlinedButton.styleFrom(
+                                                    backgroundColor:
+                                                        Colors.orange[600],
+                                                    shape:
+                                                        new RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                new BorderRadius
+                                                                        .circular(
+                                                                    5)),
+                                                    side: BorderSide(
+                                                        width: 1,
+                                                        color: Colors.grey)),
+                                                onPressed: () {},
+                                                child: Text(
+                                                  "No",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        backgroundColor: Colors.white,
+                                      ),
+                                    );
+                                  });
+                            },
+                            child: Image.asset(
+                              DeleteIcon,
+                              height: 20,
+                              width: 20,
+                            ),
                           )
                         ],
                       ),
                     ),
                   ],
                 ),
-              ),
-              SizedBox(
-                height: 40,
               ),
             ],
           ),

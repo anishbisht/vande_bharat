@@ -15,6 +15,7 @@ import 'package:moblie_ui/pages/editProfilePage.dart';
 import 'package:moblie_ui/pages/filterPage.dart';
 import 'package:moblie_ui/pages/help&Support.dart';
 import 'package:moblie_ui/pages/homePage.dart';
+import 'package:moblie_ui/pages/itemSearchedPage.dart';
 import 'package:moblie_ui/pages/loginSucessPage.dart';
 import 'package:moblie_ui/pages/mobileCategory.dart';
 import 'package:moblie_ui/pages/notificatonsPage.dart';
@@ -50,7 +51,7 @@ class MyApp extends StatelessWidget {
         primaryColorLight: Colors.white,
         primaryColorBrightness: Brightness.light,
       ),
-      home: SearchSuggestionListPage(),
+      home: ProductDetailsPage(),
     );
   }
 }

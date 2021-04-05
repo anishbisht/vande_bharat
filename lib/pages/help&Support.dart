@@ -29,6 +29,24 @@ class _HelpAndSupportPageState extends State<HelpAndSupportPage> {
           backgroundColor: Colors.white,
         ),
       ),
+      // body: Container(
+      //   height: 500,
+      //   margin: EdgeInsets.fromLTRB(10, 20, 10, 20),
+      //   child: Column(
+      //     children: <Widget>[
+      //       ListTile(
+      //         leading: Image.asset(
+      //           HelpAndSupportIcon,
+      //           height: 30,
+      //         ),
+      //         title: Text(
+      //           "Help and Support",
+      //           style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+      //         ),
+      //         subtitle: Text(
+      //           "Do check our FAQs section once",
+      //           style: TextStyle(color: Colors.grey[700], fontSize: 16),
+      //         ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -36,10 +54,13 @@ class _HelpAndSupportPageState extends State<HelpAndSupportPage> {
             child: ListView.builder(
               shrinkWrap: true,
               itemCount: HelpAndSupportListWidget.helplist.length,
-              // var v = HelpAndSupportListWidget.helplist.elementAt(i);
               itemBuilder: (context, index) {
                 var v = HelpAndSupportListWidget.helplist.elementAt(index);
                 return ListTile(
+                  visualDensity: VisualDensity(
+                    horizontal: 0,
+                    vertical: 4,
+                  ),
                   leading: Image.asset(
                     v.imageName,
                     height: 25,
@@ -51,10 +72,20 @@ class _HelpAndSupportPageState extends State<HelpAndSupportPage> {
                         fontWeight: FontWeight.w500,
                         color: v.title_color),
                   ),
-                  subtitle: Text(
-                    v.textname2,
-                    style: TextStyle(color: v.sub_heading_color, fontSize: 14),
-                  ),
+                  subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          v.textname2,
+                          style: TextStyle(
+                              color: v.sub_heading_color, fontSize: 14),
+                        ),
+                        Text(
+                          v.textname3,
+                          style: TextStyle(fontSize: 16),
+                        ),
+                        Divider()
+                      ]),
                 );
               },
             ),

@@ -230,66 +230,68 @@ class _MobileCategoryState extends State<MobileCategory> {
         ),
       ),
       body: Container(
-          margin: EdgeInsets.all(10),
-          child: GridView.builder(
-              itemCount: ListWidgets.mobileList.length,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  childAspectRatio: 0.6 / 0.8, crossAxisCount: 2),
-              itemBuilder: (_, i) {
-                var v = ListWidgets.mobileList.elementAt(i);
-                return Container(
-                  margin: v.containerMargin,
-                  padding: v.containerPadding,
-                  height: v.containerHeight,
-                  width: v.containerWidth,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(
-                      color: Colors.grey.shade300,
+        margin: EdgeInsets.all(10),
+        child: GridView.builder(
+          itemCount: ListWidgets.mobileList.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              childAspectRatio: 0.6 / 0.8, crossAxisCount: 2),
+          itemBuilder: (_, i) {
+            var v = ListWidgets.mobileList.elementAt(i);
+            return Container(
+              margin: v.containerMargin,
+              padding: v.containerPadding,
+              height: v.containerHeight,
+              width: v.containerWidth,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(
+                  color: Colors.grey.shade300,
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Center(
+                    child: Image.asset(
+                      v.imageName,
+                      height: v.imageHeight,
+                      fit: v.fit,
                     ),
                   ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  Text(
+                    v.textName1,
+                    style: TextStyle(
+                        fontWeight: v.fontWeight1, fontSize: v.fontSize1),
+                  ),
+                  Text(
+                    v.textName2,
+                    style: TextStyle(
+                        fontWeight: v.fontWeight2, fontSize: v.fontSize2),
+                  ),
+                  SizedBox(
+                    height: 7,
+                  ),
+                  Text(
+                    v.textName3,
+                    style: TextStyle(
+                        fontSize: v.fontSize3, fontWeight: v.fontWeight3),
+                  ),
+                  SizedBox(
+                    height: 7,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Center(
-                        child: Image.asset(
-                          v.imageName,
-                          height: v.imageHeight,
-                          fit: v.fit,
+                      Text(
+                        v.textName4,
+                        style: TextStyle(
+                          fontSize: v.fontSize4,
+                          fontWeight: v.fontWeight4,
+                          color: v.color4,
                         ),
                       ),
-                      Text(
-                        v.textName1,
-                        style: TextStyle(
-                            fontWeight: v.fontWeight1, fontSize: v.fontSize1),
-                      ),
-                      Text(
-                        v.textName2,
-                        style: TextStyle(
-                            fontWeight: v.fontWeight2, fontSize: v.fontSize2),
-                      ),
-                      SizedBox(
-                        height: 7,
-                      ),
-                      Text(
-                        v.textName3,
-                        style: TextStyle(
-                            fontSize: v.fontSize3, fontWeight: v.fontWeight3),
-                      ),
-                      SizedBox(
-                        height: 7,
-                      ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          Text(
-                            v.textName4,
-                            style: TextStyle(
-                              fontSize: v.fontSize4,
-                              fontWeight: v.fontWeight4,
-                              color: v.color4,
-                            ),
-                          ),
                           Icon(
                             Icons.star,
                             color: Colors.yellow[700],
@@ -300,8 +302,12 @@ class _MobileCategoryState extends State<MobileCategory> {
                       ),
                     ],
                   ),
-                );
-              })),
+                ],
+              ),
+            );
+          },
+        ),
+      ),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:moblie_ui/image_path.dart';
+import 'package:moblie_ui/widgets/SearchListWidget.dart';
 
 class SearchSuggestionListPage extends StatefulWidget {
   @override
@@ -10,7 +11,7 @@ class SearchSuggestionListPage extends StatefulWidget {
 
 class _SearchSuggestionListPageState extends State<SearchSuggestionListPage> {
   final _controllersearch = TextEditingController();
-
+  var v;
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIOverlays([]);
@@ -22,12 +23,15 @@ class _SearchSuggestionListPageState extends State<SearchSuggestionListPage> {
           height: 60,
           child: Row(
             children: <Widget>[
-              Image.asset(
-                BackIcon,
-                height: 20,
+              Container(
+                margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                child: Image.asset(
+                  BackIcon,
+                  height: 20,
+                ),
               ),
               Container(
-                margin: EdgeInsets.fromLTRB(20, 10, 10, 8),
+                margin: EdgeInsets.fromLTRB(10, 10, 10, 8),
                 width: 300,
                 child: TextField(
                   textAlignVertical: TextAlignVertical.bottom,
@@ -64,11 +68,20 @@ class _SearchSuggestionListPageState extends State<SearchSuggestionListPage> {
         ),
       ),
       body: Container(
-        child: Column(
-          children: <Widget>[
-            
-
-          ],
+        child: ListView.builder(
+          itemCount: SearchTextList.searchText.length,
+          itemBuilder: (BuildContext context, int index) {
+            v = SearchTextList.searchText.elementAt(index);
+            return ListTile(
+              title: Text(
+                v.text,
+                style: TextStyle(
+                    fontSize: 17,
+                    color: Colors.grey[600],
+                    fontWeight: FontWeight.w600),
+              ),
+            );
+          },
         ),
       ),
     );
