@@ -112,7 +112,7 @@ class _SingInEmailPasswordPageState extends State<SingInEmailPasswordPage> {
                 ),
                 Center(
                   child: SizedBox(
-                    width: 380,
+                    width: MediaQuery.of(context).size.width - 20,
                     height: 50,
                     child: CustomTextButtonWidget(
                       title: 'Next',
@@ -129,27 +129,23 @@ class _SingInEmailPasswordPageState extends State<SingInEmailPasswordPage> {
                   height: 30,
                 ),
                 Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      Divider(),
-                      Text(
-                        ' or Sign In with ',
-                        style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600),
-                      ),
-                      Divider(),
-                    ]),
+                  children: <Widget>[
+                    Expanded(child: Divider()),
+                    Text('or Sign in with'),
+                    Expanded(
+                      child: Divider(),
+                    ),
+                  ],
+                ),
                 SizedBox(
                   height: 30,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   mainAxisSize: MainAxisSize.max,
                   children: <Widget>[
                     SizedBox(
-                      width: 180.0,
+                      width: MediaQuery.of(context).size.width * 1 / 2 - 20,
                       height: 60.0,
                       child: CustomOutlinedButttonWidget(
                         onPressed: () {},
@@ -161,7 +157,7 @@ class _SingInEmailPasswordPageState extends State<SingInEmailPasswordPage> {
                       ),
                     ),
                     SizedBox(
-                      width: 180.0,
+                      width: MediaQuery.of(context).size.width * 1 / 2 - 20,
                       height: 60.0,
                       child: CustomOutlinedButttonWidget(
                         onPressed: () {},
