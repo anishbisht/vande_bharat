@@ -31,171 +31,165 @@ class _SingInEmailPasswordPageState extends State<SingInEmailPasswordPage> {
           child: new Form(
             key: _key,
             autovalidateMode: AutovalidateMode.disabled,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                SizedBox(
-                  height: 20,
-                ),
-                Center(
-                  child: Image.asset(
-                    appLogo,
-                    height: 130,
-                    fit: BoxFit.fill,
+            child: Container(
+              margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  SizedBox(
+                    height: 20,
                   ),
-                ),
-                SizedBox(
-                  height: 80,
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                  child: Text(
+                  Center(
+                    child: Image.asset(
+                      appLogo,
+                      height: 130,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 80,
+                  ),
+                  Text(
                     "Sign In",
                     style: TextStyle(fontSize: 35, fontWeight: FontWeight.w600),
                     textAlign: TextAlign.left,
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                  child: Text(
+                  Text(
                     "Enter your details to continue",
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
                   ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                  child: Text(
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
                     "Moblie Number / Email ID",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                   ),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Container(
-                  height: 80,
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                    child: TextFormField(
-                      cursorColor: Colors.orange[700],
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Container(
+                    height: 80,
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+                      child: TextFormField(
+                        cursorColor: Colors.orange[700],
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.orange[700],
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(10)),
+                          filled: true,
+                          fillColor: HexColor('#F2F2F2'),
+                          enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.orange[700],
-                              width: 1,
                             ),
-                            borderRadius: BorderRadius.circular(10)),
-                        filled: true,
-                        fillColor: HexColor('#F2F2F2'),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colors.orange[700],
+                            borderRadius: BorderRadius.circular(10.0),
                           ),
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colors.orange[700],
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.orange[700],
+                            ),
+                            borderRadius: BorderRadius.circular(10.0),
                           ),
-                          borderRadius: BorderRadius.circular(10.0),
                         ),
+                        validator: validateEmailOrNumber,
                       ),
-                      validator: validateEmailOrNumber,
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: 50,
-                ),
-                Center(
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width - 20,
+                  SizedBox(
                     height: 50,
-                    child: CustomTextButtonWidget(
-                      title: 'Next',
-                      buttonColor: Colors.orange[700],
-                      onPressed: _sendToServer,
-                      textStyle: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
+                  ),
+                  Center(
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width - 20,
+                      height: 50,
+                      child: CustomTextButtonWidget(
+                        title: 'Next',
+                        buttonColor: Colors.orange[700],
+                        onPressed: _sendToServer,
+                        textStyle: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                Row(
-                  children: <Widget>[
-                    Expanded(child: Divider()),
-                    Text('or Sign in with'),
-                    Expanded(
-                      child: Divider(),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  mainAxisSize: MainAxisSize.max,
-                  children: <Widget>[
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 1 / 2 - 20,
-                      height: 60.0,
-                      child: CustomOutlinedButttonWidget(
-                        onPressed: () {},
-                        title: 'Google',
-                        textSize: 18,
-                        textColor: Colors.black54,
-                        imageHeight: 20,
-                        imageName: Gogglelogo,
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Expanded(child: Divider()),
+                      Text('or Sign in with'),
+                      Expanded(
+                        child: Divider(),
                       ),
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 1 / 2 - 20,
-                      height: 60.0,
-                      child: CustomOutlinedButttonWidget(
-                        onPressed: () {},
-                        title: 'Facebook',
-                        textSize: 16,
-                        textColor: Colors.black54,
-                        imageName: Fblogo,
-                        imageHeight: 20,
+                    ],
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisSize: MainAxisSize.max,
+                    children: <Widget>[
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 1 / 2 - 20,
+                        height: 60.0,
+                        child: CustomOutlinedButttonWidget(
+                          onPressed: () {},
+                          title: 'Google',
+                          textSize: 18,
+                          textColor: Colors.black54,
+                          imageHeight: 20,
+                          imageName: Gogglelogo,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 60,
-                ),
-                Center(
-                  child: RichText(
-                    text: TextSpan(
-                      style: TextStyle(color: Colors.black, fontSize: 18),
-                      children: <TextSpan>[
-                        TextSpan(
-                          text: 'Not a memeber?',
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 1 / 2 - 20,
+                        height: 60.0,
+                        child: CustomOutlinedButttonWidget(
+                          onPressed: () {},
+                          title: 'Facebook',
+                          textSize: 16,
+                          textColor: Colors.black54,
+                          imageName: Fblogo,
+                          imageHeight: 20,
                         ),
-                        TextSpan(
-                          text: "Sign Up",
-                          style: TextStyle(
-                              color: Colors.deepOrangeAccent, fontSize: 18),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              Get.to(() => SignUp());
-                              print("Click");
-                            },
-                        ),
-                      ],
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 60,
+                  ),
+                  Center(
+                    child: RichText(
+                      text: TextSpan(
+                        style: TextStyle(color: Colors.black, fontSize: 18),
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: 'Not a memeber?',
+                          ),
+                          TextSpan(
+                            text: "Sign Up",
+                            style: TextStyle(
+                                color: Colors.deepOrangeAccent, fontSize: 18),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Get.to(() => SignUp());
+                                print("Click");
+                              },
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
