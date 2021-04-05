@@ -8,6 +8,7 @@ import 'package:moblie_ui/pages/signInPage.dart';
 import 'package:moblie_ui/pages/signUpPage.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 import 'package:moblie_ui/widgets/customOutlinedButtonWidget.dart';
+import 'package:moblie_ui/utlis/validator.dart';
 
 class SingInEmailPasswordPage extends StatefulWidget {
   @override
@@ -16,194 +17,233 @@ class SingInEmailPasswordPage extends StatefulWidget {
 }
 
 class _SingInEmailPasswordPageState extends State<SingInEmailPasswordPage> {
-  final _controller = TextEditingController();
+  // final _controllerEmailPhone = TextEditingController();
+  final GlobalKey<FormState> _key = GlobalKey<FormState>();
+  bool validate = false;
+  // String email;
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIOverlays([]);
     return Scaffold(
       body: SingleChildScrollView(
         child: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              SizedBox(
-                height: 20,
-              ),
-              Center(
-                child: Image.asset(
-                  appLogo,
-                  height: 130,
-                  fit: BoxFit.fill,
+          child: new Form(
+            key: _key,
+            autovalidateMode: AutovalidateMode.disabled,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                SizedBox(
+                  height: 20,
                 ),
-              ),
-              SizedBox(
-                height: 80,
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                child: Text(
-                  "Sign In",
-                  style: TextStyle(fontSize: 35, fontWeight: FontWeight.w600),
-                  textAlign: TextAlign.left,
+                Center(
+                  child: Image.asset(
+                    appLogo,
+                    height: 130,
+                    fit: BoxFit.fill,
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                child: Text(
-                  "Enter your details to continue",
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+                SizedBox(
+                  height: 80,
                 ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                child: Text(
-                  "Moblie Number / Email ID",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+                  child: Text(
+                    "Sign In",
+                    style: TextStyle(fontSize: 35, fontWeight: FontWeight.w600),
+                    textAlign: TextAlign.left,
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                child: TextField(
-                  controller: _controller,
-                  onChanged: (val) {
-                    val = _controller.text.toString();
-                  },
-                  cursorColor: Colors.orange[700],
-                  decoration: InputDecoration(
-                    focusColor: Colors.white,
-                    fillColor: HexColor('#F2F2F2'),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.orange[700],
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+                  child: Text(
+                    "Enter your details to continue",
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+                  child: Text(
+                    "Moblie Number / Email ID",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                  ),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Container(
+                  height: 80,
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+                    child: TextFormField(
+                      cursorColor: Colors.orange[700],
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.orange[700],
+                              width: 1,
+                            ),
+                            borderRadius: BorderRadius.circular(10)),
+                        filled: true,
+                        fillColor: HexColor('#F2F2F2'),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.orange[700],
+                          ),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.orange[700],
+                          ),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
                       ),
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.orange[700],
-                      ),
-                      borderRadius: BorderRadius.circular(10.0),
+                      validator: validateEmailOrNumber,
                     ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 50,
-              ),
-              Center(
-                child: SizedBox(
-                  width: 380,
+                SizedBox(
                   height: 50,
-                  child: CustomTextButtonWidget(
-                    title: 'Next',
-                    buttonColor: Colors.orange[700],
-                    onPressed: () {
-                      Get.to(SignInPage());
-                    },
-                    textStyle: TextStyle(
-                      fontSize: 18,
-                      color: Colors.white,
-                    ),
-                  ),
-                  // child: TextButton(
-                  //   style: TextButton.styleFrom(
-                  //     primary: Colors.white,
-                  //     backgroundColor: Colors.deepOrangeAccent,
-                  //     onSurface: Colors.grey,
-                  //   ),
-                  //   onPressed: () {},
-                  //   child: Text(
-                  //     'Sign In',
-                  //     style: TextStyle(fontSize: 20),
-                  //   ),
-                  // ),
                 ),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Center(
-                child: Text(
-                  '------------------------ or Sign In with ------------------------',
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                mainAxisSize: MainAxisSize.max,
-                children: <Widget>[
-                  SizedBox(
-                    width: 180.0,
-                    height: 60.0,
-                    child: CustomOutlinedButttonWidget(
-                      onPressed: () {},
-                      title: 'Google',
-                      textSize: 18,
-                      textColor: Colors.black54,
-                      imageHeight: 20,
-                      imageName: Gogglelogo,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 180.0,
-                    height: 60.0,
-                    child: CustomOutlinedButttonWidget(
-                      onPressed: () {},
-                      title: 'Facebook',
-                      textSize: 16,
-                      textColor: Colors.black54,
-                      imageName: Fblogo,
-                      imageHeight: 20,
-                    ),
-                    // child: OutlinedButton(
-                    //   child: Text('Facebook',
-                    //       style: TextStyle(color: Colors.green)),
-                    //   onPressed: () {},
-                    // ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 60,
-              ),
-              Center(
-                child: RichText(
-                  text: TextSpan(
-                    style: TextStyle(color: Colors.black, fontSize: 18),
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: 'Not a memeber?',
+                Center(
+                  child: SizedBox(
+                    width: 380,
+                    height: 50,
+                    child: CustomTextButtonWidget(
+                      title: 'Next',
+                      buttonColor: Colors.orange[700],
+                      onPressed: _sendToServer,
+                      textStyle: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
                       ),
-                      TextSpan(
-                        text: "Sign Up",
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      Divider(),
+                      Text(
+                        ' or Sign In with ',
                         style: TextStyle(
-                            color: Colors.deepOrangeAccent, fontSize: 18),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            Get.to(() => SignUp());
-                            print("Click");
-                          },
+                            color: Colors.grey,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600),
                       ),
-                    ],
+                      Divider(),
+                    ]),
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisSize: MainAxisSize.max,
+                  children: <Widget>[
+                    SizedBox(
+                      width: 180.0,
+                      height: 60.0,
+                      child: CustomOutlinedButttonWidget(
+                        onPressed: () {},
+                        title: 'Google',
+                        textSize: 18,
+                        textColor: Colors.black54,
+                        imageHeight: 20,
+                        imageName: Gogglelogo,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 180.0,
+                      height: 60.0,
+                      child: CustomOutlinedButttonWidget(
+                        onPressed: () {},
+                        title: 'Facebook',
+                        textSize: 16,
+                        textColor: Colors.black54,
+                        imageName: Fblogo,
+                        imageHeight: 20,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 60,
+                ),
+                Center(
+                  child: RichText(
+                    text: TextSpan(
+                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: 'Not a memeber?',
+                        ),
+                        TextSpan(
+                          text: "Sign Up",
+                          style: TextStyle(
+                              color: Colors.deepOrangeAccent, fontSize: 18),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Get.to(() => SignUp());
+                              print("Click");
+                            },
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
     );
+  }
+
+  String validateEmailOrNumber(String value) {
+    String pat = r'(^[0-9]*$)';
+    RegExp regExp = new RegExp(pat);
+    if (regExp.hasMatch(value)) {
+      String patttern = r'(^[0-9]*$)';
+      RegExp regExp = new RegExp(patttern);
+      if (value.length == 0) {
+        return "Mobile or Email is Required";
+      } else if (value.length != 10) {
+        return "Mobile number must 10 digits";
+      }
+
+      return null;
+    } else {
+      String pattern =
+          r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+      RegExp regExp = new RegExp(pattern);
+      if (value.length == 0) {
+        return "Email is Required";
+      } else if (!regExp.hasMatch(value)) {
+        return "Invalid Email";
+      } else {
+        return null;
+      }
+    }
+  }
+
+  _sendToServer() {
+    if (_key.currentState.validate()) {
+      // No any error in validation
+      _key.currentState.save();
+      Get.to(() => SignInPage());
+    } else {
+      // validation error
+      setState(() {
+        AutovalidateMode.always;
+      });
+    }
   }
 }

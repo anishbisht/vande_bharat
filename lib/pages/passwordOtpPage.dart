@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:moblie_ui/image_path.dart';
+import 'package:moblie_ui/pages/loginSucessPage.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 import 'package:otp_text_field/otp_text_field.dart';
 import 'package:otp_text_field/style.dart';
@@ -77,6 +79,7 @@ class _PasswordOtpPageState extends State<PasswordOtpPage> {
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: OTPTextField(
+                  
                   keyboardType: TextInputType.number,
                   length: 4,
                   width: MediaQuery.of(context).size.width,
@@ -99,19 +102,13 @@ class _PasswordOtpPageState extends State<PasswordOtpPage> {
                   child: CustomTextButtonWidget(
                     title: 'Next',
                     buttonColor: Colors.orange[700],
-                    // onPressed: () {
-                    //   Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) => LoginSucessPage(),
-                    //     ),
-                    //   );
-                    // },
                     textStyle: TextStyle(
                       fontSize: 16,
                       color: Colors.white,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(() => LoginSucessPage());
+                    },
                   ),
                 ),
               ),
