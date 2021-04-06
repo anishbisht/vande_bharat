@@ -62,7 +62,7 @@ class _CustomerOrderDetailsState extends State<CustomerOrderDetails> {
         body: SafeArea(
           child: SingleChildScrollView(
             child: Container(
-              margin: EdgeInsets.all(10),
+              margin: EdgeInsets.all(20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -72,7 +72,7 @@ class _CustomerOrderDetailsState extends State<CustomerOrderDetails> {
                       children: <Widget>[
                         Container(
                           height: 80,
-                          width: MediaQuery.of(context).size.width - 20,
+                          width: MediaQuery.of(context).size.width - 40,
                           child: Theme(
                             data: ThemeData(
                                 accentColor: Colors.green,
@@ -474,7 +474,7 @@ class _CustomerOrderDetailsState extends State<CustomerOrderDetails> {
                   ),
                   SizedBox(
                     height: 50,
-                    width: 390,
+                    width: MediaQuery.of(context).size.width - 20,
                     child: CustomTextButtonWidget(
                       title: 'Cancel Order',
                       onPressed: () {},

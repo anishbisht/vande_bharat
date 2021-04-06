@@ -6,6 +6,9 @@ import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/pages/filterPage.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 import 'package:moblie_ui/widgets/list_widget.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+
+//import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MobileCategory extends StatefulWidget {
   static const String routeName = '/mobile';
@@ -17,6 +20,9 @@ class MobileCategory extends StatefulWidget {
 class _MobileCategoryState extends State<MobileCategory> {
   @override
   Widget build(BuildContext context) {
+    double grid_width = MediaQuery.of(context).size.width * 0.6;
+    double grid_height = MediaQuery.of(context).size.height * 0.8;
+
     SystemChrome.setEnabledSystemUIOverlays([]);
 
     return Scaffold(
@@ -229,83 +235,162 @@ class _MobileCategoryState extends State<MobileCategory> {
           ),
         ),
       ),
-      body: Container(
-        margin: EdgeInsets.all(10),
-        child: GridView.builder(
-          itemCount: ListWidgets.mobileList.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              childAspectRatio: 0.6 / 0.8, crossAxisCount: 2),
-          itemBuilder: (_, i) {
-            var v = ListWidgets.mobileList.elementAt(i);
-            return Container(
-              margin: v.containerMargin,
-              padding: v.containerPadding,
-              height: v.containerHeight,
-              width: v.containerWidth,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(
-                  color: Colors.grey.shade300,
+      body: SafeArea(
+        child: Container(
+          margin: EdgeInsets.all(10),
+          child: new StaggeredGridView.countBuilder(
+            crossAxisCount: 4,
+            itemCount: ListWidgets.mobileList.length,
+            itemBuilder: (BuildContext context, int index) {
+              var v = ListWidgets.mobileList.elementAt(index);
+              return Container(
+                margin: v.containerMargin,
+                padding: v.containerPadding,
+                // width: v.containerWidth,
+                // height: v.containerHeight,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(
+                    color: Colors.grey.shade300,
+                  ),
                 ),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Center(
-                    child: Image.asset(
-                      v.imageName,
-                      height: v.imageHeight,
-                      fit: v.fit,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Center(
+                      child: Image.asset(
+                        v.imageName,
+                        height: v.imageHeight,
+                        fit: v.fit,
+                      ),
                     ),
-                  ),
-                  Text(
-                    v.textName1,
-                    style: TextStyle(
-                        fontWeight: v.fontWeight1, fontSize: v.fontSize1),
-                  ),
-                  Text(
-                    v.textName2,
-                    style: TextStyle(
-                        fontWeight: v.fontWeight2, fontSize: v.fontSize2),
-                  ),
-                  SizedBox(
-                    height: 7,
-                  ),
-                  Text(
-                    v.textName3,
-                    style: TextStyle(
-                        fontSize: v.fontSize3, fontWeight: v.fontWeight3),
-                  ),
-                  SizedBox(
-                    height: 7,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        v.textName4,
-                        style: TextStyle(
-                          fontSize: v.fontSize4,
-                          fontWeight: v.fontWeight4,
-                          color: v.color4,
-                        ),
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Icon(
-                            Icons.star,
-                            color: Colors.yellow[700],
-                            size: 10.0,
+                    Text(
+                      v.textName1,
+                      style: TextStyle(
+                          fontWeight: v.fontWeight1, fontSize: v.fontSize1),
+                    ),
+                    Text(
+                      v.textName2,
+                      style: TextStyle(
+                          fontWeight: v.fontWeight2, fontSize: v.fontSize2),
+                    ),
+                    SizedBox(
+                      height: 7,
+                    ),
+                    Text(
+                      v.textName3,
+                      style: TextStyle(
+                          fontSize: v.fontSize3, fontWeight: v.fontWeight3),
+                    ),
+                    SizedBox(
+                      height: 7,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          v.textName4,
+                          style: TextStyle(
+                            fontSize: v.fontSize4,
+                            fontWeight: v.fontWeight4,
+                            color: v.color4,
                           ),
-                          Text(v.textName5)
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            );
-          },
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Icon(
+                              Icons.star,
+                              color: Colors.yellow[700],
+                              size: 10.0,
+                            ),
+                            Text(v.textName5)
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              );
+            },
+            staggeredTileBuilder: (int index) => new StaggeredTile.count(2, 3),
+            mainAxisSpacing: 4.0,
+            crossAxisSpacing: 4.0,
+          ),
+          // child: StaggeredGridView.countBuilder(
+          //   itemCount: ListWidgets.mobileList.length,
+          //   crossAxisCount: 2,
+          //   itemBuilder: (BuildContext context, int index) {
+          //     var v = ListWidgets.mobileList.elementAt(index);
+          //     return Container(
+          //       margin: v.containerMargin,
+          //       padding: v.containerPadding,
+          //       // width: v.containerWidth,
+          //       // height: v.containerHeight,
+          //       decoration: BoxDecoration(
+          //         color: Colors.white,
+          //         border: Border.all(
+          //           color: Colors.grey.shade300,
+          //         ),
+          //       ),
+          //       child: Column(
+          //         crossAxisAlignment: CrossAxisAlignment.start,
+          //         children: <Widget>[
+          //           Center(
+          //             child: Image.asset(
+          //               v.imageName,
+          //               height: v.imageHeight,
+          //               fit: v.fit,
+          //             ),
+          //           ),
+          //           Text(
+          //             v.textName1,
+          //             style: TextStyle(
+          //                 fontWeight: v.fontWeight1, fontSize: v.fontSize1),
+          //           ),
+          //           Text(
+          //             v.textName2,
+          //             style: TextStyle(
+          //                 fontWeight: v.fontWeight2, fontSize: v.fontSize2),
+          //           ),
+          //           SizedBox(
+          //             height: 7,
+          //           ),
+          //           Text(
+          //             v.textName3,
+          //             style: TextStyle(
+          //                 fontSize: v.fontSize3, fontWeight: v.fontWeight3),
+          //           ),
+          //           SizedBox(
+          //             height: 7,
+          //           ),
+          //           Row(
+          //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //             children: <Widget>[
+          //               Text(
+          //                 v.textName4,
+          //                 style: TextStyle(
+          //                   fontSize: v.fontSize4,
+          //                   fontWeight: v.fontWeight4,
+          //                   color: v.color4,
+          //                 ),
+          //               ),
+          //               Row(
+          //                 children: <Widget>[
+          //                   Icon(
+          //                     Icons.star,
+          //                     color: Colors.yellow[700],
+          //                     size: 10.0,
+          //                   ),
+          //                   Text(v.textName5)
+          //                 ],
+          //               ),
+          //             ],
+          //           ),
+          //         ],
+          //       ),
+          //     );
+          //   },
+          // ),
         ),
       ),
     );

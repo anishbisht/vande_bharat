@@ -130,8 +130,8 @@ class _CartPageState extends State<CartPage> {
                       Expanded(
                         flex: 7,
                         child: Container(
-                          margin: EdgeInsets.all(10),
-                          padding: EdgeInsets.all(5),
+                          margin: EdgeInsets.fromLTRB(10, 10, 0, 10),
+                          padding: EdgeInsets.fromLTRB(5, 5, 0, 5),
                           height: 170,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -204,7 +204,6 @@ class _CartPageState extends State<CartPage> {
                               //     Icon(Icons.close),
                               //   ],
                               // ),// Row(
-                              
                             ],
                           ),
                         ),
@@ -238,8 +237,8 @@ class _CartPageState extends State<CartPage> {
                       Expanded(
                         flex: 7,
                         child: Container(
-                          margin: EdgeInsets.all(10),
-                          padding: EdgeInsets.all(5),
+                          margin: EdgeInsets.fromLTRB(10, 10, 0, 10),
+                          padding: EdgeInsets.fromLTRB(5, 5, 0, 5),
                           height: 170,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -451,7 +450,7 @@ class _CartPageState extends State<CartPage> {
                 ),
                 SizedBox(
                   height: 50,
-                  width: 390,
+                  width: MediaQuery.of(context).size.width,
                   child: CustomTextButtonWidget(
                     title: 'Place Order',
                     onPressed: () {},

@@ -1,8 +1,10 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/pages/passwordOtpPage.dart';
+import 'package:moblie_ui/pages/signInEmailNumberPage.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 import 'package:moblie_ui/widgets/customOutlinedButtonWidget.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -27,15 +29,15 @@ class _SignUpState extends State<SignUp> {
           child: Form(
             key: _key,
             autovalidateMode: AutovalidateMode.disabled,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                SizedBox(
-                  height: 60,
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                  child: Text(
+            child: Container(
+              margin: EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  SizedBox(
+                    height: 60,
+                  ),
+                  Text(
                     "Sign Up",
                     style: TextStyle(
                         fontSize: 36,
@@ -45,33 +47,24 @@ class _SignUpState extends State<SignUp> {
                         fontStyle: FontStyle.normal),
                     textAlign: TextAlign.left,
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                  child: Text(
+                  Text(
                     "Enter your details to continue.",
                     style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w400,
                         color: Colors.black54),
                   ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                  child: Text(
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
                     "Name",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                   ),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                  child: TextFormField(
+                  SizedBox(
+                    height: 5,
+                  ),
+                  TextFormField(
                     obscureText: false,
                     cursorColor: Colors.orange[700],
                     decoration: InputDecoration(
@@ -103,23 +96,17 @@ class _SignUpState extends State<SignUp> {
                     ),
                     validator: validateName,
                   ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                  child: Text(
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Text(
                     "Mobile Number",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                   ),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                  child: TextFormField(
+                  SizedBox(
+                    height: 5,
+                  ),
+                  TextFormField(
                     obscureText: false,
                     cursorColor: Colors.orange[700],
                     decoration: InputDecoration(
@@ -156,23 +143,17 @@ class _SignUpState extends State<SignUp> {
                     ),
                     validator: validateMobile,
                   ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                  child: Text(
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Text(
                     "Email",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                   ),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                  child: TextFormField(
+                  SizedBox(
+                    height: 5,
+                  ),
+                  TextFormField(
                       obscureText: false,
                       cursorColor: Colors.orange[700],
                       decoration: InputDecoration(
@@ -200,23 +181,17 @@ class _SignUpState extends State<SignUp> {
                         ),
                       ),
                       validator: validateEmail),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                  child: Text(
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Text(
                     "Create Password",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                   ),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                  child: TextFormField(
+                  SizedBox(
+                    height: 5,
+                  ),
+                  TextFormField(
                     obscureText: true,
                     cursorColor: Colors.orange[700],
                     decoration: InputDecoration(
@@ -249,89 +224,96 @@ class _SignUpState extends State<SignUp> {
                     ),
                     validator: validatePassword,
                   ),
-                ),
-                SizedBox(
-                  height: 25,
-                ),
-                Center(
-                  child: SizedBox(
-                    width: 380,
+                  SizedBox(
+                    height: 25,
+                  ),
+                  Center(
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width - 20,
+                      height: 50,
+                      child: CustomTextButtonWidget(
+                        title: 'Sign Up',
+                        buttonColor: HexColor('#EF7C1F'),
+                        onPressed: _sendToServer,
+                        textStyle: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Expanded(child: Divider()),
+                      Text('or Sign in with'),
+                      Expanded(
+                        child: Divider(),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
                     height: 50,
-                    child: CustomTextButtonWidget(
-                      title: 'Sign Up',
-                      buttonColor: HexColor('#EF7C1F'),
-                      onPressed: _sendToServer,
-                      textStyle: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisSize: MainAxisSize.max,
+                    children: <Widget>[
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 1 / 2 - 30,
+                        height: 60.0,
+                        child: CustomOutlinedButttonWidget(
+                          onPressed: () {},
+                          title: 'Google',
+                          textSize: 18,
+                          textColor: Colors.black54,
+                          imageHeight: 20,
+                          imageName: Gogglelogo,
+                        ),
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 1 / 2 - 20,
+                        height: 60.0,
+                        child: CustomOutlinedButttonWidget(
+                          onPressed: () {},
+                          title: 'Facebook',
+                          textSize: 16,
+                          textColor: Colors.black54,
+                          imageName: Fblogo,
+                          imageHeight: 20,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Center(
+                    child: RichText(
+                      text: TextSpan(
+                        style: TextStyle(color: Colors.black, fontSize: 18),
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: 'Already a memeber?',
+                          ),
+                          TextSpan(
+                            text: "Sign In",
+                            style: TextStyle(
+                                color: Colors.deepOrangeAccent, fontSize: 18),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Get.to(() => SingInEmailPasswordPage());
+                                print("Click");
+                              },
+                          ),
+                        ],
                       ),
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: 40,
-                ),
-                Center(
-                  child: Text(
-                    '------------------------ or Sign Up with ------------------------',
-                    style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600),
-                  ),
-                ),
-                SizedBox(
-                  height: 50,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  mainAxisSize: MainAxisSize.max,
-                  children: <Widget>[
-                    SizedBox(
-                      width: 180.0,
-                      height: 60.0,
-                      child: CustomOutlinedButttonWidget(
-                        onPressed: () {},
-                        title: 'Google',
-                        textSize: 18,
-                        textColor: Colors.black54,
-                        imageHeight: 20,
-                        imageName: Gogglelogo,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 180.0,
-                      height: 60.0,
-                      child: CustomOutlinedButttonWidget(
-                        onPressed: () {},
-                        title: 'Facebook',
-                        textSize: 16,
-                        textColor: Colors.black54,
-                        imageName: Fblogo,
-                        imageHeight: 20,
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 50,
-                ),
-                Center(
-                  child: RichText(
-                    text: TextSpan(
-                      text: 'Already a member?',
-                      style: TextStyle(color: Colors.black, fontSize: 18),
-                      children: <TextSpan>[
-                        TextSpan(
-                          text: ' Sign In',
-                          style: TextStyle(
-                              color: Colors.deepOrangeAccent, fontSize: 18),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

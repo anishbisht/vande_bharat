@@ -62,7 +62,7 @@ class _FilterPageState extends State<FilterPage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     ConstrainedBox(
-                      constraints: BoxConstraints(minWidth: 80, minHeight: 50),
+                      constraints: BoxConstraints(minWidth: 70, minHeight: 50),
                       child: OutlinedButton(
                         style: OutlinedButton.styleFrom(
                             shape: new RoundedRectangleBorder(
@@ -79,7 +79,7 @@ class _FilterPageState extends State<FilterPage> {
                       width: 10,
                     ),
                     ConstrainedBox(
-                      constraints: BoxConstraints(minWidth: 80, minHeight: 50),
+                      constraints: BoxConstraints(minWidth: 70, minHeight: 50),
                       child: OutlinedButton(
                         style: OutlinedButton.styleFrom(
                             shape: new RoundedRectangleBorder(
@@ -96,7 +96,7 @@ class _FilterPageState extends State<FilterPage> {
                       width: 10,
                     ),
                     ConstrainedBox(
-                      constraints: BoxConstraints(minWidth: 80, minHeight: 50),
+                      constraints: BoxConstraints(minWidth: 70, minHeight: 50),
                       child: OutlinedButton(
                         style: OutlinedButton.styleFrom(
                             shape: new RoundedRectangleBorder(
@@ -118,7 +118,7 @@ class _FilterPageState extends State<FilterPage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     ConstrainedBox(
-                      constraints: BoxConstraints(minWidth: 80, minHeight: 50),
+                      constraints: BoxConstraints(minWidth: 70, minHeight: 50),
                       child: OutlinedButton(
                         style: OutlinedButton.styleFrom(
                             shape: new RoundedRectangleBorder(
@@ -135,7 +135,7 @@ class _FilterPageState extends State<FilterPage> {
                       width: 10,
                     ),
                     ConstrainedBox(
-                      constraints: BoxConstraints(minWidth: 80, minHeight: 50),
+                      constraints: BoxConstraints(minWidth: 70, minHeight: 50),
                       child: OutlinedButton(
                         style: OutlinedButton.styleFrom(
                             shape: new RoundedRectangleBorder(
@@ -152,7 +152,7 @@ class _FilterPageState extends State<FilterPage> {
                       width: 10,
                     ),
                     ConstrainedBox(
-                      constraints: BoxConstraints(minWidth: 80, minHeight: 50),
+                      constraints: BoxConstraints(minWidth: 70, minHeight: 50),
                       child: OutlinedButton(
                         style: OutlinedButton.styleFrom(
                             shape: new RoundedRectangleBorder(
@@ -325,7 +325,7 @@ class _FilterPageState extends State<FilterPage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     ConstrainedBox(
-                      constraints: BoxConstraints(minWidth: 100, minHeight: 50),
+                      constraints: BoxConstraints(minWidth: 80, minHeight: 50),
                       child: OutlinedButton(
                         style: OutlinedButton.styleFrom(
                             shape: new RoundedRectangleBorder(
@@ -354,7 +354,7 @@ class _FilterPageState extends State<FilterPage> {
                       width: 10,
                     ),
                     ConstrainedBox(
-                      constraints: BoxConstraints(minWidth: 100, minHeight: 50),
+                      constraints: BoxConstraints(minWidth: 80, minHeight: 50),
                       child: OutlinedButton(
                         style: OutlinedButton.styleFrom(
                             shape: new RoundedRectangleBorder(
@@ -381,7 +381,7 @@ class _FilterPageState extends State<FilterPage> {
                       width: 10,
                     ),
                     ConstrainedBox(
-                      constraints: BoxConstraints(minWidth: 100, minHeight: 50),
+                      constraints: BoxConstraints(minWidth: 80, minHeight: 50),
                       child: OutlinedButton(
                         style: OutlinedButton.styleFrom(
                             shape: new RoundedRectangleBorder(
@@ -415,7 +415,7 @@ class _FilterPageState extends State<FilterPage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     ConstrainedBox(
-                      constraints: BoxConstraints(minWidth: 100, minHeight: 50),
+                      constraints: BoxConstraints(minWidth: 80, minHeight: 50),
                       child: OutlinedButton(
                         style: OutlinedButton.styleFrom(
                             shape: new RoundedRectangleBorder(
@@ -442,7 +442,7 @@ class _FilterPageState extends State<FilterPage> {
                       width: 10,
                     ),
                     ConstrainedBox(
-                      constraints: BoxConstraints(minWidth: 100, minHeight: 50),
+                      constraints: BoxConstraints(minWidth: 80, minHeight: 50),
                       child: OutlinedButton(
                         style: OutlinedButton.styleFrom(
                             shape: new RoundedRectangleBorder(
@@ -471,7 +471,7 @@ class _FilterPageState extends State<FilterPage> {
                       width: 10,
                     ),
                     ConstrainedBox(
-                      constraints: BoxConstraints(minWidth: 100, minHeight: 50),
+                      constraints: BoxConstraints(minWidth: 80, minHeight: 50),
                       child: OutlinedButton(
                         style: OutlinedButton.styleFrom(
                             shape: new RoundedRectangleBorder(

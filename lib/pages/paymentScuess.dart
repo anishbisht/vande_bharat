@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:moblie_ui/image_path.dart';
+import 'package:moblie_ui/pages/homePage.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 
 class PaymentSucessPage extends StatefulWidget {
@@ -17,7 +19,7 @@ class _PaymentSucessPageState extends State<PaymentSucessPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             SizedBox(
-              height: 80,
+              height: MediaQuery.of(context).size.width * 1 / 2 - 150,
             ),
             Image.asset(
               sucessLogo,
@@ -43,10 +45,12 @@ class _PaymentSucessPageState extends State<PaymentSucessPage> {
             ),
             SizedBox(
               height: 50,
-              width: 380,
+              width: MediaQuery.of(context).size.width - 20,
               child: CustomTextButtonWidget(
                 title: 'Back to Home',
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(() => HomePage());
+                },
                 buttonColor: Colors.orange[700],
                 textStyle: TextStyle(
                   fontSize: 18,
