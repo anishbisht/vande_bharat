@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 
@@ -194,12 +195,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                       title: 'Save',
                       buttonColor: HexColor('#EF7C1F'),
                       onPressed: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => LoginSucessPage(),
-                        //   ),
-                        // );
+                        Get.back();
                       },
                       textStyle: TextStyle(
                         fontSize: 18,
