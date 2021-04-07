@@ -39,19 +39,24 @@ import 'package:moblie_ui/pages/signUpPage.dart';
 import 'package:moblie_ui/pages/splashScreePage.dart';
 import 'package:moblie_ui/pages/wishListPage.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColorLight: Colors.white,
-        primaryColorBrightness: Brightness.light,
+    return ScreenUtilInit(
+      designSize: Size(360, 690),
+      allowFontScaling: false,
+      builder: () => GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primaryColorLight: Colors.white,
+          primaryColorBrightness: Brightness.light,
+        ),
+        home: ItemSearchedPage(),
       ),
-      home: SingInEmailPasswordPage(),
     );
   }
 }

@@ -105,12 +105,16 @@ class CustomProductWidget extends StatelessWidget {
                   color: color4,
                 ),
               ),
-              Icon(
-                Icons.star,
-                color: Colors.yellow[700],
-                size: 10.0,
+              Row(
+                children: <Widget>[
+                  Icon(
+                    Icons.star,
+                    color: Colors.yellow[700],
+                    size: 10.0,
+                  ),
+                  Text(textName5),
+                ],
               ),
-              Text(textName5)
             ],
           ),
         ],

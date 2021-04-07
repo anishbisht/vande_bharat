@@ -35,51 +35,44 @@ class _PasswordOtpPageState extends State<PasswordOtpPage> {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              SizedBox(
-                height: 20,
-              ),
-              Center(
-                child: Image.asset(
-                  appLogo,
-                  height: 130,
-                  fit: BoxFit.fill,
+          child: Container(
+            margin: EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Center(
+                  child: Image.asset(
+                    appLogo,
+                    height: 130,
+                    fit: BoxFit.fill,
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 50,
-              ),
-              Center(
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+                SizedBox(
+                  height: 50,
+                ),
+                Center(
                   child: Text(
                     "Enter OTP sent to 9376543210. Wrong Mobile number Click Here",
                     style: TextStyle(fontSize: 19, fontWeight: FontWeight.w500),
                     textAlign: TextAlign.center,
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 40,
-              ),
-              Center(
-                child: Text(
-                  "OTP",
-                  style: TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.w500,
+                SizedBox(
+                  height: 40,
+                ),
+                Center(
+                  child: Text(
+                    "OTP",
+                    style: TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: OTPTextField(
-                  
+                SizedBox(
+                  height: 5,
+                ),
+                OTPTextField(
                   keyboardType: TextInputType.number,
                   length: 4,
                   width: MediaQuery.of(context).size.width,
@@ -91,37 +84,37 @@ class _PasswordOtpPageState extends State<PasswordOtpPage> {
                     print("Completed: " + pin);
                   },
                 ),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Center(
-                child: SizedBox(
-                  width: 300,
-                  height: 55,
-                  child: CustomTextButtonWidget(
-                    title: 'Next',
-                    buttonColor: Colors.orange[700],
-                    textStyle: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
+                SizedBox(
+                  height: 30,
+                ),
+                Center(
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width - 20,
+                    height: 55,
+                    child: CustomTextButtonWidget(
+                      title: 'Next',
+                      buttonColor: Colors.orange[700],
+                      textStyle: TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        Get.to(() => LoginSucessPage());
+                      },
                     ),
-                    onPressed: () {
-                      Get.to(() => LoginSucessPage());
-                    },
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Center(
-                child: Text(
-                  "Resend OTP:" + " 8 sec",
-                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
+                SizedBox(
+                  height: 20,
                 ),
-              )
-            ],
+                Center(
+                  child: Text(
+                    "Resend OTP:" + " 8 sec",
+                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

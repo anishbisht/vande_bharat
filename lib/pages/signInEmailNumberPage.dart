@@ -70,34 +70,31 @@ class _SingInEmailPasswordPageState extends State<SingInEmailPasswordPage> {
                   ),
                   Container(
                     height: 80,
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                      child: TextFormField(
-                        cursorColor: Colors.orange[700],
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Colors.orange[700],
-                                width: 1,
-                              ),
-                              borderRadius: BorderRadius.circular(10)),
-                          filled: true,
-                          fillColor: HexColor('#F2F2F2'),
-                          enabledBorder: OutlineInputBorder(
+                    child: TextFormField(
+                      cursorColor: Colors.orange[700],
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.orange[700],
+                              width: 1,
                             ),
-                            borderRadius: BorderRadius.circular(10.0),
+                            borderRadius: BorderRadius.circular(10)),
+                        filled: true,
+                        fillColor: HexColor('#F2F2F2'),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.orange[700],
                           ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Colors.orange[700],
-                            ),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
-                        validator: validateEmailOrNumber,
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.orange[700],
+                          ),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
                       ),
+                      validator: validateEmailOrNumber,
                     ),
                   ),
                   SizedBox(
@@ -134,11 +131,11 @@ class _SingInEmailPasswordPageState extends State<SingInEmailPasswordPage> {
                     height: 30,
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     mainAxisSize: MainAxisSize.max,
                     children: <Widget>[
                       SizedBox(
-                        width: MediaQuery.of(context).size.width * 1 / 2 - 20,
+                        width: MediaQuery.of(context).size.width * 1 / 2 - 30,
                         height: 60.0,
                         child: CustomOutlinedButttonWidget(
                           onPressed: () {},

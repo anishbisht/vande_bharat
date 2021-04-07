@@ -32,7 +32,7 @@ class _SearchSuggestionListPageState extends State<SearchSuggestionListPage> {
               ),
               Container(
                 margin: EdgeInsets.fromLTRB(10, 10, 10, 8),
-                width: 300,
+                width: MediaQuery.of(context).size.width - 80,
                 child: TextField(
                   textAlignVertical: TextAlignVertical.bottom,
                   controller: _controllersearch,

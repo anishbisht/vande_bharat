@@ -77,7 +77,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            margin: EdgeInsets.fromLTRB(10, 20, 10, 10),
+            margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
             child: Form(
               key: _key,
               autovalidateMode: AutovalidateMode.disabled,
@@ -122,242 +122,232 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       ),
                     ),
                   ),
-                  Padding(
-                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                      child: Text("Full Name",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500, fontSize: 15))),
+
+                  Text("Full Name",
+                      style:
+                          TextStyle(fontWeight: FontWeight.w500, fontSize: 15)),
                   SizedBox(
                     height: 10,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                    child: TextFormField(
-                      obscureText: false,
-                      cursorColor: Colors.orange[700],
-                      decoration: InputDecoration(
-                        filled: true,
-                        focusColor: HexColor('#F2F2F2'),
-                        hintText: 'Name',
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          borderSide: BorderSide(
-                            color: Colors.orange[700],
-                          ),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          borderSide: BorderSide(
-                            color: Colors.white,
-                          ),
-                        ),
-                        prefixIcon: Icon(
-                          Icons.person_outline_outlined,
-                          color: Colors.deepOrangeAccent,
-                        ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
+
+                  TextFormField(
+                    obscureText: false,
+                    cursorColor: Colors.orange[700],
+                    decoration: InputDecoration(
+                      filled: true,
+                      focusColor: HexColor('#F2F2F2'),
+                      hintText: 'Name',
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide(
+                          color: Colors.orange[700],
                         ),
                       ),
-                      validator: validateName,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                        ),
+                      ),
+                      prefixIcon: Icon(
+                        Icons.person_outline_outlined,
+                        color: Colors.deepOrangeAccent,
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
                     ),
+                    validator: validateName,
                   ),
+
                   SizedBox(
                     height: 10,
                   ),
-                  Padding(
-                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                      child: Text("Gender",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500, fontSize: 15))),
+
+                  Text("Gender",
+                      style:
+                          TextStyle(fontWeight: FontWeight.w500, fontSize: 15)),
                   SizedBox(
                     height: 10,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                    child: TextFormField(
-                      obscureText: false,
-                      cursorColor: Colors.orange[700],
-                      decoration: InputDecoration(
-                        filled: true,
-                        focusColor: HexColor('#F2F2F2'),
-                        hintText: 'Male',
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          borderSide: BorderSide(
-                            color: Colors.orange[700],
-                          ),
+
+                  TextFormField(
+                    obscureText: false,
+                    cursorColor: Colors.orange[700],
+                    decoration: InputDecoration(
+                      filled: true,
+                      focusColor: HexColor('#F2F2F2'),
+                      hintText: 'Male',
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide(
+                          color: Colors.orange[700],
                         ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          borderSide: BorderSide(
-                            color: Colors.white,
-                          ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide(
+                          color: Colors.white,
                         ),
-                        prefixIcon: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Image.asset(
-                            GenderIcon,
-                            width: 10,
-                            height: 10,
-                          ),
+                      ),
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Image.asset(
+                          GenderIcon,
+                          width: 10,
+                          height: 10,
                         ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
                   ),
+
                   SizedBox(
                     height: 10,
                   ),
-                  Padding(
-                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                      child: Text("Birth Date",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500, fontSize: 15))),
+
+                  Text("Birth Date",
+                      style:
+                          TextStyle(fontWeight: FontWeight.w500, fontSize: 15)),
                   SizedBox(
                     height: 10,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                    child: TextFormField(
-                      keyboardType: TextInputType.datetime,
-                      obscureText: false,
-                      cursorColor: Colors.orange[700],
-                      decoration: InputDecoration(
-                        filled: true,
-                        focusColor: HexColor('#F2F2F2'),
-                        hintText: 'Select Date',
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          borderSide: BorderSide(
-                            color: Colors.orange[700],
-                          ),
+
+                  TextFormField(
+                    keyboardType: TextInputType.datetime,
+                    obscureText: false,
+                    cursorColor: Colors.orange[700],
+                    decoration: InputDecoration(
+                      filled: true,
+                      focusColor: HexColor('#F2F2F2'),
+                      hintText: 'Select Date',
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide(
+                          color: Colors.orange[700],
                         ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          borderSide: BorderSide(
-                            color: Colors.white,
-                          ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide(
+                          color: Colors.white,
                         ),
-                        prefixIcon: Icon(
-                          Icons.calendar_today,
-                          color: Colors.deepOrangeAccent,
-                        ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
+                      ),
+                      prefixIcon: Icon(
+                        Icons.calendar_today,
+                        color: Colors.deepOrangeAccent,
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
                   ),
+
                   SizedBox(
                     height: 10,
                   ),
-                  Padding(
-                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                      child: Text("Email",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500, fontSize: 15))),
+
+                  Text("Email",
+                      style:
+                          TextStyle(fontWeight: FontWeight.w500, fontSize: 15)),
                   SizedBox(
                     height: 10,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                    child: TextFormField(
-                      keyboardType: TextInputType.emailAddress,
-                      validator: validateEmail,
-                      obscureText: false,
-                      cursorColor: Colors.orange[700],
-                      decoration: InputDecoration(
-                        filled: true,
-                        focusColor: HexColor('#F2F2F2'),
-                        hintText: 'Email',
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          borderSide: BorderSide(
-                            color: Colors.orange[700],
-                          ),
+
+                  TextFormField(
+                    keyboardType: TextInputType.emailAddress,
+                    validator: validateEmail,
+                    obscureText: false,
+                    cursorColor: Colors.orange[700],
+                    decoration: InputDecoration(
+                      filled: true,
+                      focusColor: HexColor('#F2F2F2'),
+                      hintText: 'Email',
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide(
+                          color: Colors.orange[700],
                         ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          borderSide: BorderSide(
-                            color: Colors.white,
-                          ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide(
+                          color: Colors.white,
                         ),
-                        prefixIcon: Icon(
-                          Icons.mail_outline_outlined,
-                          color: Colors.deepOrangeAccent,
-                        ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
+                      ),
+                      prefixIcon: Icon(
+                        Icons.mail_outline_outlined,
+                        color: Colors.deepOrangeAccent,
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
                   ),
+
                   SizedBox(
                     height: 10,
                   ),
-                  Padding(
-                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                      child: Text("Mobile",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500, fontSize: 15))),
+
+                  Text("Mobile",
+                      style:
+                          TextStyle(fontWeight: FontWeight.w500, fontSize: 15)),
                   SizedBox(
                     height: 10,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                    child: TextFormField(
-                      keyboardType: TextInputType.number,
-                      validator: validateMobile,
-                      obscureText: false,
-                      cursorColor: Colors.orange[700],
-                      decoration: InputDecoration(
-                        filled: true,
-                        focusColor: HexColor('#F2F2F2'),
-                        hintText: 'Mobile Number',
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          borderSide: BorderSide(
-                            color: Colors.orange[700],
-                          ),
+
+                  TextFormField(
+                    keyboardType: TextInputType.number,
+                    validator: validateMobile,
+                    obscureText: false,
+                    cursorColor: Colors.orange[700],
+                    decoration: InputDecoration(
+                      filled: true,
+                      focusColor: HexColor('#F2F2F2'),
+                      hintText: 'Mobile Number',
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide(
+                          color: Colors.orange[700],
                         ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          borderSide: BorderSide(
-                            color: Colors.white,
-                          ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide(
+                          color: Colors.white,
                         ),
-                        prefixIcon: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Image.asset(
-                            MoblieIcon,
-                            width: 10,
-                            height: 10,
-                            // fit: BoxFit.fill,
-                          ),
+                      ),
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Image.asset(
+                          MoblieIcon,
+                          width: 10,
+                          height: 10,
+                          // fit: BoxFit.fill,
                         ),
-                        suffixIcon: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Image.asset(
-                            SucessIcon,
-                            width: 10,
-                            height: 10,
-                          ),
+                      ),
+                      suffixIcon: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Image.asset(
+                          SucessIcon,
+                          width: 10,
+                          height: 10,
                         ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
                   ),
+
                   SizedBox(
                     height: 20,
                   ),
                   Center(
                     child: SizedBox(
-                      width: 380,
+                      width: MediaQuery.of(context).size.width - 20,
                       height: 50,
                       child: CustomTextButtonWidget(
                         title: 'Update',
@@ -450,7 +440,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
     if (_key.currentState.validate()) {
       // No any error in validation
       _key.currentState.save();
-      Get.to(() => ProfilePae());
+      Get.to(() => ProfilePage());
     } else {
       // validation error
       setState(() {

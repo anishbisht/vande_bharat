@@ -56,12 +56,12 @@ class _HomePageState extends State<HomePage> {
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(30),
             child: SizedBox(
-              height: 40,
+              height: 50,
               child: Row(
                 children: <Widget>[
                   Container(
                     margin: EdgeInsets.fromLTRB(20, 0, 10, 8),
-                    width: 300,
+                    width: MediaQuery.of(context).size.width - 120,
                     child: TextField(
                       textAlignVertical: TextAlignVertical.bottom,
                       controller: _controllersearch,

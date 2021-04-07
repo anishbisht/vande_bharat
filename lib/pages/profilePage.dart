@@ -8,12 +8,12 @@ import 'package:moblie_ui/pages/customerOrder.dart';
 import 'package:moblie_ui/pages/navigationDrawer.dart';
 import 'package:moblie_ui/pages/wishListPage.dart';
 
-class ProfilePae extends StatefulWidget {
+class ProfilePage extends StatefulWidget {
   @override
-  _ProfilePaeState createState() => _ProfilePaeState();
+  _ProfilePageState createState() => _ProfilePageState();
 }
 
-class _ProfilePaeState extends State<ProfilePae> {
+class _ProfilePageState extends State<ProfilePage> {
   GlobalKey<ScaffoldState> _key = GlobalKey();
 
   @override
@@ -48,6 +48,7 @@ class _ProfilePaeState extends State<ProfilePae> {
                 children: <Widget>[
                   Container(
                     height: 100,
+                    width: MediaQuery.of(context).size.width - 20,
                     margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
                     padding: EdgeInsets.all(10),
                     decoration: new BoxDecoration(
@@ -59,6 +60,7 @@ class _ProfilePaeState extends State<ProfilePae> {
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      // crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -68,10 +70,14 @@ class _ProfilePaeState extends State<ProfilePae> {
                               style: TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.w500),
                             ),
-                            Icon(
-                              Icons.edit,
-                              color: Colors.orange,
-                            ),
+                            Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.edit,
+                                    color: Colors.orange,
+                                  ),
+                                ]),
                           ],
                         ),
                         Text(
@@ -92,12 +98,12 @@ class _ProfilePaeState extends State<ProfilePae> {
                     top: -50.0,
                     child: Container(
                       height: 200,
-                      width: 80,
+                      width: 100,
                       child: ClipRRect(
                         child: Image.asset(
                           ProfileImage,
-                          height: 60,
-                          fit: BoxFit.contain,
+                          height: 50,
+                          fit: BoxFit.fitWidth,
                         ),
                       ),
                     ),

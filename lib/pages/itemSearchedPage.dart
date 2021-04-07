@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/models/searchListItemModel.dart';
@@ -37,13 +38,8 @@ class _ItemSearchedPageState extends State<ItemSearchedPage> {
                   ),
                   Container(
                     margin: EdgeInsets.fromLTRB(10, 10, 10, 8),
-                    width: 300,
-                    child: TextField(
-                      textAlignVertical: TextAlignVertical.bottom,
-                      controller: _controllersearch,
-                      onChanged: (val) {
-                        val = _controllersearch.text.toString();
-                      },
+                    width: MediaQuery.of(context).size.width - 80,
+                    child: TextFormField(
                       obscureText: false,
                       decoration: InputDecoration(
                         suffixIcon: Icon(
@@ -274,7 +270,8 @@ class _ItemSearchedPageState extends State<ItemSearchedPage> {
         child: GridView.builder(
           itemCount: SearchListItemWidget.listItem.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              childAspectRatio: 0.6 / 0.8, crossAxisCount: 2),
+            
+              childAspectRatio: 0.6 / 0.85, crossAxisCount: 2),
           itemBuilder: (_, i) {
             var v = SearchListItemWidget.listItem.elementAt(i);
             return Container(
@@ -319,28 +316,31 @@ class _ItemSearchedPageState extends State<ItemSearchedPage> {
                   SizedBox(
                     height: 7,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        v.textName4,
-                        style: TextStyle(
-                          fontSize: v.fontSize4,
-                          fontWeight: v.fontWeight4,
-                          color: v.color4,
-                        ),
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Icon(
-                            Icons.star,
-                            color: Colors.yellow[700],
-                            size: 10.0,
+                  Expanded(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          v.textName4,
+                          style: TextStyle(
+                            fontSize: v.fontSize4,
+                            fontWeight: v.fontWeight4,
+                            color: v.color4,
                           ),
-                          Text(v.textName5)
-                        ],
-                      ),
-                    ],
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Icon(
+                              Icons.star,
+                              color: Colors.yellow[700],
+                              size: 10.0,
+                            ),
+                            Text(v.textName5)
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

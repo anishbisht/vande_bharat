@@ -33,7 +33,7 @@ class _AllCategoriesState extends State<AllCategories> {
           physics: new NeverScrollableScrollPhysics(),
           itemCount: AllCategoriesListWidget.categoriesList.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              childAspectRatio: 1 / 1, crossAxisCount: 2),
+              childAspectRatio: 0.6 / 0.7, crossAxisCount: 2),
           itemBuilder: (_, i) {
             var v = AllCategoriesListWidget.categoriesList.elementAt(i);
             return Column(
