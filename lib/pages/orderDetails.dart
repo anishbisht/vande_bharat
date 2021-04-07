@@ -30,13 +30,13 @@ class _CustomerOrderDetailsState extends State<CustomerOrderDetails> {
       title: Text(''),
       content: Text('h'),
       state: StepState.complete,
-      isActive: true,
+      isActive: false,
     ),
     Step(
       title: Text(''),
       content: Text(''),
       state: StepState.complete,
-      isActive: true,
+      isActive: false,
     ),
   ];
   @override
@@ -113,9 +113,45 @@ class _CustomerOrderDetailsState extends State<CustomerOrderDetails> {
                       ],
                     ),
                   ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      Text(
+                        "Placed",
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.grey[600],
+                            fontWeight: FontWeight.w400),
+                      ),
+                      Text(
+                        "Packed",
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.grey[600],
+                            fontWeight: FontWeight.w400),
+                      ),
+                      Text(
+                        "Shipped",
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.grey[600],
+                            fontWeight: FontWeight.w400),
+                      ),
+                      Text(
+                        "Delivered",
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.grey[600],
+                            fontWeight: FontWeight.w400),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Text(
                     'Product',
-                    style: TextStyle(fontWeight: FontWeight.w500),
+                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                   ),
                   Container(
                     height: 100,
@@ -266,7 +302,7 @@ class _CustomerOrderDetailsState extends State<CustomerOrderDetails> {
                   ),
                   Text(
                     "Shipping Details",
-                    style: TextStyle(fontWeight: FontWeight.w500),
+                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                   ),
                   SizedBox(
                     height: 5,
@@ -377,7 +413,7 @@ class _CustomerOrderDetailsState extends State<CustomerOrderDetails> {
                   ),
                   Text(
                     "Payment Details",
-                    style: TextStyle(fontWeight: FontWeight.w500),
+                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                   ),
                   SizedBox(
                     height: 5,

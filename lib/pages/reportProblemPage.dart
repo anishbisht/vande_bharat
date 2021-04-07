@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 import 'package:moblie_ui/models/imageUploadModel.dart';
 
@@ -96,15 +97,46 @@ class _ReportProblemPageState extends State<ReportProblemPage> {
                 SizedBox(
                   height: 20,
                 ),
-                Center(
-                  child: _image == null
-                      ? Text('No image selected.')
-                      : Image.file(_image),
+                Text(
+                  "Upload A Screenshot",
+                  style: TextStyle(fontSize: 18),
                 ),
-                FloatingActionButton(
-                  onPressed: getImage,
-                  tooltip: 'Pick Image',
-                  child: Icon(Icons.add_a_photo),
+                SizedBox(
+                  height: 10,
+                ),
+
+                // Center(
+                //   child: _image == null
+                //       ? Text('No image selected.')
+                //       : Image.file(_image),
+                // ),
+                // FloatingActionButton(
+                //   onPressed: getImage,
+                //   tooltip: 'Pick Image',
+                //   child: Icon(Icons.add_a_photo),
+                // ),
+                //
+                Container(
+                  height: 300,
+                  width: 200,
+                  decoration: new BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    //shape: BoxShape.,
+                    border: Border.all(
+                      color: Colors.grey[300],
+                    ),
+                  ),
+                  child: Center(
+                    child: InkWell(
+                      onTap: getImage,
+                      child: Image.asset(
+                        Circular_add,
+                        height: 45,
+                        width: 45,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ),
                 ),
                 SizedBox(
                   height: 20,

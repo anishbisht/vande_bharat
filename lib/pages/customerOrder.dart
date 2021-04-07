@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:moblie_ui/image_path.dart';
+import 'package:moblie_ui/pages/bottomNavbar.dart';
 import 'package:moblie_ui/pages/navigationDrawer.dart';
 
 class CustomerOrder extends StatefulWidget {
@@ -10,6 +11,7 @@ class CustomerOrder extends StatefulWidget {
 
 class _CustomerOrderState extends State<CustomerOrder> {
   GlobalKey<ScaffoldState> _key = GlobalKey();
+  int index = 2;
 
   @override
   Widget build(BuildContext context) {
@@ -509,6 +511,7 @@ class _CustomerOrderState extends State<CustomerOrder> {
             ),
           ],
         ),
+        bottomNavigationBar: BottomNavbar(),
       ),
     );
   }

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:moblie_ui/image_path.dart';
+import 'package:moblie_ui/pages/bottomNavbar.dart';
+import 'package:moblie_ui/pages/navigationDrawer.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 
 class CartPage extends StatefulWidget {
@@ -11,6 +13,8 @@ class CartPage extends StatefulWidget {
 
 class _CartPageState extends State<CartPage> {
   final _controller = TextEditingController();
+  GlobalKey<ScaffoldState> _key = GlobalKey();
+  int index = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +22,7 @@ class _CartPageState extends State<CartPage> {
 
     return Scaffold(
       // resizeToAvoidBottomInset: false, //new line
-
+      key: _key,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60.0),
         child: AppBar(
@@ -26,7 +30,9 @@ class _CartPageState extends State<CartPage> {
             icon: ImageIcon(
               AssetImage(AppBarIcon),
             ),
-            onPressed: () => Navigator.of(context).pop(),
+            onPressed: () {
+              _key.currentState.openDrawer();
+            },
           ),
           elevation: 2,
           title: Text(
@@ -36,67 +42,8 @@ class _CartPageState extends State<CartPage> {
           backgroundColor: Colors.white,
         ),
       ),
-      // body: Container(
-      //   width: MediaQuery.of(context).size.width,
-      //   height: MediaQuery.of(context).size.height,
-      //   margin: EdgeInsets.all(10),
-      //   // padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
-      //   child: Column(
-      //     children: [
-      //       Row(
-      //         mainAxisAlignment: MainAxisAlignment.start,
-      //         crossAxisAlignment: CrossAxisAlignment.center,
-      //         children: [
-      //           Container(
-      //             child: Container(
-      //               // alignment: Alignment.topLeft,
-      //               width: 100,
-      //               height: 200,
-      //               child: Image.asset(
-      //                 SamsungImg,
-      //                 height: 100,
-      //               ),
-      //             ),
-      //           ),
-      //            Container(
-      //         // width: 200,
-      //         child: Row(
-      //           mainAxisAlignment: MainAxisAlignment.start,
-      //           crossAxisAlignment: CrossAxisAlignment.center,
-      //           children: [
-      //             Container(
-      //               width: 200,
-      //               // child: ListTile(
-      //               //   title: Text('Samsung'),
-      //               //   subtitle: Text("Quantity"),
-      //               //   trailing: Icon(Icons.favorite),
-      //               //   dense: true,
-      //               //   isThreeLine: true,contentPadding: const EdgeInsets.all(10),
-      //               // ),
-      //               child: Column(children: [
-      //                 Text('Samsung'),
-      //                 Text("Quantity"),
-      //               ],),
-      //             ),
-      //              Icon(Icons.favorite),
-      //             Align(
-      //               alignment: Alignment.topRight,
-      //               child: Icon(Icons.close)),
+      drawer: NavigationDrawer(),
 
-      //           ],
-      //         ),
-      //       ),
-      //         ],
-      //       ),
-
-      //     ],
-      //   ),
-      // ),
-      // body: Column(
-      //   children: <Widget>[
-
-      //   ],
-      // ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -466,6 +413,7 @@ class _CartPageState extends State<CartPage> {
           ),
         ),
       ),
+      bottomNavigationBar: BottomNavbar(),
     );
   }
 }

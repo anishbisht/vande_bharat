@@ -3,10 +3,12 @@ import 'package:get/get.dart';
 import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/models/mobileCatergoryModel.dart';
 import 'package:moblie_ui/models/wishlistModel.dart';
+import 'package:moblie_ui/pages/bottomNavbar.dart';
 import 'package:moblie_ui/pages/changePassword.dart';
 import 'package:moblie_ui/pages/customerOrder.dart';
 import 'package:moblie_ui/pages/navigationDrawer.dart';
 import 'package:moblie_ui/pages/wishListPage.dart';
+import 'package:moblie_ui/size_config.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -15,9 +17,10 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   GlobalKey<ScaffoldState> _key = GlobalKey();
-
+  int index = 3;
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       key: _key,
       appBar: PreferredSize(
@@ -47,7 +50,7 @@ class _ProfilePageState extends State<ProfilePage> {
               Stack(
                 children: <Widget>[
                   Container(
-                    height: 100,
+                    height: SizeConfig.blockSizeVertical * 15,
                     width: MediaQuery.of(context).size.width - 20,
                     margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
                     padding: EdgeInsets.all(10),
@@ -58,51 +61,50 @@ class _ProfilePageState extends State<ProfilePage> {
                         color: Colors.grey[300],
                       ),
                     ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      // crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              "Karam Bajwa",
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.w500),
-                            ),
-                            Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: <Widget>[
-                                  Icon(
-                                    Icons.edit,
-                                    color: Colors.orange,
-                                  ),
-                                ]),
-                          ],
-                        ),
-                        Text(
-                          "laracraft@gmail.com",
-                          style:
-                              TextStyle(fontSize: 16, color: Colors.grey[700]),
-                        ),
-                        Text(
-                          "+91 984575824551",
-                          style:
-                              TextStyle(fontSize: 16, color: Colors.grey[700]),
-                        ),
-                      ],
+                    child: Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                "Karam Bajwa",
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.w500),
+                              ),
+                              Icon(
+                                Icons.edit,
+                                color: Colors.orange,
+                              ),
+                            ],
+                          ),
+                          Text(
+                            "laracraft@gmail.com",
+                            style: TextStyle(
+                                fontSize: 16, color: Colors.grey[700]),
+                          ),
+                          Text(
+                            "+91 984575824551",
+                            style: TextStyle(
+                                fontSize: 16, color: Colors.grey[700]),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   Positioned(
-                    left: 10.0,
-                    top: -50.0,
+                    left: 10,
+                    top: -60.0,
                     child: Container(
-                      height: 200,
-                      width: 100,
+                      height: SizeConfig.blockSizeVertical * 32,
+                      width: SizeConfig.blockSizeHorizontal * 22,
                       child: ClipRRect(
                         child: Image.asset(
                           ProfileImage,
-                          height: 50,
+                          height: 25,
+                          width: 20,
                           fit: BoxFit.fitWidth,
                         ),
                       ),
@@ -270,6 +272,7 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
         ),
       ),
+      bottomNavigationBar: BottomNavbar(),
     );
   }
 }

@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
           primaryColorLight: Colors.white,
           primaryColorBrightness: Brightness.light,
         ),
-        home: ItemSearchedPage(),
+        home: HomePage(),
       ),
     );
   }
