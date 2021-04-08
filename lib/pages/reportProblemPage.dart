@@ -117,8 +117,8 @@ class _ReportProblemPageState extends State<ReportProblemPage> {
                 // ),
                 //
                 Container(
-                  height: 300,
-                  width: 200,
+                  height: 200,
+                  width: 100,
                   decoration: new BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(5)),
                     //shape: BoxShape.,

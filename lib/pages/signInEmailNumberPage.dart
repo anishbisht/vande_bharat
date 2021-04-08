@@ -6,6 +6,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/pages/signInPage.dart';
 import 'package:moblie_ui/pages/signUpPage.dart';
+import 'package:moblie_ui/utlis/values/app_colors.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 import 'package:moblie_ui/widgets/customOutlinedButtonWidget.dart';
 import 'package:moblie_ui/utlis/validator.dart';
@@ -106,7 +107,7 @@ class _SingInEmailPasswordPageState extends State<SingInEmailPasswordPage> {
                       height: 50,
                       child: CustomTextButtonWidget(
                         title: 'Next',
-                        buttonColor: Colors.orange[700],
+                        buttonColor: AppColors.kPrimaryColor,
                         onPressed: _sendToServer,
                         textStyle: TextStyle(
                           fontSize: 18,
@@ -174,7 +175,7 @@ class _SingInEmailPasswordPageState extends State<SingInEmailPasswordPage> {
                           TextSpan(
                             text: "Sign Up",
                             style: TextStyle(
-                                color: Colors.deepOrangeAccent, fontSize: 18),
+                                color: HexColor('#EF7C1F'), fontSize: 18),
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
                                 Get.to(() => SignUp());

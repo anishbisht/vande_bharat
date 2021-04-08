@@ -2,7 +2,9 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:moblie_ui/image_path.dart';
+import 'package:moblie_ui/pages/reasonForCancellationPage.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
@@ -513,7 +515,9 @@ class _CustomerOrderDetailsState extends State<CustomerOrderDetails> {
                     width: MediaQuery.of(context).size.width - 20,
                     child: CustomTextButtonWidget(
                       title: 'Cancel Order',
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(() => ReasonForCancellation());
+                      },
                       buttonColor: Colors.orange[700],
                       textStyle: TextStyle(
                         fontSize: 16,
