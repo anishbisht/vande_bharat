@@ -5,11 +5,14 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/models/wishlistModel.dart';
 import 'package:moblie_ui/pages/allCategoriesPage.dart';
+import 'package:moblie_ui/pages/bottomNavbar.dart';
 import 'package:moblie_ui/pages/cartPage.dart';
+import 'package:moblie_ui/pages/customerOrder.dart';
 import 'package:moblie_ui/pages/mobileCategory.dart';
 import 'package:moblie_ui/pages/navigationDrawer.dart';
 import 'package:moblie_ui/pages/notificatonsPage.dart';
 import 'package:moblie_ui/pages/productDetails.dart';
+import 'package:moblie_ui/pages/profilePage.dart';
 import 'package:moblie_ui/pages/wishListPage.dart';
 
 import 'package:moblie_ui/widgets/customCategoriesWidget.dart';
@@ -19,22 +22,14 @@ import 'package:moblie_ui/widgets/headingRowWidget.dart';
 import 'navigationDrawer.dart';
 
 class HomePage extends StatefulWidget {
-  static const String routeName = '/home';
-
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
   final _controllersearch = TextEditingController();
-  int currentTab = 0;
-  var currentPage;
-  List<Widget> _widgetOptions = <Widget>[
-    HomePage(),
-    CartPage(),
-    HomePage(),
-    HomePage(),
-  ];
+  int index = 0;
+
   GlobalKey<ScaffoldState> _key = GlobalKey();
   @override
   Widget build(BuildContext context) {
@@ -782,113 +777,116 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        elevation: 5,
+      bottomNavigationBar: BottomNavbar(),
 
-        //color: themeChangeProvider.darkTheme?Colors.black:Color(BOTTOM_BAR_COLOR),
-        notchMargin: 2.0,
-        shape: CircularNotchedRectangle(),
+      // ..........................................
+      // bottomNavigationBar: BottomAppBar(
+      //   elevation: 5,
 
-        child: Container(
-          padding: EdgeInsets.fromLTRB(2, 2, 2, 2),
-          child: new Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SizedBox(
-                    width: 50.0,
-                  ),
-                  IconButton(
-                    icon: ImageIcon(
-                      AssetImage(Bottom_nav_bar_home),
-                      size: 28,
-                    ),
-                    color: currentTab == 0 ? null : Colors.grey,
-                    onPressed: () {
-                      setState(() {
-                        currentTab = 0;
-                        currentPage = _widgetOptions[currentPage];
-                        Navigator.pushNamed(context, currentPage);
+      //   //color: themeChangeProvider.darkTheme?Colors.black:Color(BOTTOM_BAR_COLOR),
+      //   notchMargin: 2.0,
+      //   shape: CircularNotchedRectangle(),
 
-                        print(currentPage);
-                      });
-                    },
-                  ),
-                ],
-              ),
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  IconButton(
-                    icon: ImageIcon(
-                      AssetImage(Bottom_nav_bar_cart),
-                      size: 28,
-                    ),
-                    color: currentTab == 1 ? null : Colors.grey,
-                    onPressed: () {
-                      setState(
-                        () {
-                          currentTab = 1;
-                          currentPage = _widgetOptions[currentPage];
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => currentPage()),
-                          );
-                        },
-                      );
-                    },
-                  ),
-                ],
-              ),
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  IconButton(
-                    icon: ImageIcon(
-                      AssetImage(Bottom_nav_bar_order),
-                      size: 28,
-                    ),
-                    color: currentTab == 2 ? null : Colors.grey,
-                    onPressed: () {
-                      setState(() {
-                        // color:
-                        // Colors.green;
-                        currentTab = 2;
-                      });
-                    },
-                  ),
-                ],
-              ),
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  IconButton(
-                    // icon: Icon(Icons.person),
-                    icon: ImageIcon(
-                      AssetImage(Bottom_nav_bar_account),
-                      size: 28,
-                    ),
-                    color: currentTab == 3 ? null : Colors.grey,
+      //   child: Container(
+      //     padding: EdgeInsets.fromLTRB(2, 2, 2, 2),
+      //     child: new Row(
+      //       mainAxisSize: MainAxisSize.max,
+      //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      //       children: <Widget>[
+      //         Column(
+      //           mainAxisSize: MainAxisSize.min,
+      //           // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      //           children: [
+      //             SizedBox(
+      //               width: 50.0,
+      //             ),
+      //             IconButton(
+      //               icon: ImageIcon(
+      //                 AssetImage(Bottom_nav_bar_home),
+      //                 size: 28,
+      //               ),
+      //               color: currentTab == 0 ? null : Colors.grey,
+      //               onPressed: () {
+      //                 setState(() {
+      //                   currentTab = 0;
+      //                   currentPage = _widgetOptions[currentPage];
+      //                   Navigator.pushNamed(context, currentPage);
 
-                    onPressed: () {
-                      setState(
-                        () {
-                          currentTab = 3;
-                        },
-                      );
-                    },
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
+      //                   print(currentPage);
+      //                 });
+      //               },
+      //             ),
+      //           ],
+      //         ),
+      //         Column(
+      //           mainAxisSize: MainAxisSize.min,
+      //           children: [
+      //             IconButton(
+      //               icon: ImageIcon(
+      //                 AssetImage(Bottom_nav_bar_cart),
+      //                 size: 28,
+      //               ),
+      //               color: currentTab == 1 ? null : Colors.grey,
+      //               onPressed: () {
+      //                 setState(
+      //                   () {
+      //                     currentTab = 1;
+      //                     currentPage = _widgetOptions[currentPage];
+      //                     Navigator.push(
+      //                       context,
+      //                       MaterialPageRoute(
+      //                           builder: (context) => currentPage()),
+      //                     );
+      //                   },
+      //                 );
+      //               },
+      //             ),
+      //           ],
+      //         ),
+      //         Column(
+      //           mainAxisSize: MainAxisSize.min,
+      //           children: [
+      //             IconButton(
+      //               icon: ImageIcon(
+      //                 AssetImage(Bottom_nav_bar_order),
+      //                 size: 28,
+      //               ),
+      //               color: currentTab == 2 ? null : Colors.grey,
+      //               onPressed: () {
+      //                 setState(() {
+      //                   // color:
+      //                   // Colors.green;
+      //                   currentTab = 2;
+      //                 });
+      //               },
+      //             ),
+      //           ],
+      //         ),
+      //         Column(
+      //           mainAxisSize: MainAxisSize.min,
+      //           children: [
+      //             IconButton(
+      //               // icon: Icon(Icons.person),
+      //               icon: ImageIcon(
+      //                 AssetImage(Bottom_nav_bar_account),
+      //                 size: 28,
+      //               ),
+      //               color: currentTab == 3 ? null : Colors.grey,
+
+      //               onPressed: () {
+      //                 setState(
+      //                   () {
+      //                     currentTab = 3;
+      //                   },
+      //                 );
+      //               },
+      //             ),
+      //           ],
+      //         ),
+      //       ],
+      //     ),
+      //   ),
+      // ),
     );
   }
 }

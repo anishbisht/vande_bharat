@@ -270,8 +270,7 @@ class _ItemSearchedPageState extends State<ItemSearchedPage> {
         child: GridView.builder(
           itemCount: SearchListItemWidget.listItem.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            
-              childAspectRatio: 0.6 / 0.85, crossAxisCount: 2),
+              childAspectRatio: 18 / 19.8, crossAxisCount: 2),
           itemBuilder: (_, i) {
             var v = SearchListItemWidget.listItem.elementAt(i);
             return Container(
@@ -288,11 +287,13 @@ class _ItemSearchedPageState extends State<ItemSearchedPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Center(
-                    child: Image.asset(
-                      v.imageName,
-                      height: v.imageHeight,
-                      fit: v.fit,
+                  Expanded(
+                    child: Center(
+                      child: Image.asset(
+                        v.imageName,
+                        height: v.imageHeight,
+                        fit: v.fit,
+                      ),
                     ),
                   ),
                   Text(
@@ -316,31 +317,29 @@ class _ItemSearchedPageState extends State<ItemSearchedPage> {
                   SizedBox(
                     height: 7,
                   ),
-                  Expanded(
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          v.textName4,
-                          style: TextStyle(
-                            fontSize: v.fontSize4,
-                            fontWeight: v.fontWeight4,
-                            color: v.color4,
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        v.textName4,
+                        style: TextStyle(
+                          fontSize: v.fontSize4,
+                          fontWeight: v.fontWeight4,
+                          color: v.color4,
+                        ),
+                      ),
+                      Row(
+                        children: <Widget>[
+                          Icon(
+                            Icons.star,
+                            color: Colors.yellow[700],
+                            size: 10.0,
                           ),
-                        ),
-                        Row(
-                          children: <Widget>[
-                            Icon(
-                              Icons.star,
-                              color: Colors.yellow[700],
-                              size: 10.0,
-                            ),
-                            Text(v.textName5)
-                          ],
-                        ),
-                      ],
-                    ),
+                          Text(v.textName5)
+                        ],
+                      ),
+                    ],
                   ),
                 ],
               ),

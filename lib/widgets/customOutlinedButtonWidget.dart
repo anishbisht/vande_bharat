@@ -23,6 +23,7 @@ class CustomOutlinedButttonWidget extends StatelessWidget {
     return OutlinedButton(
       onPressed: onPressed,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
                 imageName ?? null,

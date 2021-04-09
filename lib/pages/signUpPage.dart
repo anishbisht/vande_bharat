@@ -108,6 +108,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                   TextFormField(
                     obscureText: false,
+                    keyboardType: TextInputType.number,
                     cursorColor: Colors.orange[700],
                     decoration: InputDecoration(
                       filled: true,
@@ -130,10 +131,7 @@ class _SignUpState extends State<SignUp> {
                         child: Text(
                           '+91 ',
                           style: TextStyle(
-                            background: Paint()
-                              ..color = HexColor('#D1D7D7')
-                              ..strokeWidth = 30
-                              ..style = PaintingStyle.stroke,
+                            fontSize: 16,
                           ),
                         ),
                       ),
@@ -154,6 +152,7 @@ class _SignUpState extends State<SignUp> {
                     height: 5,
                   ),
                   TextFormField(
+                      keyboardType: TextInputType.emailAddress,
                       obscureText: false,
                       cursorColor: Colors.orange[700],
                       decoration: InputDecoration(
@@ -214,9 +213,12 @@ class _SignUpState extends State<SignUp> {
                         Icons.lock_outline,
                         color: Colors.orange[700],
                       ),
-                      suffixIcon: Icon(
-                        Icons.visibility,
-                        color: Colors.grey,
+                      suffixIcon: InkWell(
+                        onTap: () {},
+                        child: Icon(
+                          Icons.visibility,
+                          color: Colors.grey,
+                        ),
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),

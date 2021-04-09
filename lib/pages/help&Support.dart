@@ -50,43 +50,58 @@ class _HelpAndSupportPageState extends State<HelpAndSupportPage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            margin: EdgeInsets.fromLTRB(10, 20, 10, 20),
+            margin: EdgeInsets.fromLTRB(0, 20, 0, 20),
             child: ListView.builder(
               shrinkWrap: true,
               itemCount: HelpAndSupportListWidget.helplist.length,
               itemBuilder: (context, index) {
                 var v = HelpAndSupportListWidget.helplist.elementAt(index);
-                return ListTile(
-                  visualDensity: VisualDensity(
-                    horizontal: 0,
-                    vertical: 4,
-                  ),
-                  leading: Image.asset(
-                    v.imageName,
-                    height: 25,
-                  ),
-                  title: Text(
-                    v.textname1,
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        color: v.title_color),
-                  ),
-                  subtitle: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          v.textname2,
-                          style: TextStyle(
-                              color: v.sub_heading_color, fontSize: 14),
+                return Column(
+                  children: [
+                    ListTile(
+                      visualDensity: VisualDensity(
+                        horizontal: 0,
+                        vertical: 4,
+                      ),
+                      leading: Image.asset(
+                        v.imageName,
+                        height: 35,
+                      ),
+                      title: Text(
+                        v.textname1,
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w400,
+                            color: v.title_color),
+                      ),
+                      subtitle: Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            InkWell(
+                              onTap: () {
+                                v.onpressed;
+                              },
+                              child: Text(
+                                v.textname2,
+                                style: TextStyle(
+                                    color: v.sub_heading_color, fontSize: 18),
+                              ),
+                            ),
+                            Text(
+                              v.textname3,
+                              style: TextStyle(fontSize: 18),
+                            ),
+                          ],
                         ),
-                        Text(
-                          v.textname3,
-                          style: TextStyle(fontSize: 16),
-                        ),
-                        Divider()
-                      ]),
+                      ),
+                    ),
+                    Divider(),
+                  ],
                 );
+
+                // Divider();
               },
             ),
           ),

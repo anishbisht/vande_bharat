@@ -59,7 +59,7 @@ class ListWidgets {
       containerWidth: 150,
       imageName: MobileImg,
       imageHeight: 150,
-      fit: BoxFit.fill,
+      fit: BoxFit.fitHeight,
       textName1: 'Redmi Note 9 Pro',
       fontSize1: 12,
       fontWeight1: FontWeight.w600,
