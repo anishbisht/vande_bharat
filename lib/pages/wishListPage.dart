@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:moblie_ui/image_path.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 
 class WishListPage extends StatefulWidget {
@@ -24,7 +25,7 @@ class _WishListPageState extends State<WishListPage> {
           ),
           elevation: 2,
           title: Text(
-            "My Wishlist",
+            Strings.myWishtlist,
             style: TextStyle(fontSize: 25),
           ),
           backgroundColor: Colors.white,
@@ -122,7 +123,7 @@ class _WishListPageState extends State<WishListPage> {
                                     height: 35,
                                     width: 120,
                                     child: CustomTextButtonWidget(
-                                      title: 'Add to Cart',
+                                      title: Strings.addToCart,
                                       onPressed: () {},
                                       buttonColor: Colors.orange[700],
                                       textStyle: TextStyle(
@@ -225,7 +226,7 @@ class _WishListPageState extends State<WishListPage> {
                                     height: 35,
                                     width: 120,
                                     child: CustomTextButtonWidget(
-                                      title: 'Remove from Cart',
+                                      title:Strings.removeFromCart,
                                       onPressed: () {},
                                       buttonColor: Colors.orange[700],
                                       textStyle: TextStyle(

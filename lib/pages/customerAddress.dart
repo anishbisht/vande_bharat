@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:moblie_ui/image_path.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 
 class CustomerAddressPage extends StatefulWidget {
@@ -20,7 +21,7 @@ class _CustomerAddressPageState extends State<CustomerAddressPage> {
           actions: [
             Center(
               child: Text(
-                'Add Address',
+                Strings.addAddress,
                 style: TextStyle(
                     fontSize: 16,
                     color: Colors.orange[700],
@@ -39,7 +40,7 @@ class _CustomerAddressPageState extends State<CustomerAddressPage> {
           ),
           elevation: 2,
           title: Text(
-            "My Address",
+            Strings.addAddress,
             style: TextStyle(fontSize: 25),
           ),
           backgroundColor: Colors.white,
@@ -66,7 +67,7 @@ class _CustomerAddressPageState extends State<CustomerAddressPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      "Home",
+                      Strings.home,
                       style: TextStyle(color: Colors.grey),
                     ),
                     SizedBox(
@@ -110,7 +111,7 @@ class _CustomerAddressPageState extends State<CustomerAddressPage> {
                                 backgroundColor: Colors.orange[700],
                               ),
                               child: Text(
-                                "Edit",
+                                Strings.edit,
                                 style: TextStyle(color: Colors.white),
                               ),
                             ),
@@ -137,14 +138,14 @@ class _CustomerAddressPageState extends State<CustomerAddressPage> {
                                               height: 10,
                                             ),
                                             Text(
-                                              "Confirmation",
+                                              Strings.confirmation,
                                               style: TextStyle(
                                                 fontSize: 28,
                                                 fontWeight: FontWeight.bold,
                                               ),
                                             ),
                                             Text(
-                                              "Are you sure want to delete address?",
+                                              Strings.deleteaddressconfirmaiton,
                                               style: TextStyle(
                                                   fontSize: 17,
                                                   color: Colors.grey[600],
@@ -174,7 +175,7 @@ class _CustomerAddressPageState extends State<CustomerAddressPage> {
                                                         color: Colors.grey)),
                                                 onPressed: () {},
                                                 child: Text(
-                                                  "Yes",
+                                                  Strings.yes,
                                                   style: TextStyle(
                                                       color: Colors.white),
                                                 ),
@@ -198,7 +199,7 @@ class _CustomerAddressPageState extends State<CustomerAddressPage> {
                                                         color: Colors.grey)),
                                                 onPressed: () {},
                                                 child: Text(
-                                                  "No",
+                                                  Strings.no,
                                                   style: TextStyle(
                                                       color: Colors.white),
                                                 ),
@@ -240,7 +241,7 @@ class _CustomerAddressPageState extends State<CustomerAddressPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      "Work",
+                      Strings.work,
                       style: TextStyle(color: Colors.grey),
                     ),
                     SizedBox(
@@ -283,7 +284,7 @@ class _CustomerAddressPageState extends State<CustomerAddressPage> {
                                 backgroundColor: Colors.orange[700],
                               ),
                               child: Text(
-                                "Edit",
+                                Strings.edit,
                                 style: TextStyle(color: Colors.white),
                               ),
                             ),
@@ -310,14 +311,14 @@ class _CustomerAddressPageState extends State<CustomerAddressPage> {
                                               height: 10,
                                             ),
                                             Text(
-                                              "Confirmation",
+                                              Strings.confirmation,
                                               style: TextStyle(
                                                 fontSize: 28,
                                                 fontWeight: FontWeight.bold,
                                               ),
                                             ),
                                             Text(
-                                              "Are you sure want to delete address?",
+                                              Strings.deleteaddressconfirmaiton,
                                               style: TextStyle(
                                                   fontSize: 17,
                                                   color: Colors.grey[600],
@@ -347,7 +348,7 @@ class _CustomerAddressPageState extends State<CustomerAddressPage> {
                                                         color: Colors.grey)),
                                                 onPressed: () {},
                                                 child: Text(
-                                                  "Yes",
+                                                  Strings.yes,
                                                   style: TextStyle(
                                                       color: Colors.white),
                                                 ),
@@ -371,7 +372,7 @@ class _CustomerAddressPageState extends State<CustomerAddressPage> {
                                                         color: Colors.grey)),
                                                 onPressed: () {},
                                                 child: Text(
-                                                  "No",
+                                                  Strings.no,
                                                   style: TextStyle(
                                                       color: Colors.white),
                                                 ),

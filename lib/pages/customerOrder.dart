@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/pages/bottomNavbar.dart';
 import 'package:moblie_ui/pages/navigationDrawer.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 
 class CustomerOrder extends StatefulWidget {
   @override
@@ -33,7 +34,7 @@ class _CustomerOrderState extends State<CustomerOrder> {
             ),
             elevation: 2,
             title: Text(
-              "My Orders",
+              Strings.myOrders,
               style: TextStyle(fontSize: 24),
             ),
             backgroundColor: Colors.white,
@@ -44,11 +45,11 @@ class _CustomerOrderState extends State<CustomerOrder> {
                 child: TabBar(
                   tabs: [
                     Text(
-                      "Ongoing",
+                      Strings.ongoing,
                       style: TextStyle(fontSize: 20),
                     ),
                     Text(
-                      "Past",
+                      Strings.past,
                       style: TextStyle(fontSize: 20),
                     )
                   ],
@@ -126,7 +127,7 @@ class _CustomerOrderState extends State<CustomerOrder> {
                                         ),
                                       ),
                                       child: Text(
-                                        "Pending",
+                                        Strings.pending,
                                         style: TextStyle(
                                             fontSize: 16,
                                             color: Colors.orange,
@@ -146,14 +147,14 @@ class _CustomerOrderState extends State<CustomerOrder> {
                                     MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Text(
-                                    "Order Staus",
+                                    Strings.orderStatus,
                                     style: TextStyle(
                                         fontSize: 16,
                                         color: Colors.grey[600],
                                         fontWeight: FontWeight.w400),
                                   ),
                                   Text(
-                                    "Cancelled",
+                                    Strings.cancelled,
                                     style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w400,
@@ -171,7 +172,7 @@ class _CustomerOrderState extends State<CustomerOrder> {
                                     MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Text(
-                                    "Items",
+                                    Strings.items,
                                     style: TextStyle(
                                         color: Colors.grey[600],
                                         fontWeight: FontWeight.w400,
@@ -195,7 +196,7 @@ class _CustomerOrderState extends State<CustomerOrder> {
                                     MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Text(
-                                    "Price",
+                                    Strings.price,
                                     style: TextStyle(
                                         fontSize: 16,
                                         color: Colors.grey[600],
@@ -282,7 +283,7 @@ class _CustomerOrderState extends State<CustomerOrder> {
                                         ),
                                       ),
                                       child: Text(
-                                        "Cancelled",
+                                        Strings.cancelled,
                                         style: TextStyle(
                                             fontSize: 16,
                                             color: Colors.red,
@@ -302,14 +303,14 @@ class _CustomerOrderState extends State<CustomerOrder> {
                                     MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Text(
-                                    "Order Staus",
+                                    Strings.orderStatus,
                                     style: TextStyle(
                                         fontSize: 16,
                                         color: Colors.grey[600],
                                         fontWeight: FontWeight.w400),
                                   ),
                                   Text(
-                                    "Delivered",
+                                    Strings.delivered,
                                     style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w400,
@@ -324,7 +325,7 @@ class _CustomerOrderState extends State<CustomerOrder> {
                                     MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Text(
-                                    "Items",
+                                    Strings.items,
                                     style: TextStyle(
                                         color: Colors.grey[600],
                                         fontWeight: FontWeight.w400,
@@ -345,7 +346,7 @@ class _CustomerOrderState extends State<CustomerOrder> {
                                     MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Text(
-                                    "Price",
+                                    Strings.price,
                                     style: TextStyle(
                                         fontSize: 16,
                                         color: Colors.grey[600],
@@ -422,7 +423,7 @@ class _CustomerOrderState extends State<CustomerOrder> {
                                         ),
                                       ),
                                       child: Text(
-                                        "Completed",
+                                        Strings.completed,
                                         style: TextStyle(
                                             fontSize: 16,
                                             color: Colors.green,
@@ -442,14 +443,14 @@ class _CustomerOrderState extends State<CustomerOrder> {
                                     MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Text(
-                                    "Order Staus",
+                                    Strings.orderStatus,
                                     style: TextStyle(
                                         fontSize: 16,
                                         color: Colors.grey[600],
                                         fontWeight: FontWeight.w400),
                                   ),
                                   Text(
-                                    "Delivered",
+                                    Strings.delivered,
                                     style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w400,
@@ -464,7 +465,7 @@ class _CustomerOrderState extends State<CustomerOrder> {
                                     MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Text(
-                                    "Items",
+                                    Strings.items,
                                     style: TextStyle(
                                         color: Colors.grey[600],
                                         fontWeight: FontWeight.w400,
@@ -485,7 +486,7 @@ class _CustomerOrderState extends State<CustomerOrder> {
                                     MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Text(
-                                    "Price",
+                                    Strings.price,
                                     style: TextStyle(
                                         fontSize: 16,
                                         color: Colors.grey[600],

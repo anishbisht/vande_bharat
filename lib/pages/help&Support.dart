@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:moblie_ui/image_path.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/HelpAndSupportList.dart';
 
 class HelpAndSupportPage extends StatefulWidget {
@@ -23,30 +24,12 @@ class _HelpAndSupportPageState extends State<HelpAndSupportPage> {
           ),
           elevation: 2,
           title: Text(
-            "Help & Support",
+            Strings.helpNSupport,
             style: TextStyle(fontSize: 25),
           ),
           backgroundColor: Colors.white,
         ),
       ),
-      // body: Container(
-      //   height: 500,
-      //   margin: EdgeInsets.fromLTRB(10, 20, 10, 20),
-      //   child: Column(
-      //     children: <Widget>[
-      //       ListTile(
-      //         leading: Image.asset(
-      //           HelpAndSupportIcon,
-      //           height: 30,
-      //         ),
-      //         title: Text(
-      //           "Help and Support",
-      //           style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-      //         ),
-      //         subtitle: Text(
-      //           "Do check our FAQs section once",
-      //           style: TextStyle(color: Colors.grey[700], fontSize: 16),
-      //         ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -81,7 +64,7 @@ class _HelpAndSupportPageState extends State<HelpAndSupportPage> {
                           children: <Widget>[
                             InkWell(
                               onTap: () {
-                                v.onpressed;
+                                v.tap;
                               },
                               child: Text(
                                 v.textname2,
@@ -100,8 +83,6 @@ class _HelpAndSupportPageState extends State<HelpAndSupportPage> {
                     Divider(),
                   ],
                 );
-
-                // Divider();
               },
             ),
           ),

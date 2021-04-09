@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/pages/loginSucessPage.dart';
 import 'package:moblie_ui/pages/signUpPage.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 import 'package:moblie_ui/widgets/customOutlinedButtonWidget.dart';
 
@@ -47,7 +48,7 @@ class _SignInPageState extends State<SignInPage> {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                     child: Text(
-                      "Sign In",
+                      Strings.signIn,
                       style:
                           TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                       textAlign: TextAlign.left,
@@ -56,7 +57,7 @@ class _SignInPageState extends State<SignInPage> {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                     child: Text(
-                      "Enter password to connect",
+                      Strings.signInDetails,
                       style:
                           TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
                     ),
@@ -67,7 +68,7 @@ class _SignInPageState extends State<SignInPage> {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                     child: Text(
-                      "Password",
+                      Strings.password,
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                     ),
@@ -109,7 +110,7 @@ class _SignInPageState extends State<SignInPage> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
-                        "Forget Password",
+                        Strings.forgot,
                         style: TextStyle(fontSize: 15),
                       ),
                     ],
@@ -122,7 +123,7 @@ class _SignInPageState extends State<SignInPage> {
                       width: MediaQuery.of(context).size.width - 20,
                       height: 60,
                       child: CustomTextButtonWidget(
-                        title: 'Sign In',
+                        title: Strings.signIN,
                         buttonColor: Colors.orange[700],
                         onPressed: _sendToServer,
                         textStyle: TextStyle(
@@ -133,12 +134,12 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                   ),
                   SizedBox(
-                    height: 150,
+                    height: 50,
                   ),
                   Row(
                     children: <Widget>[
                       Expanded(child: Divider()),
-                      Text('or Sign in with'),
+                      Text(Strings.orSignInWith),
                       Expanded(
                         child: Divider(),
                       ),
@@ -186,16 +187,15 @@ class _SignInPageState extends State<SignInPage> {
                         style: TextStyle(color: Colors.black, fontSize: 18),
                         children: <TextSpan>[
                           TextSpan(
-                            text: 'Not a memeber?',
+                            text: Strings.notAMember,
                           ),
                           TextSpan(
-                            text: "Sign Up",
+                            text: Strings.signUp,
                             style: TextStyle(
                                 color: Colors.deepOrangeAccent, fontSize: 18),
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
                                 Get.to(() => SignUp());
-                                print("Click");
                               },
                           ),
                         ],

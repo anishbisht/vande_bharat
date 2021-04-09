@@ -6,6 +6,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:moblie_ui/image_path.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 
 class ReviewPostPage extends StatefulWidget {
   @override
@@ -55,7 +56,7 @@ class _ReviewPostPageState extends State<ReviewPostPage> {
           ),
           elevation: 2,
           title: Text(
-            "Write Review",
+            Strings.writeReviews,
             style: TextStyle(fontSize: 25),
           ),
           backgroundColor: Colors.white,
@@ -69,7 +70,7 @@ class _ReviewPostPageState extends State<ReviewPostPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  "Please write Overall level of satisfication with shpping/Delivery/Product",
+                  Strings.pleaseWritereviewDetails,
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                 ),
                 SizedBox(
@@ -94,7 +95,7 @@ class _ReviewPostPageState extends State<ReviewPostPage> {
                   height: 20,
                 ),
                 Text(
-                  "Your Comment",
+                  Strings.yourComment,
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                 ),
                 SizedBox(
@@ -133,7 +134,7 @@ class _ReviewPostPageState extends State<ReviewPostPage> {
                   height: 20,
                 ),
                 Text(
-                  'Write Your Review',
+                  Strings.writeYourReview,
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                 ),
                 SizedBox(
@@ -177,7 +178,7 @@ class _ReviewPostPageState extends State<ReviewPostPage> {
                   height: 10,
                 ),
                 Text(
-                  "Add Photo",
+                Strings.addPhoto,
                   style: TextStyle(fontWeight: FontWeight.w500),
                 ),
                 SizedBox(

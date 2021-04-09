@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/allCategoriesListWidget.dart';
 
 class AllCategories extends StatefulWidget {
@@ -21,7 +22,7 @@ class _AllCategoriesState extends State<AllCategories> {
           ),
           elevation: 2,
           title: Text(
-            "All Categories",
+            Strings.allCategories,
             style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
           ),
           backgroundColor: Colors.white,

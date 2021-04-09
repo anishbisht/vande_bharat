@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/pages/homePage.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 import 'package:get/get.dart';
 
@@ -41,11 +42,11 @@ class _LoginSucessPageState extends State<LoginSucessPage> {
                 height: 10,
               ),
               Text(
-                "Sucess",
+                Strings.success,
                 style: TextStyle(fontSize: 38, fontWeight: FontWeight.bold),
               ),
               Text(
-                "Thank yor for choosing Vande Bharat",
+                Strings.loginSuccessMessage,
                 style: TextStyle(fontSize: 18),
               ),
               SizedBox(
@@ -55,7 +56,7 @@ class _LoginSucessPageState extends State<LoginSucessPage> {
                 height: 50,
                 width: MediaQuery.of(context).size.width - 20,
                 child: CustomTextButtonWidget(
-                  title: 'Get Started ->',
+                  title: Strings.getStarted,
                   onPressed: () {
                     Get.to(() => HomePage());
                   },

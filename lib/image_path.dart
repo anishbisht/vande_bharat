@@ -70,3 +70,4 @@ const Bottom_nav_bar_order1 = '${baseDir}order.png';
 const Bottom_nav_bar_home1 = '${baseDir}home1.png';
 const Bottom_nav_bar_cart1 = '${baseDir}Cart.png';
 const Circular_add = '${baseDir}circle_add.png';
+const LocationIcon = '${baseDir}location.png';

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/pages/passwordOtpPage.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 import 'package:moblie_ui/widgets/customOutlinedButtonWidget.dart';
 
@@ -29,7 +30,7 @@ class _ResetPassswordPageState extends State<ResetPassswordPage> {
           ),
           elevation: 2,
           title: Text(
-            "Reset Password",
+            Strings.resetPassowrd,
             style: TextStyle(fontSize: 25),
           ),
           backgroundColor: Colors.white,
@@ -59,7 +60,7 @@ class _ResetPassswordPageState extends State<ResetPassswordPage> {
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                   child: Text(
-                    "Enter your mobile number or email id, we will send an OTP to reset your password.",
+                    Strings.enterMobileOrPassword,
                     style: TextStyle(fontSize: 19, fontWeight: FontWeight.w500),
                     textAlign: TextAlign.center,
                   ),
@@ -71,7 +72,7 @@ class _ResetPassswordPageState extends State<ResetPassswordPage> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
                 child: Text(
-                  "Moblie Number / Email ID",
+                  Strings.mobileOREmai,
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                 ),
               ),
@@ -113,7 +114,7 @@ class _ResetPassswordPageState extends State<ResetPassswordPage> {
                   width: MediaQuery.of(context).size.width - 30,
                   height: 55,
                   child: CustomTextButtonWidget(
-                    title: 'Next',
+                    title: Strings.next,
                     buttonColor: Colors.orange[700],
                     onPressed: () {
                       _sendToServer();
@@ -131,12 +132,12 @@ class _ResetPassswordPageState extends State<ResetPassswordPage> {
               Center(
                 child: RichText(
                   text: TextSpan(
-                    text: 'Sign In',
+                    text: Strings.signIN,
                     style:
                         TextStyle(color: Colors.deepOrangeAccent, fontSize: 18),
                     children: <TextSpan>[
                       TextSpan(
-                        text: ' instead',
+                        text: Strings.instead,
                         style: TextStyle(color: Colors.black, fontSize: 18),
                       )
                     ],

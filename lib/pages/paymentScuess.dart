@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/pages/homePage.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 
 class PaymentSucessPage extends StatefulWidget {
@@ -30,11 +31,11 @@ class _PaymentSucessPageState extends State<PaymentSucessPage> {
               height: 10,
             ),
             Text(
-              "Success",
+              Strings.success,
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
             Text(
-              "Thank yor for choosing Vande Bharat",
+              Strings.greetingShop,
               style: TextStyle(
                   fontSize: 20,
                   color: Colors.grey,
@@ -47,7 +48,7 @@ class _PaymentSucessPageState extends State<PaymentSucessPage> {
               height: 50,
               width: MediaQuery.of(context).size.width - 20,
               child: CustomTextButtonWidget(
-                title: 'Back to Home',
+                title: Strings.backToHome,
                 onPressed: () {
                   Get.to(() => HomePage());
                 },

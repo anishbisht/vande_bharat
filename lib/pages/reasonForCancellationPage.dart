@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:moblie_ui/pages/customerOrder.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 import 'package:moblie_ui/widgets/customOutlinedButtonWidget.dart';
 
@@ -25,7 +26,7 @@ class _ReasonForCancellationState extends State<ReasonForCancellation> {
           ),
           elevation: 1,
           title: Text(
-            "Reason for Cancellation",
+            Strings.reasonForCancellation,
             style: TextStyle(fontSize: 25),
           ),
           backgroundColor: Colors.white,
@@ -81,7 +82,7 @@ class _ReasonForCancellationState extends State<ReasonForCancellation> {
               width: 380,
               height: 50,
               child: CustomTextButtonWidget(
-                title: 'Submit',
+                title: Strings.submit,
                 buttonColor: HexColor('#EF7C1F'),
                 onPressed: () {
                   Get.to(() => CustomerOrder());

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/pages/filterPage.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 import 'package:moblie_ui/widgets/list_widget.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -35,7 +36,7 @@ class _MobileCategoryState extends State<MobileCategory> {
           ),
           elevation: 0,
           title: Text(
-            "Mobiles",
+            Strings.mobile,
             style: TextStyle(fontSize: 20),
           ),
           backgroundColor: Colors.white,
@@ -59,7 +60,7 @@ class _MobileCategoryState extends State<MobileCategory> {
                           Get.to(() => FilterPage());
                         },
                         child: Text(
-                          "Filter By",
+                          Strings.filterBy,
                           style: TextStyle(
                             color: Colors.green,
                             fontSize: 14,
@@ -95,14 +96,14 @@ class _MobileCategoryState extends State<MobileCategory> {
                                             MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           Text(
-                                            "Sort By",
+                                            Strings.sortBy,
                                             style: TextStyle(
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.w500,
                                                 color: Colors.black),
                                           ),
                                           Text(
-                                            "Clear All",
+                                            Strings.clearAll,
                                             style: TextStyle(
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.w500,
@@ -119,7 +120,7 @@ class _MobileCategoryState extends State<MobileCategory> {
                                             MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           Text(
-                                            "Price: Low to High",
+                                            Strings.priceLowToHigh,
                                             style: TextStyle(
                                                 fontWeight: FontWeight.w500,
                                                 color: Colors.black),
@@ -136,7 +137,7 @@ class _MobileCategoryState extends State<MobileCategory> {
                                             MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           Text(
-                                            "Price: High to Low",
+                                            Strings.priceHighToLow,
                                             style: TextStyle(
                                                 fontWeight: FontWeight.w500,
                                                 color: Colors.black),
@@ -153,7 +154,7 @@ class _MobileCategoryState extends State<MobileCategory> {
                                             MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           Text(
-                                            "Relevance",
+                                            Strings.relevance,
                                             style: TextStyle(
                                                 fontWeight: FontWeight.w500,
                                                 color: Colors.black),
@@ -170,7 +171,7 @@ class _MobileCategoryState extends State<MobileCategory> {
                                             MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           Text(
-                                            "Newet First",
+                                            Strings.newestFirst,
                                             style: TextStyle(
                                                 fontWeight: FontWeight.w500,
                                                 color: Colors.black),
@@ -187,7 +188,7 @@ class _MobileCategoryState extends State<MobileCategory> {
                                             MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           Text(
-                                            "Popularity",
+                                            Strings.popularity,
                                             style: TextStyle(
                                                 fontWeight: FontWeight.w500,
                                                 color: Colors.black),
@@ -205,7 +206,7 @@ class _MobileCategoryState extends State<MobileCategory> {
                                             MediaQuery.of(context).size.width -
                                                 10,
                                         child: CustomTextButtonWidget(
-                                          title: "Add Address",
+                                          title: Strings.apply,
                                           onPressed: () {},
                                           textColor: Colors.white,
                                           buttonColor: Colors.orange[800],
@@ -219,7 +220,7 @@ class _MobileCategoryState extends State<MobileCategory> {
                           );
                         },
                         child: Text(
-                          "Sort By",
+                          Strings.sortBy,
                           style: TextStyle(
                             color: Colors.green,
                             fontSize: 14,

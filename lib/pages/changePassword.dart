@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 
 class ChangePasswordPage extends StatefulWidget {
@@ -28,7 +29,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
           ),
           elevation: 2,
           title: Text(
-            "Change Password",
+            Strings.changePassword,
             style: TextStyle(fontSize: 25),
           ),
           backgroundColor: Colors.white,
@@ -45,7 +46,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Old Password",
+                    Strings.oldPassword,
                     style: TextStyle(fontWeight: FontWeight.w500),
                   ),
                   SizedBox(
@@ -59,7 +60,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                       decoration: InputDecoration(
                         filled: true,
                         focusColor: HexColor('#F2F2F2'),
-                        hintText: ' Old Password',
+                        hintText: Strings.oldPassword,
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.0),
                           borderSide: BorderSide(
@@ -91,7 +92,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                     height: 10,
                   ),
                   Text(
-                    'New Password',
+                    Strings.newPassword,
                     style: TextStyle(fontWeight: FontWeight.w500),
                   ),
                   SizedBox(
@@ -106,7 +107,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                       decoration: InputDecoration(
                         filled: true,
                         focusColor: HexColor('#F2F2F2'),
-                        hintText: 'New Password',
+                        hintText: Strings.newPassword,
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.0),
                           borderSide: BorderSide(
@@ -138,7 +139,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                     height: 10,
                   ),
                   Text(
-                    'New Password Again',
+                    Strings.newPasswordAgain,
                     style: TextStyle(fontWeight: FontWeight.w500),
                   ),
                   SizedBox(
@@ -189,7 +190,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                       width: MediaQuery.of(context).size.width - 20,
                       height: 50,
                       child: CustomTextButtonWidget(
-                        title: 'Save',
+                        title: Strings.saveButton,
                         buttonColor: HexColor('#EF7C1F'),
                         onPressed: _sendToServer,
                         textStyle: TextStyle(

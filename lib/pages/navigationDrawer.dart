@@ -10,6 +10,7 @@ import 'package:moblie_ui/pages/homePage.dart';
 import 'package:moblie_ui/pages/mobileCategory.dart';
 import 'package:moblie_ui/pages/profilePage.dart';
 import 'package:moblie_ui/pages/wishListPage.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 
 class NavigationDrawer extends StatelessWidget {
   @override
@@ -18,40 +19,40 @@ class NavigationDrawer extends StatelessWidget {
       child: ListView(padding: EdgeInsets.zero, children: <Widget>[
         _createHeader(),
         _createDrawerItem(
-          text: 'Home',
+          text: Strings.home,
           onTap: () => Get.to(() => HomePage()),
         ),
         _createDrawerItem(
-          text: 'Mobiles',
+          text: Strings.mobiles,
           onTap: () => Get.to(() => MobileCategory()),
           // onTap: () => Navigator.pushReplacementNamed(context, Routes.moblies),
         ),
         _createDrawerItem(
-          text: 'Computers',
+          text: Strings.computers,
         ),
         _createDrawerItem(
-          text: 'Electronic',
+          text: Strings.electronic,
         ),
         _createDrawerItem(
-          text: 'Mobile Accessories',
+          text: Strings.mobileAccessories,
         ),
         _createDrawerItem(
-          text: 'Computer Accessories',
+          text: Strings.computerAccessories,
         ),
         _createDrawerItem(
-          text: 'Orders',
+          text: Strings.order,
           onTap: () => Get.to(() => CustomerOrder()),
         ),
         _createDrawerItem(
-          text: 'Wishtlist',
+          text: Strings.wishtlist,
           onTap: () => Get.to(() => WishListPage()),
         ),
         _createDrawerItem(
           onTap: () => Get.to(() => HelpAndSupportPage()),
-          text: 'Help & Support',
+          text: Strings.helpNSupport,
         ),
         _createDrawerItem(
-          text: 'Logout',
+          text: Strings.logOut,
         ),
       ]),
     );

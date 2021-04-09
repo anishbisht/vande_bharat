@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:moblie_ui/pages/addAddressPage.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 
 class CustomerShipToPage extends StatefulWidget {
@@ -17,19 +20,34 @@ class _CustomerShipToPageState extends State<CustomerShipToPage> {
         preferredSize: Size.fromHeight(60.0),
         child: AppBar(
           actions: [
-            Center(
-              child: Text(
-                'Add Address',
-                style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.orange[700],
-                    fontWeight: FontWeight.w500),
+            OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                  backgroundColor: Colors.transparent,
+                  side: BorderSide(width: 0, color: Colors.transparent)),
+              onPressed: () {
+                Get.to(() => AddAddressPage());
+              },
+              child: Center(
+                child: InkWell(
+                  child: Text(
+                    Strings.addAddress,
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.orange[700],
+                        fontWeight: FontWeight.w500),
+                  ),
+                ),
               ),
             ),
-            Icon(
-              Icons.add,
-              color: Colors.orange[700],
-              size: 35,
+            IconButton(
+              icon: Icon(
+                Icons.add,
+                color: Colors.orange[700],
+                size: 35,
+              ),
+              onPressed: () {
+                Get.to(() => AddAddressPage());
+              },
             )
           ],
           leading: IconButton(
@@ -38,7 +56,7 @@ class _CustomerShipToPageState extends State<CustomerShipToPage> {
           ),
           elevation: 2,
           title: Text(
-            "Ship To",
+            Strings.shipTo,
             style: TextStyle(fontSize: 25),
           ),
           backgroundColor: Colors.white,
@@ -65,7 +83,7 @@ class _CustomerShipToPageState extends State<CustomerShipToPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      "Home",
+                      Strings.home,
                       style: TextStyle(color: Colors.grey),
                     ),
                     SizedBox(
@@ -109,7 +127,7 @@ class _CustomerShipToPageState extends State<CustomerShipToPage> {
                                 backgroundColor: Colors.orange[700],
                               ),
                               child: Text(
-                                "Edit",
+                                Strings.edit,
                                 style: TextStyle(color: Colors.white),
                               ),
                             ),
@@ -141,7 +159,7 @@ class _CustomerShipToPageState extends State<CustomerShipToPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      "Work",
+                      Strings.work,
                       style: TextStyle(color: Colors.grey),
                     ),
                     SizedBox(
@@ -184,7 +202,7 @@ class _CustomerShipToPageState extends State<CustomerShipToPage> {
                                 backgroundColor: Colors.orange[700],
                               ),
                               child: Text(
-                                "Edit",
+                                Strings.edit,
                                 style: TextStyle(color: Colors.white),
                               ),
                             ),
@@ -210,7 +228,7 @@ class _CustomerShipToPageState extends State<CustomerShipToPage> {
                     width: MediaQuery.of(context).size.width,
                     child: CustomTextButtonWidget(
                       onPressed: () {},
-                      title: "Next",
+                      title: Strings.next,
                       buttonColor: Colors.orange[700],
                     ),
                   ),

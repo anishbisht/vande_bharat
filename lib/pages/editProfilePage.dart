@@ -7,6 +7,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/pages/profilePage.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 
 class EditProfilePage extends StatefulWidget {
@@ -68,7 +69,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           ),
           elevation: 2,
           title: Text(
-            "Edit Profile",
+          Strings.editProfile,
             style: TextStyle(fontSize: 25),
           ),
           backgroundColor: Colors.white,
@@ -123,7 +124,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     ),
                   ),
 
-                  Text("Full Name",
+                  Text(Strings.fullName,
                       style:
                           TextStyle(fontWeight: FontWeight.w500, fontSize: 15)),
                   SizedBox(
@@ -136,7 +137,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     decoration: InputDecoration(
                       filled: true,
                       focusColor: HexColor('#F2F2F2'),
-                      hintText: 'Name',
+                      hintText: Strings.name,
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                         borderSide: BorderSide(
@@ -164,7 +165,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     height: 10,
                   ),
 
-                  Text("Gender",
+                  Text(Strings.gender,
                       style:
                           TextStyle(fontWeight: FontWeight.w500, fontSize: 15)),
                   SizedBox(
@@ -208,7 +209,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     height: 10,
                   ),
 
-                  Text("Birth Date",
+                  Text(Strings.birthDate,
                       style:
                           TextStyle(fontWeight: FontWeight.w500, fontSize: 15)),
                   SizedBox(
@@ -249,7 +250,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     height: 10,
                   ),
 
-                  Text("Email",
+                  Text(Strings.email,
                       style:
                           TextStyle(fontWeight: FontWeight.w500, fontSize: 15)),
                   SizedBox(
@@ -264,7 +265,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     decoration: InputDecoration(
                       filled: true,
                       focusColor: HexColor('#F2F2F2'),
-                      hintText: 'Email',
+                      hintText: Strings.email,
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                         borderSide: BorderSide(
@@ -291,7 +292,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     height: 10,
                   ),
 
-                  Text("Mobile",
+                  Text(Strings.mobile,
                       style:
                           TextStyle(fontWeight: FontWeight.w500, fontSize: 15)),
                   SizedBox(
@@ -350,7 +351,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       width: MediaQuery.of(context).size.width - 20,
                       height: 50,
                       child: CustomTextButtonWidget(
-                        title: 'Update',
+                        title: Strings.update,
                         buttonColor: HexColor('#EF7C1F'),
                         onPressed: _sendToServer,
                         textStyle: TextStyle(

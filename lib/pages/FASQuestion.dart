@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 
 class FAQ extends StatelessWidget {
   @override
@@ -16,7 +17,7 @@ class FAQ extends StatelessWidget {
           ),
           elevation: 5,
           title: Text(
-            "FAQs",
+            Strings.FAQs,
             style: TextStyle(fontSize: 25),
           ),
           backgroundColor: Colors.white,
@@ -30,14 +31,14 @@ class FAQ extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  "Commonly Searched FAQs",
+                  Strings.commonlySearchedFaqs,
                   style: TextStyle(fontSize: 20, color: Colors.grey[700]),
                 ),
                 SizedBox(
                   height: 20,
                 ),
                 Text(
-                  "How can i return an item?",
+                  Strings.retrunItem,
                   style: TextStyle(fontSize: 20),
                 ),
                 SizedBox(
@@ -80,7 +81,7 @@ class FAQ extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  "How can i use a new email address to log in to my V2 Care account?",
+                  Strings.accountChange,
                   style: TextStyle(fontSize: 18),
                 ),
                 SizedBox(
@@ -91,7 +92,7 @@ class FAQ extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  "What is the replacement process for orders?",
+                  Strings.replacementProcess,
                   style: TextStyle(fontSize: 18),
                 ),
                 SizedBox(
@@ -102,7 +103,7 @@ class FAQ extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  "How do i get invoices for my previous orders?",
+                  Strings.invoicesforOrder,
                   style: TextStyle(fontSize: 18),
                 ),
                 SizedBox(
@@ -113,14 +114,14 @@ class FAQ extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  "Select Category",
+                  Strings.selectCategory,
                   style: TextStyle(color: Colors.grey[700], fontSize: 18),
                 ),
                 SizedBox(
                   height: 20,
                 ),
                 Text(
-                  "Help & Support",
+                  Strings.helpNSupport,
                   style: TextStyle(fontSize: 18),
                 ),
                 SizedBox(
@@ -131,7 +132,7 @@ class FAQ extends StatelessWidget {
                   height: 5,
                 ),
                 Text(
-                  "Order",
+                  Strings.order,
                   style: TextStyle(fontSize: 18),
                 ),
                 SizedBox(
@@ -142,7 +143,7 @@ class FAQ extends StatelessWidget {
                   height: 5,
                 ),
                 Text(
-                  "Cancellations and Returns",
+                  Strings.cancellationsNRetruns,
                   style: TextStyle(fontSize: 18),
                 ),
                 SizedBox(
@@ -153,7 +154,7 @@ class FAQ extends StatelessWidget {
                   height: 5,
                 ),
                 Text(
-                  "Payments",
+                  Strings.payments,
                   style: TextStyle(fontSize: 18),
                 ),
                 SizedBox(
