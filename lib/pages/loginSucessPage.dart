@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/pages/homePage.dart';
+import 'package:moblie_ui/utlis/values/app_colors.dart';
 import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 import 'package:get/get.dart';
@@ -43,11 +44,18 @@ class _LoginSucessPageState extends State<LoginSucessPage> {
               ),
               Text(
                 Strings.success,
-                style: TextStyle(fontSize: 38, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 38,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Roboto"),
               ),
               Text(
                 Strings.loginSuccessMessage,
-                style: TextStyle(fontSize: 18),
+                style: TextStyle(
+                    fontSize: 18,
+                    fontFamily: "Roboto",
+                    fontWeight: FontWeight.normal,
+                    color: AppColors.kGreyTextColor),
               ),
               SizedBox(
                 height: 35,
@@ -60,9 +68,10 @@ class _LoginSucessPageState extends State<LoginSucessPage> {
                   onPressed: () {
                     Get.to(() => HomePage());
                   },
-                  buttonColor: Colors.orange[700],
+                  buttonColor: AppColors.kPrimaryColor,
                   textStyle: TextStyle(
-                    fontSize: 20,
+                    fontSize: 18,
+                    fontFamily: "Poppins",
                     color: Colors.white,
                   ),
                 ),

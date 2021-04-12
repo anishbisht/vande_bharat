@@ -542,7 +542,7 @@ class _FilterPageState extends State<FilterPage> {
                             side: BorderSide(width: 1, color: Colors.grey)),
                         onPressed: () {},
                         child: Text(
-                          Strings.day90,
+                          Strings.day30,
                           style: TextStyle(color: Colors.grey[700]),
                         ),
                       ),

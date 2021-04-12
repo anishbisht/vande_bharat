@@ -17,7 +17,7 @@ class OnboardingController extends GetxController {
     if (isLastPage) {
       Get.to(() => SingInEmailPasswordPage());
     } else
-      pageController.nextPage(duration: 300.milliseconds, curve: Curves.ease);
+      pageController.nextPage(duration: 500.milliseconds, curve: Curves.ease);
   }
 
   List<OnboardingInfo> onboardingPages = [

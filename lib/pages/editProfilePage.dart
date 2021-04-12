@@ -9,6 +9,7 @@ import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/pages/profilePage.dart';
 import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
+import 'package:moblie_ui/utlis/validator.dart';
 
 class EditProfilePage extends StatefulWidget {
   @override
@@ -17,8 +18,12 @@ class EditProfilePage extends StatefulWidget {
 
 class _EditProfilePageState extends State<EditProfilePage> {
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
+  TextEditingController _dateController = TextEditingController();
+  DateTime selectedDate = DateTime.now();
   var _value;
   File _image;
+  var _chosenValue;
+  var _chosenDate;
   final picker = ImagePicker();
 
   Future getImage() async {
@@ -172,36 +177,65 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     height: 10,
                   ),
 
-                  TextFormField(
-                    obscureText: false,
-                    cursorColor: Colors.orange[700],
-                    decoration: InputDecoration(
-                      filled: true,
-                      focusColor: HexColor('#F2F2F2'),
-                      hintText: 'Male',
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                        borderSide: BorderSide(
-                          color: Colors.orange[700],
+                  Container(
+                    padding: const EdgeInsets.all(0.0),
+                    child: DropdownButtonFormField<String>(
+                      decoration: InputDecoration(
+                        filled: true,
+                        focusColor: HexColor('#F2F2F2'),
+                        hintText: Strings.gender,
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          borderSide: BorderSide(
+                            color: Colors.orange[700],
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          borderSide: BorderSide(
+                            color: Colors.white,
+                          ),
+                        ),
+                        prefixIcon: Padding(
+                          padding: EdgeInsets.all(10),
+                          child: Image.asset(
+                            GenderIcon,
+                            height: 10,
+                            width: 10,
+                            // fit: BoxFit.fitHeight,
+                          ),
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
                       ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                        borderSide: BorderSide(
-                          color: Colors.white,
-                        ),
+
+                      value: _chosenValue,
+                      //elevation: 5,
+                      style: TextStyle(color: Colors.black),
+
+                      items: <String>[
+                        'Male',
+                        'Female',
+                      ].map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                      hint: Text(
+                        "",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600),
                       ),
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Image.asset(
-                          GenderIcon,
-                          width: 10,
-                          height: 10,
-                        ),
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
+                      onChanged: (String value) {
+                        setState(() {
+                          _chosenValue = value;
+                        });
+                      },
+                      validator: gender,
                     ),
                   ),
 
@@ -222,7 +256,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     },
                     child: IgnorePointer(
                       child: TextFormField(
-                        
+                        controller: _dateController,
                         obscureText: false,
                         cursorColor: Colors.orange[700],
                         decoration: InputDecoration(
@@ -249,7 +283,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                         ),
+                        onChanged: (String value) {
+                          setState(() {
+                            _chosenDate = value;
+                          });
+                        },
                         onSaved: (String val) {},
+                        validator: selectDateValidator,
                       ),
                     ),
                   ),
@@ -377,7 +417,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
       ),
     );
   }
-
+// image picker method .....................
   void _showPicker(context) {
     showModalBottomSheet(
         context: context,
@@ -406,6 +446,21 @@ class _EditProfilePageState extends State<EditProfilePage> {
             ),
           );
         });
+  }
+  // ............ image picker method ,...................
+// ............ Validators.....................
+  String selectDateValidator(value) {
+    if (value.length == 0) {
+      return "Birth Date is required";
+    }
+    return null;
+  }
+
+  String gender(String value) {
+    if (value == null) {
+      return "Gender is required";
+    }
+    return null;
   }
 
   String validateName(String value) {
@@ -444,7 +499,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
     }
     return null;
   }
-
+  // ..........Validators.......................
+// ...... submit button .................
   _sendToServer() {
     if (_key.currentState.validate()) {
       // No any error in validation
@@ -457,13 +513,19 @@ class _EditProfilePageState extends State<EditProfilePage> {
       });
     }
   }
-
+// ..... select date method....................
   Future _selectDate() async {
     DateTime picked = await showDatePicker(
         context: context,
         initialDate: new DateTime.now(),
         firstDate: new DateTime(1950),
         lastDate: DateTime.now().add(Duration(days: 365)));
-    if (picked != null) setState(() => _value = picked.toString());
+    if (picked != null && picked != selectedDate)
+      setState(() {
+        selectedDate = picked;
+        var date =
+            "${picked.toLocal().day}/${picked.toLocal().month}/${picked.toLocal().year}";
+        _dateController.text = date;
+      });
   }
 }

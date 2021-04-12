@@ -53,12 +53,20 @@ class _SingInEmailPasswordPageState extends State<SingInEmailPasswordPage> {
                   ),
                   Text(
                     Strings.signIn,
-                    style: TextStyle(fontSize: 35, fontWeight: FontWeight.w600),
+                    style: TextStyle(
+                        fontSize: 35,
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.kHeading1),
                     textAlign: TextAlign.left,
                   ),
                   Text(
                     Strings.signInDetails,
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+                    style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.kGreyTextColor),
                   ),
                   SizedBox(
                     height: 20,
@@ -77,21 +85,21 @@ class _SingInEmailPasswordPageState extends State<SingInEmailPasswordPage> {
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Colors.orange[700],
+                              color: AppColors.kPrimaryColor,
                               width: 1,
                             ),
                             borderRadius: BorderRadius.circular(10)),
                         filled: true,
-                        fillColor: HexColor('#F2F2F2'),
+                        fillColor: AppColors.kBackgroundTextFormField,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Colors.orange[700],
+                            color: Colors.white,
                           ),
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Colors.orange[700],
+                            color: AppColors.kPrimaryColor,
                           ),
                           borderRadius: BorderRadius.circular(10.0),
                         ),
@@ -112,6 +120,7 @@ class _SingInEmailPasswordPageState extends State<SingInEmailPasswordPage> {
                         onPressed: _sendToServer,
                         textStyle: TextStyle(
                           fontSize: 18,
+                          fontFamily: "Poppins",
                           color: Colors.white,
                         ),
                       ),
@@ -176,7 +185,9 @@ class _SingInEmailPasswordPageState extends State<SingInEmailPasswordPage> {
                           TextSpan(
                             text: Strings.signUp,
                             style: TextStyle(
-                                color: HexColor('#EF7C1F'), fontSize: 18),
+                                fontFamily: "Poppins",
+                                color: AppColors.kPrimaryColor,
+                                fontSize: 18),
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
                                 Get.to(() => SignUp());

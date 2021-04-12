@@ -129,7 +129,7 @@ class Strings {
 
   // Rating and Reviews
   static const String ratingsNReviews = 'Ratings & Reviews';
-  static const String writeReviews = 'WriteReviews';
+  static const String writeReviews = 'Write Reviews';
   static const String one = '1';
   static const String two = '2';
   static const String three = '3';
@@ -139,7 +139,7 @@ class Strings {
   // Write Review
   static const String pleaseWritereviewDetails =
       'Please write Overall level of satisfaction with shipping/Delivery/Product';
-
+  static const String writeReview = 'Write Review';
   static const String yourComment = "Your Comment";
   static const String writeYourReview = 'Write Your Review';
 

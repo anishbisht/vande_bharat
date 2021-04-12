@@ -71,3 +71,4 @@ const Bottom_nav_bar_home1 = '${baseDir}home1.png';
 const Bottom_nav_bar_cart1 = '${baseDir}Cart.png';
 const Circular_add = '${baseDir}circle_add.png';
 const LocationIcon = '${baseDir}location.png';
+const ArrowImg = '${baseDir}arrow.png';

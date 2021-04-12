@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/models/mobileCatergoryModel.dart';
@@ -24,6 +25,8 @@ class _ProfilePageState extends State<ProfilePage> {
   int index = 3;
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays([]);
+
     SizeConfig().init(context);
     return Scaffold(
       key: _key,
@@ -65,42 +68,40 @@ class _ProfilePageState extends State<ProfilePage> {
                         color: Colors.grey[300],
                       ),
                     ),
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Text(
-                                "Karam Bajwa",
-                                style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.w500),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      // crossAxisAlignment: CrossAxisAlignment.center,
+                      // mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Wrap(
+                          direction: Axis.horizontal,
+                          children: <Widget>[
+                            Text(
+                              "Karam Bajwa",
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.w500),
+                            ),
+                            SizedBox(width: 20),
+                            InkWell(
+                              onTap: () => Get.to(EditProfilePage()),
+                              child: Icon(
+                                Icons.edit,
+                                color: Colors.orange,
                               ),
-                              IconButton(
-                                onPressed: () {
-                                  Get.to(() => EditProfilePage());
-                                },
-                                icon: Icon(
-                                  Icons.edit,
-                                  color: Colors.orange,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Text(
-                            "laracraft@gmail.com",
-                            style: TextStyle(
-                                fontSize: 16, color: Colors.grey[700]),
-                          ),
-                          Text(
-                            "+91 984575824551",
-                            style: TextStyle(
-                                fontSize: 16, color: Colors.grey[700]),
-                          ),
-                        ],
-                      ),
+                            )
+                          ],
+                        ),
+                        Text(
+                          "laracraft@gmail.com",
+                          style:
+                              TextStyle(fontSize: 16, color: Colors.grey[700]),
+                        ),
+                        Text(
+                          "+91 984575824551",
+                          style:
+                              TextStyle(fontSize: 16, color: Colors.grey[700]),
+                        ),
+                      ],
                     ),
                   ),
                   Positioned(

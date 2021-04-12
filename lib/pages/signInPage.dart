@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/pages/loginSucessPage.dart';
 import 'package:moblie_ui/pages/signUpPage.dart';
+import 'package:moblie_ui/utlis/values/app_colors.dart';
 import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 import 'package:moblie_ui/widgets/customOutlinedButtonWidget.dart';
@@ -111,7 +112,11 @@ class _SignInPageState extends State<SignInPage> {
                     children: [
                       Text(
                         Strings.forgot,
-                        style: TextStyle(fontSize: 15),
+                        style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                            color: AppColors.kGreyTextColor),
                       ),
                     ],
                   ),
@@ -124,7 +129,7 @@ class _SignInPageState extends State<SignInPage> {
                       height: 60,
                       child: CustomTextButtonWidget(
                         title: Strings.signIN,
-                        buttonColor: Colors.orange[700],
+                        buttonColor: AppColors.kPrimaryColor,
                         onPressed: _sendToServer,
                         textStyle: TextStyle(
                           fontSize: 20,
@@ -138,10 +143,21 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                   Row(
                     children: <Widget>[
-                      Expanded(child: Divider()),
-                      Text(Strings.orSignInWith),
                       Expanded(
-                        child: Divider(),
+                          child: Divider(
+                        color: AppColors.kGreyTextColor,
+                      )),
+                      Text(
+                        Strings.orSignInWith,
+                        style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.kGreyTextColor),
+                      ),
+                      Expanded(
+                        child: Divider(
+                          color: AppColors.kGreyTextColor,
+                        ),
                       ),
                     ],
                   ),
