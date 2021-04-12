@@ -17,7 +17,7 @@ class EditProfilePage extends StatefulWidget {
 
 class _EditProfilePageState extends State<EditProfilePage> {
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
-
+  var _value;
   File _image;
   final picker = ImagePicker();
 
@@ -69,7 +69,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           ),
           elevation: 2,
           title: Text(
-          Strings.editProfile,
+            Strings.editProfile,
             style: TextStyle(fontSize: 25),
           ),
           backgroundColor: Colors.white,
@@ -216,32 +216,40 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     height: 10,
                   ),
 
-                  TextFormField(
-                    keyboardType: TextInputType.datetime,
-                    obscureText: false,
-                    cursorColor: Colors.orange[700],
-                    decoration: InputDecoration(
-                      filled: true,
-                      focusColor: HexColor('#F2F2F2'),
-                      hintText: 'Select Date',
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                        borderSide: BorderSide(
-                          color: Colors.orange[700],
+                  InkWell(
+                    onTap: () {
+                      _selectDate();
+                    },
+                    child: IgnorePointer(
+                      child: TextFormField(
+                        
+                        obscureText: false,
+                        cursorColor: Colors.orange[700],
+                        decoration: InputDecoration(
+                          filled: true,
+                          focusColor: HexColor('#F2F2F2'),
+                          hintText: 'Select Date',
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide: BorderSide(
+                              color: Colors.orange[700],
+                            ),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide: BorderSide(
+                              color: Colors.white,
+                            ),
+                          ),
+                          prefixIcon: Icon(
+                            Icons.calendar_today,
+                            color: Colors.deepOrangeAccent,
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
                         ),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                        borderSide: BorderSide(
-                          color: Colors.white,
-                        ),
-                      ),
-                      prefixIcon: Icon(
-                        Icons.calendar_today,
-                        color: Colors.deepOrangeAccent,
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
+                        onSaved: (String val) {},
                       ),
                     ),
                   ),
@@ -448,5 +456,14 @@ class _EditProfilePageState extends State<EditProfilePage> {
         AutovalidateMode.always;
       });
     }
+  }
+
+  Future _selectDate() async {
+    DateTime picked = await showDatePicker(
+        context: context,
+        initialDate: new DateTime.now(),
+        firstDate: new DateTime(1950),
+        lastDate: DateTime.now().add(Duration(days: 365)));
+    if (picked != null) setState(() => _value = picked.toString());
   }
 }

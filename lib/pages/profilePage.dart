@@ -7,7 +7,9 @@ import 'package:moblie_ui/pages/bottomNavbar.dart';
 import 'package:moblie_ui/pages/changePassword.dart';
 import 'package:moblie_ui/pages/customerAddress.dart';
 import 'package:moblie_ui/pages/customerOrder.dart';
+import 'package:moblie_ui/pages/editProfilePage.dart';
 import 'package:moblie_ui/pages/navigationDrawer.dart';
+import 'package:moblie_ui/pages/signInEmailNumberPage.dart';
 import 'package:moblie_ui/pages/wishListPage.dart';
 import 'package:moblie_ui/size_config.dart';
 import 'package:moblie_ui/utlis/values/strings.dart';
@@ -76,9 +78,14 @@ class _ProfilePageState extends State<ProfilePage> {
                                 style: TextStyle(
                                     fontSize: 20, fontWeight: FontWeight.w500),
                               ),
-                              Icon(
-                                Icons.edit,
-                                color: Colors.orange,
+                              IconButton(
+                                onPressed: () {
+                                  Get.to(() => EditProfilePage());
+                                },
+                                icon: Icon(
+                                  Icons.edit,
+                                  color: Colors.orange,
+                                ),
                               ),
                             ],
                           ),
@@ -242,7 +249,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               InkWell(
                 onTap: () {
-                  // Get.to(()=>);
+                  Get.to(() => SingInEmailPasswordPage());
                 },
                 child: Container(
                   height: 70,

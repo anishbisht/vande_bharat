@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moblie_ui/pages/paymentScuess.dart';
 import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 
@@ -86,7 +87,7 @@ class _PaymentPageState extends State<PaymentPage> {
                     width: MediaQuery.of(context).size.width,
                     child: CustomTextButtonWidget(
                       onPressed: () {
-                        Get.to(() => PaymentPage());
+                        Get.to(() => PaymentSucessPage());
                       },
                       title: Strings.next,
                       buttonColor: Colors.orange[700],

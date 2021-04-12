@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:moblie_ui/pages/addAddressPage.dart';
+import 'package:moblie_ui/pages/paymentPage.dart';
 import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 
@@ -227,7 +228,9 @@ class _CustomerShipToPageState extends State<CustomerShipToPage> {
                     height: 50,
                     width: MediaQuery.of(context).size.width,
                     child: CustomTextButtonWidget(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(() => PaymentPage());
+                      },
                       title: Strings.next,
                       buttonColor: Colors.orange[700],
                     ),
