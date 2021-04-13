@@ -7,7 +7,9 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/pages/profilePage.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
+import 'package:moblie_ui/utlis/validator.dart';
 
 class EditProfilePage extends StatefulWidget {
   @override
@@ -16,8 +18,12 @@ class EditProfilePage extends StatefulWidget {
 
 class _EditProfilePageState extends State<EditProfilePage> {
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
-
+  TextEditingController _dateController = TextEditingController();
+  DateTime selectedDate = DateTime.now();
+  var _value;
   File _image;
+  var _chosenValue;
+  var _chosenDate;
   final picker = ImagePicker();
 
   Future getImage() async {
@@ -68,7 +74,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           ),
           elevation: 2,
           title: Text(
-            "Edit Profile",
+            Strings.editProfile,
             style: TextStyle(fontSize: 25),
           ),
           backgroundColor: Colors.white,
@@ -123,7 +129,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     ),
                   ),
 
-                  Text("Full Name",
+                  Text(Strings.fullName,
                       style:
                           TextStyle(fontWeight: FontWeight.w500, fontSize: 15)),
                   SizedBox(
@@ -136,7 +142,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     decoration: InputDecoration(
                       filled: true,
                       focusColor: HexColor('#F2F2F2'),
-                      hintText: 'Name',
+                      hintText: Strings.name,
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                         borderSide: BorderSide(
@@ -164,42 +170,126 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     height: 10,
                   ),
 
-                  Text("Gender",
+                  Text(Strings.gender,
                       style:
                           TextStyle(fontWeight: FontWeight.w500, fontSize: 15)),
                   SizedBox(
                     height: 10,
                   ),
 
-                  TextFormField(
-                    obscureText: false,
-                    cursorColor: Colors.orange[700],
-                    decoration: InputDecoration(
-                      filled: true,
-                      focusColor: HexColor('#F2F2F2'),
-                      hintText: 'Male',
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                        borderSide: BorderSide(
-                          color: Colors.orange[700],
+                  Container(
+                    padding: const EdgeInsets.all(0.0),
+                    child: DropdownButtonFormField<String>(
+                      decoration: InputDecoration(
+                        filled: true,
+                        focusColor: HexColor('#F2F2F2'),
+                        hintText: Strings.gender,
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          borderSide: BorderSide(
+                            color: Colors.orange[700],
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          borderSide: BorderSide(
+                            color: Colors.white,
+                          ),
+                        ),
+                        prefixIcon: Padding(
+                          padding: EdgeInsets.all(10),
+                          child: Image.asset(
+                            GenderIcon,
+                            height: 10,
+                            width: 10,
+                            // fit: BoxFit.fitHeight,
+                          ),
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
                       ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                        borderSide: BorderSide(
-                          color: Colors.white,
-                        ),
+
+                      value: _chosenValue,
+                      //elevation: 5,
+                      style: TextStyle(color: Colors.black),
+
+                      items: <String>[
+                        'Male',
+                        'Female',
+                      ].map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                      hint: Text(
+                        "",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600),
                       ),
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Image.asset(
-                          GenderIcon,
-                          width: 10,
-                          height: 10,
+                      onChanged: (String value) {
+                        setState(() {
+                          _chosenValue = value;
+                        });
+                      },
+                      validator: gender,
+                    ),
+                  ),
+
+                  SizedBox(
+                    height: 10,
+                  ),
+
+                  Text(Strings.birthDate,
+                      style:
+                          TextStyle(fontWeight: FontWeight.w500, fontSize: 15)),
+                  SizedBox(
+                    height: 10,
+                  ),
+
+                  InkWell(
+                    onTap: () {
+                      _selectDate();
+                    },
+                    child: IgnorePointer(
+                      child: TextFormField(
+                        controller: _dateController,
+                        obscureText: false,
+                        cursorColor: Colors.orange[700],
+                        decoration: InputDecoration(
+                          filled: true,
+                          focusColor: HexColor('#F2F2F2'),
+                          hintText: 'Select Date',
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide: BorderSide(
+                              color: Colors.orange[700],
+                            ),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide: BorderSide(
+                              color: Colors.white,
+                            ),
+                          ),
+                          prefixIcon: Icon(
+                            Icons.calendar_today,
+                            color: Colors.deepOrangeAccent,
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
                         ),
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
+                        onChanged: (String value) {
+                          setState(() {
+                            _chosenDate = value;
+                          });
+                        },
+                        onSaved: (String val) {},
+                        validator: selectDateValidator,
                       ),
                     ),
                   ),
@@ -208,48 +298,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     height: 10,
                   ),
 
-                  Text("Birth Date",
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 15)),
-                  SizedBox(
-                    height: 10,
-                  ),
-
-                  TextFormField(
-                    keyboardType: TextInputType.datetime,
-                    obscureText: false,
-                    cursorColor: Colors.orange[700],
-                    decoration: InputDecoration(
-                      filled: true,
-                      focusColor: HexColor('#F2F2F2'),
-                      hintText: 'Select Date',
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                        borderSide: BorderSide(
-                          color: Colors.orange[700],
-                        ),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                        borderSide: BorderSide(
-                          color: Colors.white,
-                        ),
-                      ),
-                      prefixIcon: Icon(
-                        Icons.calendar_today,
-                        color: Colors.deepOrangeAccent,
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                    ),
-                  ),
-
-                  SizedBox(
-                    height: 10,
-                  ),
-
-                  Text("Email",
+                  Text(Strings.email,
                       style:
                           TextStyle(fontWeight: FontWeight.w500, fontSize: 15)),
                   SizedBox(
@@ -264,7 +313,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     decoration: InputDecoration(
                       filled: true,
                       focusColor: HexColor('#F2F2F2'),
-                      hintText: 'Email',
+                      hintText: Strings.email,
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                         borderSide: BorderSide(
@@ -291,7 +340,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     height: 10,
                   ),
 
-                  Text("Mobile",
+                  Text(Strings.mobile,
                       style:
                           TextStyle(fontWeight: FontWeight.w500, fontSize: 15)),
                   SizedBox(
@@ -350,7 +399,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       width: MediaQuery.of(context).size.width - 20,
                       height: 50,
                       child: CustomTextButtonWidget(
-                        title: 'Update',
+                        title: Strings.update,
                         buttonColor: HexColor('#EF7C1F'),
                         onPressed: _sendToServer,
                         textStyle: TextStyle(
@@ -368,7 +417,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
       ),
     );
   }
-
+// image picker method .....................
   void _showPicker(context) {
     showModalBottomSheet(
         context: context,
@@ -397,6 +446,21 @@ class _EditProfilePageState extends State<EditProfilePage> {
             ),
           );
         });
+  }
+  // ............ image picker method ,...................
+// ............ Validators.....................
+  String selectDateValidator(value) {
+    if (value.length == 0) {
+      return "Birth Date is required";
+    }
+    return null;
+  }
+
+  String gender(String value) {
+    if (value == null) {
+      return "Gender is required";
+    }
+    return null;
   }
 
   String validateName(String value) {
@@ -435,7 +499,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
     }
     return null;
   }
-
+  // ..........Validators.......................
+// ...... submit button .................
   _sendToServer() {
     if (_key.currentState.validate()) {
       // No any error in validation
@@ -447,5 +512,20 @@ class _EditProfilePageState extends State<EditProfilePage> {
         AutovalidateMode.always;
       });
     }
+  }
+// ..... select date method....................
+  Future _selectDate() async {
+    DateTime picked = await showDatePicker(
+        context: context,
+        initialDate: new DateTime.now(),
+        firstDate: new DateTime(1950),
+        lastDate: DateTime.now().add(Duration(days: 365)));
+    if (picked != null && picked != selectedDate)
+      setState(() {
+        selectedDate = picked;
+        var date =
+            "${picked.toLocal().day}/${picked.toLocal().month}/${picked.toLocal().year}";
+        _dateController.text = date;
+      });
   }
 }

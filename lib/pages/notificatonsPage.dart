@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moblie_ui/image_path.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/notificatonlListWidget.dart';
 
 class NotificatonsPage extends StatefulWidget {
@@ -21,7 +22,7 @@ class _NotificatonsPageState extends State<NotificatonsPage> {
           ),
           elevation: 2,
           title: Text(
-            "Notifications",
+            Strings.notifications,
             style: TextStyle(fontSize: 25),
           ),
           backgroundColor: Colors.white,

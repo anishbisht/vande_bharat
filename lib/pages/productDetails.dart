@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:moblie_ui/image_path.dart';
+import 'package:moblie_ui/utlis/values/app_colors.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 import 'package:moblie_ui/widgets/customProductWidget.dart';
 
@@ -161,12 +163,12 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(
-                        "Colors",
+                        Strings.colors,
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 16),
                       ),
                       Text(
-                        "To Deliver",
+                        Strings.toDeliver,
                         style: TextStyle(fontWeight: FontWeight.bold),
                       )
                     ],
@@ -262,7 +264,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                           child: TextFormField(
                             decoration: InputDecoration(
                               suffix: Text(
-                                "Change",
+                                Strings.change,
                                 style: TextStyle(
                                     color: Colors.orange, fontSize: 12),
                               ),
@@ -287,10 +289,12 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                       elevation: 0,
                       backgroundColor: Colors.white,
                       bottom: TabBar(
+                        indicatorColor: AppColors.kPrimaryColor,
+                        unselectedLabelColor: AppColors.kGreyTextColor,
                         tabs: [
-                          Tab(text: "Specifaction"),
+                          Tab(text: Strings.specifications),
                           Tab(
-                            text: "Descripton",
+                            text: Strings.descripition,
                           )
                         ],
                       ),
@@ -429,18 +433,19 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                   Center(
                     child: InkWell(
                       child: Text(
-                        "See More",
+                        Strings.seeMore,
                         style: TextStyle(
                           fontSize: 16,
-                          color: Colors.orange,
+                          color: AppColors.kPrimaryColor,
                         ),
                       ),
                     ),
                   ),
                   Divider(),
                   Text(
-                    "Review by certified customer",
-                    style: TextStyle(fontSize: 16, color: Colors.orange),
+                    Strings.reviewsByCertifiedCustomer,
+                    style:
+                        TextStyle(fontSize: 16, color: AppColors.kPrimaryColor),
                   ),
                   SizedBox(
                     height: 10,
@@ -604,7 +609,8 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                   ),
                   Text(
                     "You might also like",
-                    style: TextStyle(fontSize: 16, color: Colors.orange),
+                    style:
+                        TextStyle(fontSize: 16, color: AppColors.kPrimaryColor),
                   ),
                   SizedBox(
                     height: 10,
@@ -695,10 +701,11 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                     height: 50,
                     child: CustomTextButtonWidget(
                       title: 'Add to Cart',
-                      buttonColor: HexColor('#EF7C1F'),
+                      buttonColor: AppColors.kPrimaryColor,
                       onPressed: () {},
                       textStyle: TextStyle(
                         fontSize: 18,
+                        fontFamily: "Poppins",
                         color: Colors.white,
                       ),
                     ),

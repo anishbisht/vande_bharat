@@ -4,8 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:image_picker/image_picker.dart';
+//import 'package:image_picker/image_picker.dart';
 import 'package:moblie_ui/image_path.dart';
+import 'package:moblie_ui/utlis/values/app_colors.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
+import 'package:moblie_ui/widgets/customButtonWidget.dart';
+import 'package:multi_image_picker/multi_image_picker.dart';
+
+import 'dart:async';
 
 class ReviewPostPage extends StatefulWidget {
   @override
@@ -15,31 +21,63 @@ class ReviewPostPage extends StatefulWidget {
 class _ReviewPostPageState extends State<ReviewPostPage> {
   final _controller = TextEditingController();
   final _controller1 = TextEditingController();
-  final picker = ImagePicker();
-  File _image;
-  Future getImage() async {
-    final pickedFile = await picker.getImage(source: ImageSource.camera);
 
-    setState(() {
-      if (pickedFile != null) {
-        _image = File(pickedFile.path);
-      } else {
-        print('No image selected.');
-      }
-    });
+  List<Asset> images;
+  String _error;
+
+  @override
+  void initState() {
+    super.initState();
   }
 
-  Future getImage1() async {
-    final pickedFile = await picker.getImage(source: ImageSource.gallery);
+  Future<void> pickImages() async {
+    setState(() {
+      images = null;
+    });
+
+    List resultList;
+    String error;
+
+    try {
+      resultList = await MultiImagePicker.pickImages(
+        maxImages: 3,
+      );
+    } on PlatformException catch (e) {
+      error = e.message;
+    }
+
+    if (!mounted) return;
 
     setState(() {
-      if (pickedFile != null) {
-        _image = File(pickedFile.path);
-      } else {
-        print("No image selected. ");
-      }
+      images = resultList;
+      if (error == null) _error = 'No Error Dectected';
     });
   }
+  // final picker = ImagePicker();
+  // File _image;
+  // Future getImage() async {
+  //   final pickedFile = await picker.getImage(source: ImageSource.camera);
+
+  //   setState(() {
+  //     if (pickedFile != null) {
+  //       _image = File(pickedFile.path);
+  //     } else {
+  //       print('No image selected.');
+  //     }
+  //   });
+  // }
+
+  // Future getImage1() async {
+  //   final pickedFile = await picker.getImage(source: ImageSource.gallery);
+
+  //   setState(() {
+  //     if (pickedFile != null) {
+  //       _image = File(pickedFile.path);
+  //     } else {
+  //       print("No image selected. ");
+  //     }
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +93,7 @@ class _ReviewPostPageState extends State<ReviewPostPage> {
           ),
           elevation: 2,
           title: Text(
-            "Write Review",
+            Strings.writeReview,
             style: TextStyle(fontSize: 25),
           ),
           backgroundColor: Colors.white,
@@ -64,12 +102,12 @@ class _ReviewPostPageState extends State<ReviewPostPage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            margin: EdgeInsets.fromLTRB(20, 10, 10, 20),
+            margin: EdgeInsets.fromLTRB(10, 10, 10, 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  "Please write Overall level of satisfication with shpping/Delivery/Product",
+                  Strings.pleaseWritereviewDetails,
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                 ),
                 SizedBox(
@@ -94,7 +132,7 @@ class _ReviewPostPageState extends State<ReviewPostPage> {
                   height: 20,
                 ),
                 Text(
-                  "Your Comment",
+                  Strings.yourComment,
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                 ),
                 SizedBox(
@@ -110,6 +148,8 @@ class _ReviewPostPageState extends State<ReviewPostPage> {
                     obscureText: false,
                     cursorColor: Colors.orange[700],
                     decoration: InputDecoration(
+                      filled: true,
+                      focusColor: HexColor('#F2F2F2'),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                         borderSide: BorderSide(
@@ -119,7 +159,7 @@ class _ReviewPostPageState extends State<ReviewPostPage> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                         borderSide: BorderSide(
-                          color: Colors.orange[700],
+                          color: Colors.white,
                           width: 2.0,
                         ),
                       ),
@@ -133,7 +173,7 @@ class _ReviewPostPageState extends State<ReviewPostPage> {
                   height: 20,
                 ),
                 Text(
-                  'Write Your Review',
+                  Strings.writeYourReview,
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                 ),
                 SizedBox(
@@ -160,7 +200,7 @@ class _ReviewPostPageState extends State<ReviewPostPage> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                         borderSide: BorderSide(
-                          color: Colors.orange[700],
+                          color: Colors.white,
                           width: 2.0,
                         ),
                       ),
@@ -177,30 +217,85 @@ class _ReviewPostPageState extends State<ReviewPostPage> {
                   height: 10,
                 ),
                 Text(
-                  "Add Photo",
+                  Strings.addPhoto,
                   style: TextStyle(fontWeight: FontWeight.w500),
                 ),
                 SizedBox(
                   height: 5,
                 ),
-                Container(
-                  height: 100,
-                  width: 150,
-                  decoration: new BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
-                    //shape: BoxShape.,
-                    border: Border.all(
-                      color: Colors.grey[300],
-                    ),
-                  ),
-                  child: Center(
-                    child: InkWell(
-                      onTap: getImage,
-                      child: Image.asset(
-                        Circular_add,
-                        height: 45,
-                        width: 45,
-                        fit: BoxFit.fill,
+
+                images == null
+                    ? Container(
+                        height: 300.0,
+                        width: 400.0,
+                        child: new Icon(
+                          Icons.image,
+                          size: 250.0,
+                          color: Theme.of(context).primaryColor,
+                        ),
+                      )
+                    : SizedBox(
+                        height: 200.0,
+                        width: 500,
+                        child: new ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (BuildContext context, int index) =>
+                              new Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: AssetThumb(
+                                    asset: images[index],
+                                    height: 200,
+                                    width: 200,
+                                  )),
+                          itemCount: images.length,
+                        ),
+                      ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: new Text('Error Dectected: $_error'),
+                ),
+                TextButton.icon(
+                    onPressed: pickImages,
+                    icon: new Icon(Icons.image),
+                    label: new Text("Pick-Up Images")),
+
+                // Container(
+                //   height: 50,
+                //   width: 80,
+                //   decoration: new BoxDecoration(
+                //     borderRadius: BorderRadius.all(Radius.circular(5)),
+                //     //shape: BoxShape.,
+                //     border: Border.all(
+                //       color: Colors.grey[300],
+                //     ),
+                //   ),
+                // //   child: Center(
+                // //     child: InkWell(
+                // //       onTap: getImage,
+                // //       child: Image.asset(
+                // //         Circular_add,
+                // //         height: 20,
+                // //         width: 20,
+                // //         fit: BoxFit.fill,
+                // //       ),
+                // //     ),
+                // //   ),
+                // // ),
+                SizedBox(
+                  height: 30,
+                ),
+                Center(
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width - 20,
+                    height: 50,
+                    child: CustomTextButtonWidget(
+                      title: Strings.submit,
+                      buttonColor: AppColors.kPrimaryColor,
+                      onPressed: () {},
+                      textStyle: TextStyle(
+                        fontSize: 18,
+                        fontFamily: "Poppins",
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -213,33 +308,34 @@ class _ReviewPostPageState extends State<ReviewPostPage> {
     );
   }
 
-  void _showPicker(context) {
-    showModalBottomSheet(
-        context: context,
-        builder: (BuildContext bc) {
-          return SafeArea(
-            child: Container(
-              child: new Wrap(
-                children: <Widget>[
-                  new ListTile(
-                      leading: new Icon(Icons.photo_library),
-                      title: new Text('Photo Library'),
-                      onTap: () {
-                        getImage1();
-                        Navigator.of(context).pop();
-                      }),
-                  new ListTile(
-                    leading: new Icon(Icons.photo_camera),
-                    title: new Text('Camera'),
-                    onTap: () {
-                      getImage();
-                      Navigator.of(context).pop();
-                    },
-                  ),
-                ],
-              ),
-            ),
-          );
-        });
-  }
+  // void _showPicker(context) {
+  //   showModalBottomSheet(
+  //     context: context,
+  //     builder: (BuildContext bc) {
+  //       return SafeArea(
+  //         child: Container(
+  //           child: new Wrap(
+  //             children: <Widget>[
+  //               new ListTile(
+  //                   leading: new Icon(Icons.photo_library),
+  //                   title: new Text('Photo Library'),
+  //                   onTap: () {
+  //                     getImage1();
+  //                     Navigator.of(context).pop();
+  //                   }),
+  //               new ListTile(
+  //                 leading: new Icon(Icons.photo_camera),
+  //                 title: new Text('Camera'),
+  //                 onTap: () {
+  //                   getImage();
+  //                   Navigator.of(context).pop();
+  //                 },
+  //               ),
+  //             ],
+  //           ),
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
 }

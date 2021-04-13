@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/pages/passwordOtpPage.dart';
 import 'package:moblie_ui/pages/signInEmailNumberPage.dart';
+import 'package:moblie_ui/utlis/values/app_colors.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 import 'package:moblie_ui/widgets/customOutlinedButtonWidget.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -38,7 +40,7 @@ class _SignUpState extends State<SignUp> {
                     height: 60,
                   ),
                   Text(
-                    "Sign Up",
+                    Strings.signUp,
                     style: TextStyle(
                         fontSize: 36,
                         fontWeight: FontWeight.w500,
@@ -48,17 +50,18 @@ class _SignUpState extends State<SignUp> {
                     textAlign: TextAlign.left,
                   ),
                   Text(
-                    "Enter your details to continue.",
+                    Strings.signUpDetails,
                     style: TextStyle(
+                        fontFamily: "Poppins",
                         fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.black54),
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.kGreyTextColor),
                   ),
                   SizedBox(
                     height: 20,
                   ),
                   Text(
-                    "Name",
+                    Strings.name,
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                   ),
                   SizedBox(
@@ -70,7 +73,7 @@ class _SignUpState extends State<SignUp> {
                     decoration: InputDecoration(
                       filled: true,
                       focusColor: HexColor('#F2F2F2'),
-                      hintText: 'Name',
+                      hintText: Strings.name,
                       border: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Colors.orange[700],
@@ -100,7 +103,7 @@ class _SignUpState extends State<SignUp> {
                     height: 15,
                   ),
                   Text(
-                    "Mobile Number",
+                    Strings.mobileNumber,
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                   ),
                   SizedBox(
@@ -113,7 +116,7 @@ class _SignUpState extends State<SignUp> {
                     decoration: InputDecoration(
                       filled: true,
                       focusColor: HexColor('#F2F2F2'),
-                      hintText: 'Mobile Number',
+                      hintText: Strings.mobileNumber,
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                         borderSide: BorderSide(
@@ -145,7 +148,7 @@ class _SignUpState extends State<SignUp> {
                     height: 15,
                   ),
                   Text(
-                    "Email",
+                    Strings.email,
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                   ),
                   SizedBox(
@@ -158,7 +161,7 @@ class _SignUpState extends State<SignUp> {
                       decoration: InputDecoration(
                         filled: true,
                         focusColor: HexColor('#F2F2F2'),
-                        hintText: 'Email',
+                        hintText: Strings.email,
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.0),
                           borderSide: BorderSide(
@@ -184,7 +187,7 @@ class _SignUpState extends State<SignUp> {
                     height: 15,
                   ),
                   Text(
-                    "Create Password",
+                    Strings.createPassword,
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                   ),
                   SizedBox(
@@ -196,7 +199,7 @@ class _SignUpState extends State<SignUp> {
                     decoration: InputDecoration(
                       filled: true,
                       focusColor: HexColor('#F2F2F2'),
-                      hintText: 'Password',
+                      hintText: Strings.password,
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                         borderSide: BorderSide(
@@ -234,7 +237,7 @@ class _SignUpState extends State<SignUp> {
                       width: MediaQuery.of(context).size.width - 20,
                       height: 50,
                       child: CustomTextButtonWidget(
-                        title: 'Sign Up',
+                        title: Strings.signUp,
                         buttonColor: HexColor('#EF7C1F'),
                         onPressed: _sendToServer,
                         textStyle: TextStyle(
@@ -249,10 +252,21 @@ class _SignUpState extends State<SignUp> {
                   ),
                   Row(
                     children: <Widget>[
-                      Expanded(child: Divider()),
-                      Text('or Sign in with'),
                       Expanded(
-                        child: Divider(),
+                          child: Divider(
+                        color: AppColors.kGreyTextColor,
+                      )),
+                      Text(
+                        Strings.orSignUpWith,
+                        style: TextStyle(
+                            fontFamily: "Poppins",
+                            color: AppColors.kGreyTextColor,
+                            fontWeight: FontWeight.w400),
+                      ),
+                      Expanded(
+                        child: Divider(
+                          color: AppColors.kGreyTextColor,
+                        ),
                       ),
                     ],
                   ),
@@ -295,15 +309,21 @@ class _SignUpState extends State<SignUp> {
                   Center(
                     child: RichText(
                       text: TextSpan(
-                        style: TextStyle(color: Colors.black, fontSize: 18),
+                        style: TextStyle(
+                            color: AppColors.kGreyTextColor,
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.normal,
+                            fontSize: 16),
                         children: <TextSpan>[
                           TextSpan(
-                            text: 'Already a memeber?',
+                            text: Strings.alreadyAMember,
                           ),
                           TextSpan(
-                            text: "Sign In",
+                            text: Strings.signIN,
                             style: TextStyle(
-                                color: Colors.deepOrangeAccent, fontSize: 18),
+                                color: AppColors.kPrimaryColor,
+                                fontFamily: "Poppins",
+                                fontSize: 18),
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
                                 Get.to(() => SingInEmailPasswordPage());

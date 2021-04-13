@@ -3,6 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/pages/homePage.dart';
+import 'package:moblie_ui/utlis/values/app_colors.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 import 'package:get/get.dart';
 
@@ -41,12 +43,19 @@ class _LoginSucessPageState extends State<LoginSucessPage> {
                 height: 10,
               ),
               Text(
-                "Sucess",
-                style: TextStyle(fontSize: 38, fontWeight: FontWeight.bold),
+                Strings.success,
+                style: TextStyle(
+                    fontSize: 38,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Roboto"),
               ),
               Text(
-                "Thank yor for choosing Vande Bharat",
-                style: TextStyle(fontSize: 18),
+                Strings.loginSuccessMessage,
+                style: TextStyle(
+                    fontSize: 18,
+                    fontFamily: "Roboto",
+                    fontWeight: FontWeight.normal,
+                    color: AppColors.kGreyTextColor),
               ),
               SizedBox(
                 height: 35,
@@ -55,13 +64,14 @@ class _LoginSucessPageState extends State<LoginSucessPage> {
                 height: 50,
                 width: MediaQuery.of(context).size.width - 20,
                 child: CustomTextButtonWidget(
-                  title: 'Get Started ->',
+                  title: Strings.getStarted,
                   onPressed: () {
                     Get.to(() => HomePage());
                   },
-                  buttonColor: Colors.orange[700],
+                  buttonColor: AppColors.kPrimaryColor,
                   textStyle: TextStyle(
-                    fontSize: 20,
+                    fontSize: 18,
+                    fontFamily: "Poppins",
                     color: Colors.white,
                   ),
                 ),

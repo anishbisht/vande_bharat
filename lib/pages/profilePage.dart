@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/models/mobileCatergoryModel.dart';
 import 'package:moblie_ui/models/wishlistModel.dart';
 import 'package:moblie_ui/pages/bottomNavbar.dart';
 import 'package:moblie_ui/pages/changePassword.dart';
+import 'package:moblie_ui/pages/customerAddress.dart';
 import 'package:moblie_ui/pages/customerOrder.dart';
+import 'package:moblie_ui/pages/editProfilePage.dart';
 import 'package:moblie_ui/pages/navigationDrawer.dart';
+import 'package:moblie_ui/pages/signInEmailNumberPage.dart';
 import 'package:moblie_ui/pages/wishListPage.dart';
 import 'package:moblie_ui/size_config.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -20,6 +25,8 @@ class _ProfilePageState extends State<ProfilePage> {
   int index = 3;
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays([]);
+
     SizeConfig().init(context);
     return Scaffold(
       key: _key,
@@ -35,7 +42,7 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           elevation: 2,
           title: Text(
-            "My Profile",
+            Strings.myProfile,
             style: TextStyle(fontSize: 25),
           ),
           backgroundColor: Colors.white,
@@ -61,37 +68,40 @@ class _ProfilePageState extends State<ProfilePage> {
                         color: Colors.grey[300],
                       ),
                     ),
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Text(
-                                "Karam Bajwa",
-                                style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.w500),
-                              ),
-                              Icon(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      // crossAxisAlignment: CrossAxisAlignment.center,
+                      // mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Wrap(
+                          direction: Axis.horizontal,
+                          children: <Widget>[
+                            Text(
+                              "Karam Bajwa",
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.w500),
+                            ),
+                            SizedBox(width: 20),
+                            InkWell(
+                              onTap: () => Get.to(EditProfilePage()),
+                              child: Icon(
                                 Icons.edit,
                                 color: Colors.orange,
                               ),
-                            ],
-                          ),
-                          Text(
-                            "laracraft@gmail.com",
-                            style: TextStyle(
-                                fontSize: 16, color: Colors.grey[700]),
-                          ),
-                          Text(
-                            "+91 984575824551",
-                            style: TextStyle(
-                                fontSize: 16, color: Colors.grey[700]),
-                          ),
-                        ],
-                      ),
+                            )
+                          ],
+                        ),
+                        Text(
+                          "laracraft@gmail.com",
+                          style:
+                              TextStyle(fontSize: 16, color: Colors.grey[700]),
+                        ),
+                        Text(
+                          "+91 984575824551",
+                          style:
+                              TextStyle(fontSize: 16, color: Colors.grey[700]),
+                        ),
+                      ],
                     ),
                   ),
                   Positioned(
@@ -131,7 +141,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(
-                        "My Order",
+                        Strings.myOrders,
                         style: TextStyle(fontSize: 16, color: Colors.grey[700]),
                       ),
                       Image.asset(
@@ -161,7 +171,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(
-                        "My WishList",
+                        Strings.myWishtlist,
                         style: TextStyle(fontSize: 16, color: Colors.grey[700]),
                       ),
                       Image.asset(
@@ -174,7 +184,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               InkWell(
                 onTap: () {
-                  // Get.to(()=>)
+                  Get.to(() => CustomerAddressPage());
                 },
                 child: Container(
                   height: 70,
@@ -191,7 +201,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(
-                        "My Address",
+                        Strings.myAddress,
                         style: TextStyle(fontSize: 16, color: Colors.grey[700]),
                       ),
                       Image.asset(
@@ -225,7 +235,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Text(
-                          "Change Password",
+                          Strings.changePassword,
                           style:
                               TextStyle(fontSize: 16, color: Colors.grey[700]),
                         ),
@@ -240,7 +250,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               InkWell(
                 onTap: () {
-                  // Get.to(()=>);
+                  Get.to(() => SingInEmailPasswordPage());
                 },
                 child: Container(
                   height: 70,
@@ -257,7 +267,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(
-                        "Logout",
+                        Strings.logOut,
                         style: TextStyle(fontSize: 16, color: Colors.grey[700]),
                       ),
                       Image.asset(

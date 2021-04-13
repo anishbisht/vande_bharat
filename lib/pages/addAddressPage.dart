@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:moblie_ui/image_path.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 import 'package:moblie_ui/widgets/customOutlinedButtonWidget.dart';
 
@@ -26,7 +29,7 @@ class _AddAddressPageState extends State<AddAddressPage> {
           ),
           elevation: 1,
           title: Text(
-            "Add Address",
+            Strings.addAddress,
             style: TextStyle(fontSize: 25),
           ),
           backgroundColor: Colors.white,
@@ -53,11 +56,14 @@ class _AddAddressPageState extends State<AddAddressPage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.location_city_rounded),
+                          Image.asset(
+                            LocationIcon,
+                            height: 15,
+                          ),
                           SizedBox(
                             width: 5,
                           ),
-                          Text("Use Current Location")
+                          Text(Strings.userLocation)
                         ],
                       ),
                     ),
@@ -66,7 +72,7 @@ class _AddAddressPageState extends State<AddAddressPage> {
                     height: 5,
                   ),
                   Text(
-                    "Address Type",
+                    Strings.addressType,
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
                   ),
                   SizedBox(
@@ -82,7 +88,7 @@ class _AddAddressPageState extends State<AddAddressPage> {
                           style: OutlinedButton.styleFrom(
                               side: BorderSide(color: Colors.orange)),
                           onPressed: () {},
-                          child: Text("Home",
+                          child: Text(Strings.home,
                               style: TextStyle(color: Colors.deepOrange[700])),
                         ),
                       ),
@@ -94,7 +100,7 @@ class _AddAddressPageState extends State<AddAddressPage> {
                               side: BorderSide(color: Colors.grey)),
                           onPressed: () {},
                           child: Text(
-                            "Work",
+                            Strings.work,
                             style: TextStyle(color: Colors.grey[700]),
                           ),
                         ),
@@ -105,7 +111,7 @@ class _AddAddressPageState extends State<AddAddressPage> {
                     height: 5,
                   ),
                   Text(
-                    "Full Name",
+                    Strings.fullName,
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
                   ),
                   SizedBox(
@@ -117,7 +123,7 @@ class _AddAddressPageState extends State<AddAddressPage> {
                     decoration: InputDecoration(
                       filled: true,
                       focusColor: HexColor('#F2F2F2'),
-                      hintText: 'Full Name',
+                      hintText: Strings.fullName,
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                         borderSide: BorderSide(
@@ -140,7 +146,7 @@ class _AddAddressPageState extends State<AddAddressPage> {
                     height: 5,
                   ),
                   Text(
-                    "Street",
+                    Strings.street,
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
                   ),
                   SizedBox(
@@ -152,7 +158,7 @@ class _AddAddressPageState extends State<AddAddressPage> {
                     decoration: InputDecoration(
                       filled: true,
                       focusColor: HexColor('#F2F2F2'),
-                      hintText: 'Street',
+                      hintText: Strings.street,
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                         borderSide: BorderSide(
@@ -175,7 +181,7 @@ class _AddAddressPageState extends State<AddAddressPage> {
                     height: 5,
                   ),
                   Text(
-                    "Locality",
+                    Strings.locality,
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
                   ),
                   SizedBox(
@@ -187,7 +193,7 @@ class _AddAddressPageState extends State<AddAddressPage> {
                     decoration: InputDecoration(
                       filled: true,
                       focusColor: HexColor('#F2F2F2'),
-                      hintText: 'Locality',
+                      hintText: Strings.locality,
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                         borderSide: BorderSide(
@@ -209,7 +215,7 @@ class _AddAddressPageState extends State<AddAddressPage> {
                     height: 5,
                   ),
                   Text(
-                    "Address",
+                    Strings.address,
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
                   ),
                   SizedBox(
@@ -243,7 +249,7 @@ class _AddAddressPageState extends State<AddAddressPage> {
                     height: 5,
                   ),
                   Text(
-                    "City",
+                    Strings.city,
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
                   ),
                   SizedBox(
@@ -255,7 +261,7 @@ class _AddAddressPageState extends State<AddAddressPage> {
                     decoration: InputDecoration(
                       filled: true,
                       focusColor: HexColor('#F2F2F2'),
-                      hintText: 'City',
+                      hintText: Strings.city,
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                         borderSide: BorderSide(
@@ -277,7 +283,7 @@ class _AddAddressPageState extends State<AddAddressPage> {
                     height: 5,
                   ),
                   Text(
-                    "State",
+                    Strings.state,
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
                   ),
                   SizedBox(
@@ -289,7 +295,7 @@ class _AddAddressPageState extends State<AddAddressPage> {
                     decoration: InputDecoration(
                       filled: true,
                       focusColor: HexColor('#F2F2F2'),
-                      hintText: 'State',
+                      hintText: Strings.state,
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                         borderSide: BorderSide(
@@ -311,7 +317,7 @@ class _AddAddressPageState extends State<AddAddressPage> {
                     height: 5,
                   ),
                   Text(
-                    "Pincode",
+                    Strings.pincode,
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
                   ),
                   SizedBox(
@@ -323,7 +329,7 @@ class _AddAddressPageState extends State<AddAddressPage> {
                     decoration: InputDecoration(
                       filled: true,
                       focusColor: HexColor('#F2F2F2'),
-                      hintText: 'Pincode',
+                      hintText: Strings.pincode,
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                         borderSide: BorderSide(
@@ -348,8 +354,10 @@ class _AddAddressPageState extends State<AddAddressPage> {
                     height: 50,
                     width: MediaQuery.of(context).size.width - 10,
                     child: CustomTextButtonWidget(
-                      title: "Add Address",
-                      onPressed: () {},
+                      title: Strings.addAddress,
+                      onPressed: () {
+                        Get.back();
+                      },
                       textColor: Colors.white,
                       buttonColor: Colors.orange[800],
                     ),

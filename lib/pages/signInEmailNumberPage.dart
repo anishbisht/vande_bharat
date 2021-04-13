@@ -7,6 +7,7 @@ import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/pages/signInPage.dart';
 import 'package:moblie_ui/pages/signUpPage.dart';
 import 'package:moblie_ui/utlis/values/app_colors.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 import 'package:moblie_ui/widgets/customOutlinedButtonWidget.dart';
 import 'package:moblie_ui/utlis/validator.dart';
@@ -51,19 +52,27 @@ class _SingInEmailPasswordPageState extends State<SingInEmailPasswordPage> {
                     height: 80,
                   ),
                   Text(
-                    "Sign In",
-                    style: TextStyle(fontSize: 35, fontWeight: FontWeight.w600),
+                    Strings.signIn,
+                    style: TextStyle(
+                        fontSize: 35,
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.kHeading1),
                     textAlign: TextAlign.left,
                   ),
                   Text(
-                    "Enter your details to continue",
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+                    Strings.signInDetails,
+                    style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.kGreyTextColor),
                   ),
                   SizedBox(
                     height: 20,
                   ),
                   Text(
-                    "Moblie Number / Email ID",
+                    Strings.mobileOREmai,
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                   ),
                   SizedBox(
@@ -76,21 +85,21 @@ class _SingInEmailPasswordPageState extends State<SingInEmailPasswordPage> {
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Colors.orange[700],
+                              color: AppColors.kPrimaryColor,
                               width: 1,
                             ),
                             borderRadius: BorderRadius.circular(10)),
                         filled: true,
-                        fillColor: HexColor('#F2F2F2'),
+                        fillColor: AppColors.kBackgroundTextFormField,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Colors.orange[700],
+                            color: Colors.white,
                           ),
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Colors.orange[700],
+                            color: AppColors.kPrimaryColor,
                           ),
                           borderRadius: BorderRadius.circular(10.0),
                         ),
@@ -106,11 +115,12 @@ class _SingInEmailPasswordPageState extends State<SingInEmailPasswordPage> {
                       width: MediaQuery.of(context).size.width - 20,
                       height: 50,
                       child: CustomTextButtonWidget(
-                        title: 'Next',
+                        title: Strings.nextButton,
                         buttonColor: AppColors.kPrimaryColor,
                         onPressed: _sendToServer,
                         textStyle: TextStyle(
                           fontSize: 18,
+                          fontFamily: "Poppins",
                           color: Colors.white,
                         ),
                       ),
@@ -122,7 +132,7 @@ class _SingInEmailPasswordPageState extends State<SingInEmailPasswordPage> {
                   Row(
                     children: <Widget>[
                       Expanded(child: Divider()),
-                      Text('or Sign in with'),
+                      Text(Strings.orSignInWith),
                       Expanded(
                         child: Divider(),
                       ),
@@ -170,16 +180,18 @@ class _SingInEmailPasswordPageState extends State<SingInEmailPasswordPage> {
                         style: TextStyle(color: Colors.black, fontSize: 18),
                         children: <TextSpan>[
                           TextSpan(
-                            text: 'Not a memeber?',
+                            text: Strings.notAMember,
                           ),
                           TextSpan(
-                            text: "Sign Up",
+                            text: Strings.signUp,
                             style: TextStyle(
-                                color: HexColor('#EF7C1F'), fontSize: 18),
+                                fontFamily: "Poppins",
+                                color: AppColors.kPrimaryColor,
+                                fontSize: 18),
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
                                 Get.to(() => SignUp());
-                                print("Click");
+                                print(Strings.clickHere);
                               },
                           ),
                         ],

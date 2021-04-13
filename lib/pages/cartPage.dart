@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/pages/bottomNavbar.dart';
 import 'package:moblie_ui/pages/navigationDrawer.dart';
+import 'package:moblie_ui/pages/shipToPage.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 
 class CartPage extends StatefulWidget {
@@ -36,7 +39,7 @@ class _CartPageState extends State<CartPage> {
           ),
           elevation: 2,
           title: Text(
-            "My Cart",
+            Strings.myCart,
             style: TextStyle(fontSize: 25),
           ),
           backgroundColor: Colors.white,
@@ -266,7 +269,7 @@ class _CartPageState extends State<CartPage> {
                   // mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      ' Apply Promo',
+                      Strings.applyPromo,
                       style: TextStyle(fontSize: 16, color: Colors.green),
                       textAlign: TextAlign.center,
                     ),
@@ -323,7 +326,7 @@ class _CartPageState extends State<CartPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Text(
-                            'Sub Total',
+                            Strings.subTotal,
                             style: TextStyle(color: Colors.grey[500]),
                           ),
                           Text('\u{20B9} ' + "69,988",
@@ -342,7 +345,7 @@ class _CartPageState extends State<CartPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Text(
-                            'Discount ( - )',
+                            Strings.discount,
                             style: TextStyle(color: Colors.green),
                           ),
                           Text(
@@ -360,7 +363,7 @@ class _CartPageState extends State<CartPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Text(
-                            'Delivery Fee (+)',
+                            Strings.deliveryFee,
                             style: TextStyle(
                                 color: Colors.grey[700], fontSize: 15),
                           ),
@@ -379,7 +382,7 @@ class _CartPageState extends State<CartPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Text(
-                            'Order Total',
+                            Strings.orderTotal,
                             style: TextStyle(fontSize: 16),
                           ),
                           Text(
@@ -399,8 +402,10 @@ class _CartPageState extends State<CartPage> {
                   height: 50,
                   width: MediaQuery.of(context).size.width,
                   child: CustomTextButtonWidget(
-                    title: 'Place Order',
-                    onPressed: () {},
+                    title: Strings.placeOrder,
+                    onPressed: () {
+                      Get.to(() => CustomerShipToPage());
+                    },
                     buttonColor: Colors.orange[700],
                     textStyle: TextStyle(
                       fontSize: 16,

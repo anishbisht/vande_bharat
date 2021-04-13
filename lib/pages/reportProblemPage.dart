@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:moblie_ui/image_path.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 import 'package:moblie_ui/models/imageUploadModel.dart';
 
@@ -43,7 +44,7 @@ class _ReportProblemPageState extends State<ReportProblemPage> {
           ),
           elevation: 1,
           title: Text(
-            "Report Problem",
+            Strings.reportProblem,
             style: TextStyle(fontSize: 25),
           ),
           backgroundColor: Colors.white,
@@ -57,7 +58,7 @@ class _ReportProblemPageState extends State<ReportProblemPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  "What's going wrong?",
+                  Strings.whatGoingWrong,
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.w500,
@@ -98,7 +99,7 @@ class _ReportProblemPageState extends State<ReportProblemPage> {
                   height: 20,
                 ),
                 Text(
-                  "Upload A Screenshot",
+                  Strings.uploadAScreenshot,
                   style: TextStyle(fontSize: 18),
                 ),
                 SizedBox(
@@ -142,7 +143,7 @@ class _ReportProblemPageState extends State<ReportProblemPage> {
                   height: 20,
                 ),
                 Text(
-                  "Please only leave feedback about Vande Bharat Bazar and our features. All reports are subject to our Term to Use.",
+                  Strings.feedbackDetails,
                   style: TextStyle(fontSize: 15, color: Colors.grey[700]),
                 ),
                 SizedBox(
@@ -152,7 +153,7 @@ class _ReportProblemPageState extends State<ReportProblemPage> {
                   width: MediaQuery.of(context).size.width,
                   height: 50,
                   child: CustomTextButtonWidget(
-                    title: 'Submit',
+                    title: Strings.submit,
                     buttonColor: HexColor('#EF7C1F'),
                     onPressed: () {},
                     textStyle: TextStyle(

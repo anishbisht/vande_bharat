@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:moblie_ui/pages/paymentScuess.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 
 class PaymentPage extends StatefulWidget {
@@ -36,7 +39,7 @@ class _PaymentPageState extends State<PaymentPage> {
           ),
           elevation: 2,
           title: Text(
-            "Payment",
+            Strings.payments,
             style: TextStyle(fontSize: 25),
           ),
           backgroundColor: Colors.white,
@@ -58,7 +61,7 @@ class _PaymentPageState extends State<PaymentPage> {
                     onChanged: _handleRadioValueChange,
                   ),
                   new Text(
-                    'Razor Pay',
+                    Strings.razporPay,
                     style: new TextStyle(fontSize: 18.0),
                   ),
                 ],
@@ -71,7 +74,7 @@ class _PaymentPageState extends State<PaymentPage> {
                     onChanged: _handleRadioValueChange,
                   ),
                   new Text(
-                    'Cash on Delivery',
+                    Strings.cashOnDelivery,
                     style: new TextStyle(fontSize: 18.0, color: Colors.black),
                   ),
                 ],
@@ -83,8 +86,10 @@ class _PaymentPageState extends State<PaymentPage> {
                     height: 50,
                     width: MediaQuery.of(context).size.width,
                     child: CustomTextButtonWidget(
-                      onPressed: () {},
-                      title: "Next",
+                      onPressed: () {
+                        Get.to(() => PaymentSucessPage());
+                      },
+                      title: Strings.next,
                       buttonColor: Colors.orange[700],
                     ),
                   ),

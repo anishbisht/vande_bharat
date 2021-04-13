@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:moblie_ui/image_path.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 
 class CreateNewPassword extends StatelessWidget {
@@ -20,7 +21,7 @@ class CreateNewPassword extends StatelessWidget {
           ),
           elevation: 2,
           title: Text(
-            "Create New Password",
+            Strings.createNewPassword,
             style: TextStyle(fontSize: 25),
           ),
           backgroundColor: Colors.white,
@@ -48,7 +49,7 @@ class CreateNewPassword extends StatelessWidget {
                 ),
                 Center(
                   child: Text(
-                    "Create new password for your account to be secure",
+                    Strings.createNewPasswordDetails,
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                   ),
                 ),
@@ -56,7 +57,7 @@ class CreateNewPassword extends StatelessWidget {
                   height: 30,
                 ),
                 Text(
-                  "New Password",
+                  Strings.newPassword,
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                   textAlign: TextAlign.left,
                 ),
@@ -97,7 +98,7 @@ class CreateNewPassword extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  "New Password Again",
+                  Strings.newPasswordAgain,
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                 ),
                 SizedBox(
@@ -140,17 +141,14 @@ class CreateNewPassword extends StatelessWidget {
                     width: MediaQuery.of(context).size.width - 20,
                     height: 50,
                     child: CustomTextButtonWidget(
-                      title: 'Save',
+                      title: Strings.saveButton,
                       buttonColor: Colors.orange[700],
-                      onPressed: () {
-                       
-                      },
+                      onPressed: () {},
                       textStyle: TextStyle(
                         fontSize: 18,
                         color: Colors.white,
                       ),
                     ),
-                   
                   ),
                 ),
               ],

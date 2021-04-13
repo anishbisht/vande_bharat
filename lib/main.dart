@@ -1,4 +1,4 @@
-import 'package:flutter/Material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
           primaryColorLight: Colors.white,
           primaryColorBrightness: Brightness.light,
         ),
-        home: SplashScreen(),
+        home: ReviewPostPage(),
       ),
     );
   }

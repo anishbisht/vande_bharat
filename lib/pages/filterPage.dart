@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:moblie_ui/image_path.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 
 class FilterPage extends StatefulWidget {
@@ -28,14 +29,14 @@ class _FilterPageState extends State<FilterPage> {
         child: AppBar(
           elevation: 2,
           title: Text(
-            "Filter By",
+            Strings.filterBy,
             style: TextStyle(fontSize: 18),
           ),
           actions: [
             Container(
               margin: EdgeInsets.fromLTRB(0, 20, 20, 0),
               child: Text(
-                "Clear All",
+                Strings.clearAll,
                 style: TextStyle(fontSize: 18, color: Colors.greenAccent[400]),
               ),
             ),
@@ -51,7 +52,7 @@ class _FilterPageState extends State<FilterPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  "Brand",
+                  Strings.brand,
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.w500),
                 ),
@@ -169,7 +170,7 @@ class _FilterPageState extends State<FilterPage> {
                       width: 20,
                     ),
                     Text(
-                      "See All",
+                      Strings.seeAll,
                       style: TextStyle(color: Colors.green),
                     ),
                   ],
@@ -178,7 +179,7 @@ class _FilterPageState extends State<FilterPage> {
                   height: 20,
                 ),
                 Text(
-                  "Price",
+                  Strings.price,
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.w500),
                 ),
@@ -264,11 +265,11 @@ class _FilterPageState extends State<FilterPage> {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[Text("Min"), Text("Max")],
+                  children: <Widget>[Text(Strings.min), Text(Strings.max)],
                 ),
                 SizedBox(height: 30),
                 Text(
-                  "Payment",
+                  Strings.payments,
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.w500),
                 ),
@@ -286,7 +287,7 @@ class _FilterPageState extends State<FilterPage> {
                             side: BorderSide(width: 1, color: Colors.grey)),
                         onPressed: () {},
                         child: Text(
-                          "Pay on Delivery",
+                          Strings.payOnDelivery,
                           style: TextStyle(color: Colors.grey[700]),
                         ),
                       ),
@@ -303,7 +304,7 @@ class _FilterPageState extends State<FilterPage> {
                             side: BorderSide(width: 1, color: Colors.grey)),
                         onPressed: () {},
                         child: Text(
-                          "Online Payment",
+                          Strings.onlinePayment,
                           style: TextStyle(color: Colors.grey[700]),
                         ),
                       ),
@@ -314,7 +315,7 @@ class _FilterPageState extends State<FilterPage> {
                   height: 20,
                 ),
                 Text(
-                  "Color",
+                  Strings.colors,
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.w500),
                 ),
@@ -500,7 +501,7 @@ class _FilterPageState extends State<FilterPage> {
                 ),
                 SizedBox(height: 20),
                 Text(
-                  "Availability",
+                  Strings.avalibality,
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.w500),
                 ),
@@ -516,14 +517,14 @@ class _FilterPageState extends State<FilterPage> {
                         side: BorderSide(width: 1, color: Colors.grey)),
                     onPressed: () {},
                     child: Text(
-                      "Include Out of Stock",
+                      Strings.includeOutOfStock,
                       style: TextStyle(color: Colors.grey[700]),
                     ),
                   ),
                 ),
                 SizedBox(height: 20),
                 Text(
-                  "New Arrivals",
+                  Strings.newArrivals,
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.w500),
                 ),
@@ -541,7 +542,7 @@ class _FilterPageState extends State<FilterPage> {
                             side: BorderSide(width: 1, color: Colors.grey)),
                         onPressed: () {},
                         child: Text(
-                          "30 Days",
+                          Strings.day30,
                           style: TextStyle(color: Colors.grey[700]),
                         ),
                       ),
@@ -558,7 +559,7 @@ class _FilterPageState extends State<FilterPage> {
                             side: BorderSide(width: 1, color: Colors.grey)),
                         onPressed: () {},
                         child: Text(
-                          "90 Days",
+                          Strings.day90,
                           style: TextStyle(color: Colors.grey[700]),
                         ),
                       ),
@@ -567,7 +568,7 @@ class _FilterPageState extends State<FilterPage> {
                 ),
                 SizedBox(height: 20),
                 Text(
-                  "Star Rating",
+                  Strings.starRatings,
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.w500),
                 ),
@@ -585,7 +586,7 @@ class _FilterPageState extends State<FilterPage> {
                             side: BorderSide(width: 1, color: Colors.grey)),
                         onPressed: () {},
                         child: Text(
-                          "4 & Up",
+                          Strings.upN4,
                           style: TextStyle(color: Colors.grey[700]),
                         ),
                       ),
@@ -602,7 +603,7 @@ class _FilterPageState extends State<FilterPage> {
                             side: BorderSide(width: 1, color: Colors.grey)),
                         onPressed: () {},
                         child: Text(
-                          "3 & Up",
+                          Strings.upN3,
                           style: TextStyle(color: Colors.grey[700]),
                         ),
                       ),
@@ -619,7 +620,7 @@ class _FilterPageState extends State<FilterPage> {
                             side: BorderSide(width: 1, color: Colors.grey)),
                         onPressed: () {},
                         child: Text(
-                          "2 & Up",
+                          Strings.upN2,
                           style: TextStyle(color: Colors.grey[700]),
                         ),
                       ),
@@ -633,7 +634,7 @@ class _FilterPageState extends State<FilterPage> {
                   height: 50,
                   width: MediaQuery.of(context).size.width - 10,
                   child: CustomTextButtonWidget(
-                    title: "Apply",
+                    title: Strings.apply,
                     onPressed: () {},
                     textColor: Colors.white,
                     buttonColor: Colors.orange[800],

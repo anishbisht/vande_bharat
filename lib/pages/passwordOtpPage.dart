@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/pages/loginSucessPage.dart';
+import 'package:moblie_ui/utlis/values/app_colors.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 import 'package:otp_text_field/otp_text_field.dart';
 import 'package:otp_text_field/style.dart';
@@ -27,7 +29,7 @@ class _PasswordOtpPageState extends State<PasswordOtpPage> {
           ),
           elevation: 2,
           title: Text(
-            "Enter OTP",
+            Strings.enterOTP,
             style: TextStyle(fontSize: 25),
           ),
           backgroundColor: Colors.white,
@@ -52,8 +54,12 @@ class _PasswordOtpPageState extends State<PasswordOtpPage> {
                 ),
                 Center(
                   child: Text(
-                    "Enter OTP sent to 9376543210. Wrong Mobile number Click Here",
-                    style: TextStyle(fontSize: 19, fontWeight: FontWeight.w500),
+                    Strings.enterOTPMessage,
+                    style: TextStyle(
+                        fontFamily: "Roboto",
+                        fontSize: 19,
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.Black),
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -62,8 +68,9 @@ class _PasswordOtpPageState extends State<PasswordOtpPage> {
                 ),
                 Center(
                   child: Text(
-                    "OTP",
+                    Strings.oTP,
                     style: TextStyle(
+                      fontFamily: "Poppins",
                       fontSize: 26,
                       fontWeight: FontWeight.w500,
                     ),
@@ -92,10 +99,11 @@ class _PasswordOtpPageState extends State<PasswordOtpPage> {
                     width: MediaQuery.of(context).size.width - 20,
                     height: 55,
                     child: CustomTextButtonWidget(
-                      title: 'Next',
-                      buttonColor: Colors.orange[700],
+                      title: Strings.next,
+                      buttonColor: AppColors.kPrimaryColor,
                       textStyle: TextStyle(
                         fontSize: 16,
+                        fontFamily: "Poppins",
                         color: Colors.white,
                       ),
                       onPressed: () {
@@ -110,7 +118,11 @@ class _PasswordOtpPageState extends State<PasswordOtpPage> {
                 Center(
                   child: Text(
                     "Resend OTP:" + " 8 sec",
-                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
+                    style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.kGreyTextColor),
                   ),
                 )
               ],

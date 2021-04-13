@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/pages/bottomNavbar.dart';
 import 'package:moblie_ui/pages/navigationDrawer.dart';
+import 'package:moblie_ui/utlis/values/app_colors.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 
 class CustomerOrder extends StatefulWidget {
   @override
@@ -33,7 +35,7 @@ class _CustomerOrderState extends State<CustomerOrder> {
             ),
             elevation: 2,
             title: Text(
-              "My Orders",
+              Strings.myOrders,
               style: TextStyle(fontSize: 24),
             ),
             backgroundColor: Colors.white,
@@ -42,13 +44,15 @@ class _CustomerOrderState extends State<CustomerOrder> {
               child: SizedBox(
                 height: 30,
                 child: TabBar(
+                  indicatorColor: AppColors.kPrimaryColor,
+                  unselectedLabelColor: AppColors.kGreyTextColor,
                   tabs: [
                     Text(
-                      "Ongoing",
+                      Strings.ongoing,
                       style: TextStyle(fontSize: 20),
                     ),
                     Text(
-                      "Past",
+                      Strings.past,
                       style: TextStyle(fontSize: 20),
                     )
                   ],
@@ -114,22 +118,20 @@ class _CustomerOrderState extends State<CustomerOrder> {
                                     width: 140,
                                     child: OutlinedButton(
                                       onPressed: () {},
-                                      style: ButtonStyle(
-                                        shape: MaterialStateProperty.all<
-                                            RoundedRectangleBorder>(
-                                          RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(20.0),
-                                            side: BorderSide(
-                                                color: Colors.orange),
-                                          ),
+                                      style: OutlinedButton.styleFrom(
+                                        side: BorderSide(
+                                          color: AppColors.kPrimaryColor,
+                                        ),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
                                         ),
                                       ),
                                       child: Text(
-                                        "Pending",
+                                        Strings.pending,
                                         style: TextStyle(
                                             fontSize: 16,
-                                            color: Colors.orange,
+                                            color: AppColors.kPrimaryColor,
                                             fontWeight: FontWeight.w500),
                                       ),
                                     ),
@@ -146,14 +148,14 @@ class _CustomerOrderState extends State<CustomerOrder> {
                                     MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Text(
-                                    "Order Staus",
+                                    Strings.orderStatus,
                                     style: TextStyle(
                                         fontSize: 16,
                                         color: Colors.grey[600],
                                         fontWeight: FontWeight.w400),
                                   ),
                                   Text(
-                                    "Cancelled",
+                                    Strings.cancelled,
                                     style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w400,
@@ -171,7 +173,7 @@ class _CustomerOrderState extends State<CustomerOrder> {
                                     MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Text(
-                                    "Items",
+                                    Strings.items,
                                     style: TextStyle(
                                         color: Colors.grey[600],
                                         fontWeight: FontWeight.w400,
@@ -195,7 +197,7 @@ class _CustomerOrderState extends State<CustomerOrder> {
                                     MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Text(
-                                    "Price",
+                                    Strings.price,
                                     style: TextStyle(
                                         fontSize: 16,
                                         color: Colors.grey[600],
@@ -271,18 +273,17 @@ class _CustomerOrderState extends State<CustomerOrder> {
                                     width: 140,
                                     child: OutlinedButton(
                                       onPressed: () {},
-                                      style: ButtonStyle(
-                                        shape: MaterialStateProperty.all<
-                                            RoundedRectangleBorder>(
-                                          RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(20.0),
-                                            side: BorderSide(color: Colors.red),
-                                          ),
+                                      style: OutlinedButton.styleFrom(
+                                        side: BorderSide(
+                                          color: Colors.red,
+                                        ),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
                                         ),
                                       ),
                                       child: Text(
-                                        "Cancelled",
+                                        Strings.cancelled,
                                         style: TextStyle(
                                             fontSize: 16,
                                             color: Colors.red,
@@ -302,14 +303,14 @@ class _CustomerOrderState extends State<CustomerOrder> {
                                     MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Text(
-                                    "Order Staus",
+                                    Strings.orderStatus,
                                     style: TextStyle(
                                         fontSize: 16,
                                         color: Colors.grey[600],
                                         fontWeight: FontWeight.w400),
                                   ),
                                   Text(
-                                    "Delivered",
+                                    Strings.delivered,
                                     style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w400,
@@ -324,7 +325,7 @@ class _CustomerOrderState extends State<CustomerOrder> {
                                     MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Text(
-                                    "Items",
+                                    Strings.items,
                                     style: TextStyle(
                                         color: Colors.grey[600],
                                         fontWeight: FontWeight.w400,
@@ -345,7 +346,7 @@ class _CustomerOrderState extends State<CustomerOrder> {
                                     MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Text(
-                                    "Price",
+                                    Strings.price,
                                     style: TextStyle(
                                         fontSize: 16,
                                         color: Colors.grey[600],
@@ -410,19 +411,17 @@ class _CustomerOrderState extends State<CustomerOrder> {
                                     width: 140,
                                     child: OutlinedButton(
                                       onPressed: () {},
-                                      style: ButtonStyle(
-                                        shape: MaterialStateProperty.all<
-                                            RoundedRectangleBorder>(
-                                          RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(20.0),
-                                            side:
-                                                BorderSide(color: Colors.green),
-                                          ),
+                                      style: OutlinedButton.styleFrom(
+                                        side: BorderSide(
+                                          color: Colors.green,
+                                        ),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
                                         ),
                                       ),
                                       child: Text(
-                                        "Completed",
+                                        Strings.completed,
                                         style: TextStyle(
                                             fontSize: 16,
                                             color: Colors.green,
@@ -442,14 +441,14 @@ class _CustomerOrderState extends State<CustomerOrder> {
                                     MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Text(
-                                    "Order Staus",
+                                    Strings.orderStatus,
                                     style: TextStyle(
                                         fontSize: 16,
                                         color: Colors.grey[600],
                                         fontWeight: FontWeight.w400),
                                   ),
                                   Text(
-                                    "Delivered",
+                                    Strings.delivered,
                                     style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w400,
@@ -464,7 +463,7 @@ class _CustomerOrderState extends State<CustomerOrder> {
                                     MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Text(
-                                    "Items",
+                                    Strings.items,
                                     style: TextStyle(
                                         color: Colors.grey[600],
                                         fontWeight: FontWeight.w400,
@@ -485,7 +484,7 @@ class _CustomerOrderState extends State<CustomerOrder> {
                                     MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Text(
-                                    "Price",
+                                    Strings.price,
                                     style: TextStyle(
                                         fontSize: 16,
                                         color: Colors.grey[600],

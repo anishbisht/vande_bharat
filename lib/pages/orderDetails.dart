@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/pages/reasonForCancellationPage.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
@@ -55,7 +56,7 @@ class _CustomerOrderDetailsState extends State<CustomerOrderDetails> {
             ),
             elevation: 2,
             title: Text(
-              "Order Details",
+              Strings.orderDetails,
               style: TextStyle(fontSize: 25),
             ),
             backgroundColor: Colors.white,
@@ -119,28 +120,28 @@ class _CustomerOrderDetailsState extends State<CustomerOrderDetails> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
                       Text(
-                        "Placed",
+                      Strings.placed,
                         style: TextStyle(
                             fontSize: 16,
                             color: Colors.grey[600],
                             fontWeight: FontWeight.w400),
                       ),
                       Text(
-                        "Packed",
+                        Strings.packed,
                         style: TextStyle(
                             fontSize: 16,
                             color: Colors.grey[600],
                             fontWeight: FontWeight.w400),
                       ),
                       Text(
-                        "Shipped",
+                        Strings.shipped,
                         style: TextStyle(
                             fontSize: 16,
                             color: Colors.grey[600],
                             fontWeight: FontWeight.w400),
                       ),
                       Text(
-                        "Delivered",
+                        Strings.delivered,
                         style: TextStyle(
                             fontSize: 16,
                             color: Colors.grey[600],
@@ -152,7 +153,7 @@ class _CustomerOrderDetailsState extends State<CustomerOrderDetails> {
                     height: 20,
                   ),
                   Text(
-                    'Product',
+                    Strings.product,
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                   ),
                   Container(
@@ -303,7 +304,7 @@ class _CustomerOrderDetailsState extends State<CustomerOrderDetails> {
                     height: 20,
                   ),
                   Text(
-                    "Shipping Details",
+                    Strings.shippingDetails,
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                   ),
                   SizedBox(
@@ -327,7 +328,7 @@ class _CustomerOrderDetailsState extends State<CustomerOrderDetails> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Text(
-                              'Order Date',
+                              Strings.orderDate,
                               style: TextStyle(color: Colors.grey[500]),
                             ),
                             Text("6 May, 2020",
@@ -346,7 +347,7 @@ class _CustomerOrderDetailsState extends State<CustomerOrderDetails> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Text(
-                              'Name',
+                              Strings.name,
                               style: TextStyle(color: Colors.grey),
                             ),
                             Text(
@@ -414,7 +415,7 @@ class _CustomerOrderDetailsState extends State<CustomerOrderDetails> {
                     height: 20,
                   ),
                   Text(
-                    "Payment Details",
+                    Strings.paymentDetails,
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                   ),
                   SizedBox(
@@ -438,7 +439,7 @@ class _CustomerOrderDetailsState extends State<CustomerOrderDetails> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Text(
-                              'Sub Total',
+                              Strings.subTotal,
                               style: TextStyle(color: Colors.grey[500]),
                             ),
                             Text('\u{20B9} ' + "69,988",
@@ -457,7 +458,7 @@ class _CustomerOrderDetailsState extends State<CustomerOrderDetails> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Text(
-                              'Discount ( - )',
+                              Strings.discount,
                               style: TextStyle(color: Colors.green),
                             ),
                             Text(
@@ -476,7 +477,7 @@ class _CustomerOrderDetailsState extends State<CustomerOrderDetails> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Text(
-                              'Delivery Fee (+)',
+                              Strings.deliveryFee,
                               style: TextStyle(
                                   color: Colors.grey[700], fontSize: 15),
                             ),
@@ -514,7 +515,7 @@ class _CustomerOrderDetailsState extends State<CustomerOrderDetails> {
                     height: 50,
                     width: MediaQuery.of(context).size.width - 20,
                     child: CustomTextButtonWidget(
-                      title: 'Cancel Order',
+                      title: Strings.cancelOrder,
                       onPressed: () {
                         Get.to(() => ReasonForCancellation());
                       },

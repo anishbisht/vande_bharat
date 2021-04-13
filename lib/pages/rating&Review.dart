@@ -4,6 +4,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/pages/reviewPostPage.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
 import 'package:moblie_ui/widgets/customCategoriesWidget.dart';
 import 'package:moblie_ui/widgets/customOutlinedButtonWidget.dart';
@@ -29,7 +30,7 @@ class _RatingReviewState extends State<RatingReview> {
           ),
           elevation: 2,
           title: Text(
-            "Rating & Reviews",
+            Strings.ratingsNReviews,
             style: TextStyle(fontSize: 25),
           ),
           backgroundColor: Colors.white,
@@ -83,7 +84,7 @@ class _RatingReviewState extends State<RatingReview> {
                                 size: 10,
                               ),
                               Text(
-                                " 1",
+                                Strings.one,
                                 style: TextStyle(
                                     fontSize: 12,
                                     color: Colors.grey,
@@ -109,7 +110,7 @@ class _RatingReviewState extends State<RatingReview> {
                                 size: 12,
                               ),
                               Text(
-                                " 2",
+                                Strings.two,
                                 style: TextStyle(
                                     fontSize: 12,
                                     color: Colors.grey,
@@ -135,7 +136,7 @@ class _RatingReviewState extends State<RatingReview> {
                                 size: 10,
                               ),
                               Text(
-                                "3",
+                                Strings.three,
                                 style: TextStyle(
                                     fontSize: 12,
                                     color: Colors.grey,
@@ -161,7 +162,7 @@ class _RatingReviewState extends State<RatingReview> {
                                 size: 10,
                               ),
                               Text(
-                                "4",
+                                Strings.four,
                                 style: TextStyle(
                                     fontSize: 12,
                                     color: Colors.grey,
@@ -187,7 +188,7 @@ class _RatingReviewState extends State<RatingReview> {
                                 size: 10,
                               ),
                               Text(
-                                "5",
+                                Strings.five,
                                 style: TextStyle(
                                     fontSize: 12,
                                     color: Colors.grey,
@@ -441,7 +442,7 @@ class _RatingReviewState extends State<RatingReview> {
                     onPressed: () {
                       Get.to(ReviewPostPage());
                     },
-                    title: "Write Review",
+                    title: Strings.writeReviews,
                     buttonColor: Colors.orange[700],
                   ),
                 )

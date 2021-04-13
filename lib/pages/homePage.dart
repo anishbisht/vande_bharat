@@ -14,6 +14,7 @@ import 'package:moblie_ui/pages/notificatonsPage.dart';
 import 'package:moblie_ui/pages/productDetails.dart';
 import 'package:moblie_ui/pages/profilePage.dart';
 import 'package:moblie_ui/pages/wishListPage.dart';
+import 'package:moblie_ui/utlis/values/strings.dart';
 
 import 'package:moblie_ui/widgets/customCategoriesWidget.dart';
 import 'package:moblie_ui/widgets/customProductWidget.dart';
@@ -164,13 +165,13 @@ class _HomePageState extends State<HomePage> {
                   ),
                   SizedBox(height: 20),
                   CustomHeadingRowWidget(
-                    textname1: 'All Categories',
+                    textname1: Strings.allCategories,
                     onPressed: () {
                       Get.to(() => AllCategories());
                     },
                     fontSize1: 20,
                     fontSize2: 18,
-                    textname2: 'View all',
+                    textname2: Strings.viewAll,
                     color1: Colors.black,
                     color2: Colors.orange[700],
                     fontWeight1: FontWeight.w500,
@@ -190,7 +191,7 @@ class _HomePageState extends State<HomePage> {
                           containerWidth: 75,
                           imageName: MoblieIcon,
                           imageHeight: 30,
-                          textName1: 'Mobiles',
+                          textName1: Strings.mobiles,
                           textName2: '',
                           fontSize: 14,
                           fontWeight: FontWeight.w300,
@@ -203,7 +204,7 @@ class _HomePageState extends State<HomePage> {
                           containerWidth: 75,
                           imageName: ComputerIcon,
                           imageHeight: 30,
-                          textName1: 'Computers',
+                          textName1: Strings.computer,
                           textName2: '',
                           fontSize: 14,
                           fontWeight: FontWeight.w300,
@@ -216,7 +217,7 @@ class _HomePageState extends State<HomePage> {
                           containerWidth: 75,
                           imageName: ElectronicLogo,
                           imageHeight: 30,
-                          textName1: 'Electronics',
+                          textName1: Strings.electronics,
                           textName2: '',
                           fontSize: 14,
                           fontWeight: FontWeight.w300,
@@ -257,10 +258,10 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {
                       Get.to(() => AllCategories());
                     },
-                    textname1: 'Recommended Products',
+                    textname1: Strings.recommendedProducts,
                     fontSize1: 20,
                     fontSize2: 18,
-                    textname2: 'View all',
+                    textname2: Strings.viewAll,
                     color1: Colors.black,
                     color2: Colors.orange[700],
                     fontWeight1: FontWeight.w500,
@@ -289,7 +290,7 @@ class _HomePageState extends State<HomePage> {
                           textName2: 'Watch Active 2..',
                           fontSize2: 14,
                           fontWeight2: FontWeight.w600,
-                          textName3: 'Sold by Digital World Galaxy',
+                          textName3: Strings.soldBy,
                           fontSize3: 10,
                           fontWeight3: FontWeight.w300,
                           textName4: '\u{20B9}${27499}',
@@ -371,10 +372,10 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {
                       Get.to(() => AllCategories());
                     },
-                    textname1: 'Popular Brands',
+                    textname1: Strings.popularBrands,
                     fontSize1: 20,
                     fontSize2: 18,
-                    textname2: 'View all',
+                    textname2: Strings.viewAll,
                     color1: Colors.black,
                     color2: Colors.orange[700],
                     fontWeight1: FontWeight.w500,
@@ -463,10 +464,10 @@ class _HomePageState extends State<HomePage> {
                   ),
                   SizedBox(height: 20),
                   CustomHeadingRowWidget(
-                    textname1: 'Mobile',
+                    textname1: Strings.mobile,
                     fontSize1: 20,
                     fontSize2: 18,
-                    textname2: 'View all',
+                    textname2: Strings.viewAll,
                     color1: Colors.black,
                     color2: Colors.orange[700],
                     fontWeight1: FontWeight.w500,
@@ -584,10 +585,10 @@ class _HomePageState extends State<HomePage> {
                     height: 20,
                   ),
                   CustomHeadingRowWidget(
-                    textname1: 'Computer',
+                    textname1: Strings.computer,
                     fontSize1: 20,
                     fontSize2: 18,
-                    textname2: 'View all',
+                    textname2: Strings.viewAll,
                     color1: Colors.black,
                     color2: Colors.orange[700],
                     fontWeight1: FontWeight.w500,
@@ -678,10 +679,10 @@ class _HomePageState extends State<HomePage> {
                     height: 20,
                   ),
                   CustomHeadingRowWidget(
-                    textname1: 'Electronics',
+                    textname1: Strings.electronic,
                     fontSize1: 20,
                     fontSize2: 18,
-                    textname2: 'View all',
+                    textname2: Strings.viewAll,
                     color1: Colors.black,
                     color2: Colors.orange[700],
                     fontWeight1: FontWeight.w500,
