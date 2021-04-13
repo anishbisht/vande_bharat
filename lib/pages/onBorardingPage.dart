@@ -1,14 +1,17 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:moblie_ui/controller/onboarding_controller.dart';
 import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/utlis/values/app_colors.dart';
+import 'package:moblie_ui/Binding/onboarding_binding.dart';
 
-class OnboardingPage extends StatelessWidget {
-  final _controller = OnboardingController();
+class OnboardingPage extends GetView<OnboardingController> {
+  final OnboardingController controller = Get.put(OnboardingController());
+
+  // final _controller = OnboardingController();
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIOverlays([]);
@@ -18,40 +21,45 @@ class OnboardingPage extends StatelessWidget {
         child: Stack(
           children: [
             PageView.builder(
-                controller: _controller.pageController,
-                onPageChanged: _controller.selectedPageIndex,
-                itemCount: _controller.onboardingPages.length,
+                controller: controller.pageController,
+                onPageChanged: controller.selectedPageIndex,
+                itemCount: controller.onboardingPages.length,
                 itemBuilder: (context, index) {
                   return Container(
+                    decoration: BoxDecoration(color: HexColor('#E5E5E5')),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          _controller.onboardingPages[index].title,
+                          controller.onboardingPages[index].title,
                           style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.w500,
+                              fontSize: 26,
+                              fontWeight: FontWeight.w600,
+                              fontFamily: "Poppins",
                               color: AppColors.kPrimaryColor),
                         ),
                         SizedBox(
                           height: 30,
                         ),
                         Image.asset(
-                          _controller.onboardingPages[index].imageAsset,
+                          controller.onboardingPages[index].imageAsset,
                           height: 300,
                         ),
                         SizedBox(height: 25),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20.0),
                           child: Text(
-                            _controller.onboardingPages[index].description,
-                            textAlign: TextAlign.center,
+                            controller.onboardingPages[index].description,
                             style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w400,
-                                color: Colors.grey[700]),
+                              color: HexColor('#757575'),
+                              fontSize: 20,
+                              fontFamily: "Roboto",
+
+                              fontWeight: FontWeight.w400,
+                              //color: Colors.grey[700]),
+                            ),
                           ),
-                        ),
+                        )
                       ],
                     ),
                   );
@@ -65,10 +73,10 @@ class OnboardingPage extends StatelessWidget {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       primary: AppColors.kPrimaryColor),
-                  onPressed: _controller.forwardAction,
+                  onPressed: controller.forwardAction,
                   child: Obx(() {
                     return Image.asset(
-                        _controller.isLastPage ? ArrowImg : ArrowImg);
+                        controller.isLastPage ? ArrowImg : ArrowImg);
                   }),
                 ),
               ),

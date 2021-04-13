@@ -145,15 +145,6 @@ class _CartPageState extends State<CartPage> {
                                   )
                                 ],
                               ),
-
-                              //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              //   crossAxisAlignment: CrossAxisAlignment.start,
-                              //   children: [
-                              //     Text("Lite Aura Black..."),
-                              //     Icon(Icons.favorite),
-                              //     Icon(Icons.close),
-                              //   ],
-                              // ),// Row(
                             ],
                           ),
                         ),
@@ -408,9 +399,9 @@ class _CartPageState extends State<CartPage> {
                     },
                     buttonColor: Colors.orange[700],
                     textStyle: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
-                    ),
+                        fontSize: 18,
+                        color: Colors.white,
+                        fontFamily: "Poppins"),
                   ),
                 ),
               ],

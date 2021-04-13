@@ -3,9 +3,11 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
 //import 'package:image_picker/image_picker.dart';
 import 'package:moblie_ui/image_path.dart';
+import 'package:moblie_ui/pages/rating&Review.dart';
 import 'package:moblie_ui/utlis/values/app_colors.dart';
 import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
@@ -249,7 +251,7 @@ class _ReviewPostPageState extends State<ReviewPostPage> {
                       )
                     : SizedBox(
                         height: 50.0,
-                        width: 80,
+                        width: MediaQuery.of(context).size.width - 20,
                         child: new ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (BuildContext context, int index) =>
@@ -257,8 +259,8 @@ class _ReviewPostPageState extends State<ReviewPostPage> {
                                   padding: const EdgeInsets.all(5.0),
                                   child: AssetThumb(
                                     asset: images[index],
-                                    height: 200,
-                                    width: 200,
+                                    height: 50,
+                                    width: 80,
                                   )),
                           itemCount: images.length,
                         ),
@@ -267,10 +269,6 @@ class _ReviewPostPageState extends State<ReviewPostPage> {
                   padding: const EdgeInsets.all(8.0),
                   child: new Text('Error Dectected: $_error'),
                 ),
-                TextButton.icon(
-                    onPressed: pickImages,
-                    icon: new Icon(Icons.image),
-                    label: new Text("Pick-Up Images")),
 
                 // Container(
                 //   height: 50,
@@ -304,7 +302,9 @@ class _ReviewPostPageState extends State<ReviewPostPage> {
                     child: CustomTextButtonWidget(
                       title: Strings.submit,
                       buttonColor: AppColors.kPrimaryColor,
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(() => RatingReview());
+                      },
                       textStyle: TextStyle(
                         fontSize: 18,
                         fontFamily: "Poppins",

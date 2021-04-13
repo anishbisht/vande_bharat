@@ -9,6 +9,7 @@ import 'package:moblie_ui/widgets/customButtonWidget.dart';
 import 'package:moblie_ui/widgets/customCategoriesWidget.dart';
 import 'package:moblie_ui/widgets/customOutlinedButtonWidget.dart';
 import 'package:get/get.dart';
+import 'package:moblie_ui/widgets/reviewCommentList.dart';
 
 class RatingReview extends StatefulWidget {
   @override
@@ -205,231 +206,97 @@ class _RatingReviewState extends State<RatingReview> {
                   height: 10,
                 ),
                 Container(
-                  height: 120,
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 5),
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(
-                      color: Colors.grey.shade300,
-                    ),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(20),
-                            child: Image.asset(
-                              SamsungImg,
-                              height: 40,
-                            ),
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: ReviewCommentList.review.length,
+                    itemBuilder: (context, index) {
+                      var v = ReviewCommentList.review.elementAt(index);
+                      return Container(
+                        height: 120,
+                        margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                        padding: EdgeInsets.fromLTRB(10, 10, 10, 5),
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(
+                            color: Colors.grey.shade300,
                           ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Customer Name",
-                                style: TextStyle(fontWeight: FontWeight.w500),
-                              ),
-                              Text(
-                                "09 May 2020",
-                                style:
-                                    TextStyle(fontSize: 10, color: Colors.grey),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                      Row(
-                        children: <Widget>[
-                          RatingBar.builder(
-                            itemSize: 15,
-                            initialRating: 3,
-                            minRating: 1,
-                            direction: Axis.horizontal,
-                            allowHalfRating: true,
-                            itemCount: 5,
-                            itemPadding: EdgeInsets.symmetric(horizontal: 2.0),
-                            itemBuilder: (context, _) => Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                            ),
-                            onRatingUpdate: (rating) {
-                              print(rating);
-                            },
-                          ),
-                          Text(
-                            "Awesome",
-                            style: TextStyle(
-                                fontSize: 10, fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                      Expanded(
-                        child: Text(
-                          "Product is nice and i use it for 1 week did not find any cons but packaging is not good",
-                          style: TextStyle(fontSize: 12),
-                          textAlign: TextAlign.justify,
                         ),
-                      )
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  height: 120,
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 5),
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(
-                      color: Colors.grey.shade300,
-                    ),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(100),
-                            child: Image.asset(
-                              SamsungImg,
-                              height: 40,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(20),
+                                  child: Image.asset(
+                                    v.imageName,
+                                    height: 30,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      v.customerName,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                    Text(
+                                      "09 May 2020",
+                                      style: TextStyle(
+                                          fontSize: 10, color: Colors.grey),
+                                    ),
+                                  ],
+                                )
+                              ],
                             ),
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Customer Name",
-                                style: TextStyle(fontWeight: FontWeight.w500),
-                              ),
-                              Text(
-                                "09 May 2020",
-                                style:
-                                    TextStyle(fontSize: 10, color: Colors.grey),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                      Row(
-                        children: <Widget>[
-                          RatingBar.builder(
-                            itemSize: 15,
-                            initialRating: 3,
-                            minRating: 1,
-                            direction: Axis.horizontal,
-                            allowHalfRating: true,
-                            itemCount: 5,
-                            itemPadding: EdgeInsets.symmetric(horizontal: 2.0),
-                            itemBuilder: (context, _) => Icon(
-                              Icons.star,
-                              color: Colors.amber,
+                            SizedBox(
+                              height: 5,
                             ),
-                            onRatingUpdate: (rating) {
-                              print(rating);
-                            },
-                          ),
-                          Text(
-                            "Awesome",
-                            style: TextStyle(
-                                fontSize: 10, fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                      Expanded(
-                        child: Text(
-                          "Product is nice and i use it for 1 week did not find any cons but packaging is not good",
-                          style: TextStyle(fontSize: 12),
-                          textAlign: TextAlign.justify,
+                            Row(
+                              children: <Widget>[
+                                RatingBar.builder(
+                                  itemSize: 15,
+                                  initialRating: v.initialRating,
+                                  minRating: 1,
+                                  direction: Axis.horizontal,
+                                  allowHalfRating: true,
+                                  itemCount: 5,
+                                  itemPadding:
+                                      EdgeInsets.symmetric(horizontal: 2.0),
+                                  itemBuilder: (context, _) => Icon(
+                                    Icons.star,
+                                    color: Colors.amber,
+                                  ),
+                                  onRatingUpdate: (rating) {
+                                    print(rating);
+                                  },
+                                ),
+                                Text(
+                                  v.comment,
+                                  style: TextStyle(
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                            Expanded(
+                              child: Text(
+                                v.description,
+                                style: TextStyle(fontSize: 12),
+                                textAlign: TextAlign.justify,
+                              ),
+                            )
+                          ],
                         ),
-                      )
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  height: 120,
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 5),
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(
-                      color: Colors.grey.shade300,
-                    ),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(100),
-                            child: Image.asset(
-                              SamsungImg,
-                              height: 40,
-                            ),
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Customer Name",
-                                style: TextStyle(fontWeight: FontWeight.w500),
-                              ),
-                              Text(
-                                "09 May 2020",
-                                style:
-                                    TextStyle(fontSize: 10, color: Colors.grey),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                      Row(
-                        children: <Widget>[
-                          RatingBar.builder(
-                            itemSize: 15,
-                            initialRating: 3,
-                            minRating: 1,
-                            direction: Axis.horizontal,
-                            allowHalfRating: true,
-                            itemCount: 5,
-                            itemPadding: EdgeInsets.symmetric(horizontal: 2.0),
-                            itemBuilder: (context, _) => Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                            ),
-                            onRatingUpdate: (rating) {
-                              print(rating);
-                            },
-                          ),
-                          Text(
-                            "Awesome",
-                            style: TextStyle(
-                                fontSize: 10, fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                      Expanded(
-                        child: Text(
-                          "Product is nice and i use it for 1 week did not find any cons but packaging is not good",
-                          style: TextStyle(fontSize: 12),
-                          textAlign: TextAlign.justify,
-                        ),
-                      )
-                    ],
+                      );
+                    },
                   ),
                 ),
                 SizedBox(
