@@ -226,17 +226,30 @@ class _ReviewPostPageState extends State<ReviewPostPage> {
 
                 images == null
                     ? Container(
-                        height: 300.0,
-                        width: 400.0,
-                        child: new Icon(
-                          Icons.image,
-                          size: 250.0,
-                          color: Theme.of(context).primaryColor,
+                        height: 50.0,
+                        width: 80.0,
+                        decoration: new BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(5)),
+                          //shape: BoxShape.,
+                          border: Border.all(
+                            color: Colors.grey[300],
+                          ),
+                        ),
+                        child: Center(
+                          child: InkWell(
+                            onTap: pickImages,
+                            child: Image.asset(
+                              Circular_add,
+                              height: 20,
+                              width: 20,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
                         ),
                       )
                     : SizedBox(
-                        height: 200.0,
-                        width: 500,
+                        height: 50.0,
+                        width: 80,
                         child: new ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (BuildContext context, int index) =>
