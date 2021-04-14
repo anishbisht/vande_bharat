@@ -157,9 +157,9 @@ class _ReportProblemPageState extends State<ReportProblemPage> {
                     buttonColor: HexColor('#EF7C1F'),
                     onPressed: () {},
                     textStyle: TextStyle(
-                      fontSize: 18,
-                      color: Colors.white,
-                    ),
+                        fontSize: 18,
+                        color: Colors.white,
+                        fontFamily: "Poppins"),
                   ),
                 ),
               ],
