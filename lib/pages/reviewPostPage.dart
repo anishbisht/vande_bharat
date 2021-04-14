@@ -23,7 +23,7 @@ class ReviewPostPage extends StatefulWidget {
 class _ReviewPostPageState extends State<ReviewPostPage> {
   final _controller = TextEditingController();
   final _controller1 = TextEditingController();
-
+  int v;
   List<Asset> images;
   String _error;
 
@@ -249,21 +249,49 @@ class _ReviewPostPageState extends State<ReviewPostPage> {
                           ),
                         ),
                       )
-                    : SizedBox(
-                        height: 50.0,
-                        width: MediaQuery.of(context).size.width - 20,
-                        child: new ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (BuildContext context, int index) =>
-                              new Padding(
-                                  padding: const EdgeInsets.all(5.0),
-                                  child: AssetThumb(
-                                    asset: images[index],
-                                    height: 50,
-                                    width: 80,
-                                  )),
-                          itemCount: images.length,
-                        ),
+                    : Row(
+                        children: <Widget>[
+                          SizedBox(
+                            height: 50.0,
+                            child: new ListView.builder(
+                                shrinkWrap: true,
+                                scrollDirection: Axis.horizontal,
+                                itemCount: images.length,
+                                itemBuilder:
+                                    (BuildContext context, int index) =>
+                                        new Padding(
+                                          padding: const EdgeInsets.all(5.0),
+                                          child: AssetThumb(
+                                            asset: images[index],
+                                            height: 50,
+                                            width: 80,
+                                          ),
+                                        )),
+                          ),
+                          Container(
+                            height: 50.0,
+                            width: 80.0,
+                            decoration: new BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(5)),
+                              //shape: BoxShape.,
+                              border: Border.all(
+                                color: Colors.grey[300],
+                              ),
+                            ),
+                            child: Center(
+                              child: InkWell(
+                                onTap: pickImages,
+                                child: Image.asset(
+                                  Circular_add,
+                                  height: 20,
+                                  width: 20,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
                       ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -320,6 +348,8 @@ class _ReviewPostPageState extends State<ReviewPostPage> {
       ),
     );
   }
+
+  
 
   // void _showPicker(context) {
   //   showModalBottomSheet(

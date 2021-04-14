@@ -28,7 +28,7 @@ class Strings {
   static const String email = 'Email';
   static const String createPassword = 'Create Password';
   static const String orSignUpWith = 'or Sign Up with';
-  static const String alreadyAMember = 'Already a Member';
+  static const String alreadyAMember = 'Already a Member?';
 
   //static const String agreeTerms =
   //  'By signing up you agree to our terms & conditions.';
