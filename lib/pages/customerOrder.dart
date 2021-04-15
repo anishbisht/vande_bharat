@@ -510,7 +510,6 @@ class _CustomerOrderState extends State<CustomerOrder> {
             ),
           ],
         ),
-        bottomNavigationBar: BottomNavbar(),
       ),
     );
   }

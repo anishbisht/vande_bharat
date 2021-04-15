@@ -409,7 +409,7 @@ class _CartPageState extends State<CartPage> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavbar(),
+      
     );
   }
 }

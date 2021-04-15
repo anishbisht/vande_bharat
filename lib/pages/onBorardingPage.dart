@@ -65,6 +65,28 @@ class OnboardingPage extends GetView<OnboardingController> {
                   );
                 }),
             Positioned(
+              bottom: 20,
+              left: 20,
+              child: Row(
+                children: List.generate(
+                  controller.onboardingPages.length,
+                  (index) => Obx(() {
+                    return Container(
+                      margin: const EdgeInsets.all(4),
+                      width: 12,
+                      height: 12,
+                      decoration: BoxDecoration(
+                        color: controller.selectedPageIndex.value == index
+                            ? AppColors.kPrimaryColor
+                            : Colors.grey,
+                        shape: BoxShape.circle,
+                      ),
+                    );
+                  }),
+                ),
+              ),
+            ),
+            Positioned(
               right: 20,
               bottom: 20,
               child: SizedBox(

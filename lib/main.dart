@@ -7,6 +7,7 @@ import 'package:moblie_ui/image_path.dart';
 import 'package:moblie_ui/pages/FASQuestion.dart';
 import 'package:moblie_ui/pages/addAddressPage.dart';
 import 'package:moblie_ui/pages/allCategoriesPage.dart';
+import 'package:moblie_ui/pages/bottomNavbar.dart';
 import 'package:moblie_ui/pages/cartPage.dart';
 import 'package:moblie_ui/pages/changePassword.dart';
 import 'package:moblie_ui/pages/createNewPassword.dart';
@@ -56,7 +57,7 @@ class MyApp extends StatelessWidget {
           primaryColorLight: Colors.white,
           primaryColorBrightness: Brightness.light,
         ),
-        home: SplashScreen(),
+        home: HelpAndSupportPage(),
       ),
     );
   }
