@@ -19,7 +19,7 @@ class HelpAndSupportListWidget {
       },
       textname3: '',
       title_color: Colors.black87,
-      sub_heading_color: Colors.grey[700],
+      sub_heading_color: AppColors.kPrimaryColor,
     ),
     HelpAndSupport(
       imageName: EmailIcon,

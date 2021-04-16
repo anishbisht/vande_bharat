@@ -9,6 +9,7 @@ import 'package:moblie_ui/pages/help&Support.dart';
 import 'package:moblie_ui/pages/homePage.dart';
 import 'package:moblie_ui/pages/mobileCategory.dart';
 import 'package:moblie_ui/pages/profilePage.dart';
+import 'package:moblie_ui/pages/signInEmailNumberPage.dart';
 import 'package:moblie_ui/pages/wishListPage.dart';
 import 'package:moblie_ui/utlis/values/strings.dart';
 
@@ -53,6 +54,7 @@ class NavigationDrawer extends StatelessWidget {
         ),
         _createDrawerItem(
           text: Strings.logOut,
+          onTap: () => Get.to(() => SingInEmailPasswordPage()),
         ),
       ]),
     );

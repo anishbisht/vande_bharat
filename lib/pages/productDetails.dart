@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:moblie_ui/image_path.dart';
+import 'package:moblie_ui/pages/rating&Review.dart';
 import 'package:moblie_ui/utlis/values/app_colors.dart';
 import 'package:moblie_ui/utlis/values/strings.dart';
 import 'package:moblie_ui/widgets/customButtonWidget.dart';
@@ -442,10 +444,15 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                     ),
                   ),
                   Divider(),
-                  Text(
-                    Strings.reviewsByCertifiedCustomer,
-                    style:
-                        TextStyle(fontSize: 16, color: AppColors.kPrimaryColor),
+                  InkWell(
+                    onTap: () {
+                      Get.to(() => RatingReview());
+                    },
+                    child: Text(
+                      Strings.reviewsByCertifiedCustomer,
+                      style: TextStyle(
+                          fontSize: 16, color: AppColors.kPrimaryColor),
+                    ),
                   ),
                   SizedBox(
                     height: 10,

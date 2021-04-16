@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:moblie_ui/image_path.dart';
+import 'package:moblie_ui/pages/bottomNavbar.dart';
 import 'package:moblie_ui/pages/homePage.dart';
 import 'package:moblie_ui/utlis/values/app_colors.dart';
 import 'package:moblie_ui/utlis/values/strings.dart';
@@ -66,7 +67,7 @@ class _LoginSucessPageState extends State<LoginSucessPage> {
                 child: CustomTextButtonWidget(
                   title: Strings.getStarted,
                   onPressed: () {
-                    Get.to(() => HomePage());
+                    Get.to(() => MainScreen());
                   },
                   buttonColor: AppColors.kPrimaryColor,
                   textStyle: TextStyle(

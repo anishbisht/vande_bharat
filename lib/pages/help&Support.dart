@@ -63,9 +63,7 @@ class _HelpAndSupportPageState extends State<HelpAndSupportPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             InkWell(
-                              onTap: () {
-                                v.tap;
-                              },
+                              onTap: v.tap,
                               child: Text(
                                 v.textname2,
                                 style: TextStyle(

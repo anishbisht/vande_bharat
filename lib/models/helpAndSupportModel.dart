@@ -7,7 +7,7 @@ class HelpAndSupport {
   final String textname3;
   final Color title_color;
   final Color sub_heading_color;
-  final void tap;
+  final VoidCallback tap;
 
   HelpAndSupport({
     this.title_color,
